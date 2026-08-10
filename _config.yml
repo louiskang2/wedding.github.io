@@ -19,7 +19,7 @@ wedding:
 # Leave empty ("") to run in DEMO MODE with built-in sample
 # guests (try first name "Alex", last name "Tanaka").
 # ------------------------------------------------------------
-apps_script_url: ""
+apps_script_url: "https://script.google.com/macros/s/AKfycbyglrmUx-KLzq-C0aUpchhnJyqTqFv-r6PpwjpJQlvFFaDD4oPyfMsb0co-pXh8fNo/exec"
 
 # ------------------------------------------------------------
 # LANDING SCENE

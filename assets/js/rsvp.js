@@ -166,7 +166,7 @@
         '<p class="rsvp-note">These are the people on your invitation.' +
         (plusOneAllowed ? " You may bring one guest." : "") +
         " You can also add children." +
-        (returning ? " <strong>Your previous answers are saved on this device. Click any name above to review or edit them.</strong>" : "") +
+        (returning ? " <strong>Your previous answers are saved on this device.</strong>" : "") +
         "</p>" +
         rows +
         '<div class="d-flex flex-wrap gap-2 mt-4">' + addGuestBtn +
@@ -211,13 +211,8 @@
     $("#add-child").on("click", function () { showAddForm("child"); });
 
     $("#to-details").on("click", function () {
-      if (members.every(function (x) { return x.done; })) {
-        phase = "comments";           // nothing to re-ask — jump to the final step
-      } else {
-        phase = "details";
-        var first = members.findIndex(function (x) { return !x.done; });
-        activeIdx = first === -1 ? 0 : first;
-      }
+      phase = "details";
+      activeIdx = 0;
       render();
     });
   }
@@ -318,21 +313,17 @@
       var missing = !d.wedding || !d.skiTrip ||
                     (!isChild && (!d.email || !d.afterparty)) ||
                     (isChild && d.age === "") ||
-                    (attending && (!d.shuttleTo || !d.shuttleFrom));
+                    (attending && (!d.dietary || !d.shuttleTo || !d.shuttleFrom));
       if (missing) {
         $("#f-err").text("Please answer every question before continuing.");
         return;
       }
-      if (attending && !d.dietary) d.dietary = "None";
 
       m.done = true;
-      if (members.every(function (x) { return x.done; })) {
+      if (activeIdx === members.length - 1) {
         phase = "comments";
       } else {
-        // next incomplete guest (wraps around after chip-jumping)
-        var next = members.findIndex(function (x, i) { return !x.done && i > activeIdx; });
-        if (next === -1) next = members.findIndex(function (x) { return !x.done; });
-        activeIdx = next;
+        activeIdx++;
       }
       render();
     }

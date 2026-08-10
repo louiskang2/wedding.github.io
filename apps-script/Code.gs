@@ -14,11 +14,15 @@
  *
  * The script creates an "RSVPs" tab automatically on the first
  * submission. Resubmitting replaces a party's previous rows.
+ * Every submission is also appended to an "RSVP log" tab, which is
+ * never pruned — use it to recover answers a resubmission overwrote.
  * ============================================================
  */
 
 var GUESTS_SHEET = 'Guests';
+var GUEST_COLS = 5;   // PartyID | FirstName | LastName | Type | PlusOneAllowed
 var RSVP_SHEET = 'RSVPs';
+var RSVP_LOG_SHEET = 'RSVP log';
 var RSVP_HEADERS = [
   'Timestamp', 'PartyID', 'FirstName', 'LastName', 'Type', 'IsPlusOne',
   'Email', 'Age', 'Wedding', 'Dietary', 'ShuttleTo', 'ShuttleFrom',
@@ -49,7 +53,7 @@ function verifyGuest_(first, last) {
   last = norm_(last);
   if (!first || !last) return { ok: false, error: 'missing_name' };
 
-  var rows = sheet_(GUESTS_SHEET).getDataRange().getValues();
+  var rows = guestRows_();
   // Columns: PartyID | FirstName | LastName | Type | PlusOneAllowed
   // A FirstName or LastName cell may hold several options separated by
   // commas (e.g. "Robert, Bob, Bobby") — a guest matches if their typed
@@ -64,11 +68,15 @@ function verifyGuest_(first, last) {
   }
   if (!match) return { ok: false, error: 'not_found' };
 
-  var partyId = String(match[0]);
+  // A guest row with no PartyID would collect every blank separator row
+  // below as a party member, so treat it as a miss and let them contact us.
+  var partyId = String(match[0]).trim();
+  if (!partyId) return { ok: false, error: 'not_found' };
+
   var members = [];
   var plusOneAllowed = false;
   for (var j = 1; j < rows.length; j++) {
-    if (String(rows[j][0]) === partyId) {
+    if (String(rows[j][0]).trim() === partyId) {
       members.push({
         first: primaryName_(rows[j][1]),   // show the first-listed option
         last: primaryName_(rows[j][2]),
@@ -89,16 +97,13 @@ function verifyGuest_(first, last) {
   };
 }
 
-// Look for a previous reponse
+// Look for a previous response
 function hasResponded_(partyId) {
-  var rows = rsvpSheet_().getDataRange().getValues();
-  for (var i = 1; i < rows.length; i++) {
-    if (String(rows[i][1]) === String(partyId)) return true;
-  }
-  return false;
+  return partyIdColumn_(rsvpSheet_()).indexOf(String(partyId).trim()) !== -1;
 }
 
-// Replace the party's old rows with the new submission
+// Replace the party's old rows with the new submission, and append the
+// same rows to the log, which keeps every submission ever made.
 function saveRsvp_(data) {
   if (!data || !data.partyId || !data.guests || !data.guests.length) {
     return { ok: false, error: 'bad_payload' };
@@ -115,25 +120,34 @@ function saveRsvp_(data) {
     var sh = rsvpSheet_();
 
     // delete existing rows for this party (bottom-up so indexes hold)
-    var rows = sh.getDataRange().getValues();
-    for (var i = rows.length - 1; i >= 1; i--) {
-      if (String(rows[i][1]) === String(data.partyId)) sh.deleteRow(i + 1);
+    var ids = partyIdColumn_(sh);
+    var target = String(data.partyId).trim();
+    for (var i = ids.length - 1; i >= 0; i--) {
+      if (ids[i] === target) sh.deleteRow(i + 2);   // ids[0] is sheet row 2
     }
 
+    // one timestamp for the whole submission, so log rows group by it
     var ts = new Date();
-    data.guests.forEach(function (g) {
-      sh.appendRow([
+    var out = data.guests.map(function (g) {
+      return [
         ts, data.partyId, g.first || '', g.last || '', g.type || 'Adult',
         g.isPlusOne ? 'Yes' : 'No', g.email || '', g.age || '',
         g.wedding || '', g.dietary || '', g.shuttleTo || '', g.shuttleFrom || '',
         g.afterparty || '', g.skiTrip || '', data.comments || ''
-      ]);
+      ];
     });
+
+    appendRows_(sh, out);
+    appendRows_(rsvpLogSheet_(), out);
     SpreadsheetApp.flush();   // commit before another execution can read the sheet
     return { ok: true };
   } finally {
     lock.releaseLock();
   }
+}
+
+function appendRows_(sh, rows) {
+  sh.getRange(sh.getLastRow() + 1, 1, rows.length, rows[0].length).setValues(rows);
 }
 
 // ------------------------------------------------------------
@@ -143,11 +157,31 @@ function sheet_(name) {
   return sh;
 }
 
-function rsvpSheet_() {
+// Only columns A–E, so anything further right is free for your own notes.
+function guestRows_() {
+  var sh = sheet_(GUESTS_SHEET);
+  var lastRow = sh.getLastRow();
+  if (lastRow < 2) return [];
+  return sh.getRange(1, 1, lastRow, GUEST_COLS).getValues();
+}
+
+// Column B of an RSVP tab — every data row's PartyID, sheet order, header skipped.
+function partyIdColumn_(sh) {
+  var lastRow = sh.getLastRow();
+  if (lastRow < 2) return [];
+  return sh.getRange(2, 2, lastRow - 1, 1).getValues().map(function (r) {
+    return String(r[0]).trim();
+  });
+}
+
+function rsvpSheet_() { return rsvpTab_(RSVP_SHEET); }
+function rsvpLogSheet_() { return rsvpTab_(RSVP_LOG_SHEET); }
+
+function rsvpTab_(name) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var sh = ss.getSheetByName(RSVP_SHEET);
+  var sh = ss.getSheetByName(name);
   if (!sh) {
-    sh = ss.insertSheet(RSVP_SHEET);
+    sh = ss.insertSheet(name);
     sh.appendRow(RSVP_HEADERS);
     sh.setFrozenRows(1);
   }

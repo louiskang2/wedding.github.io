@@ -79,6 +79,9 @@ prefill correctly if you resubmit during the same session.
 
 An **`RSVPs`** tab is created automatically on the first submission. Resubmissions
 **replace** a party's old rows, so the sheet always shows everyone's latest answers.
+An **`RSVP log`** tab is created alongside it with the same columns, but nothing is
+ever removed from it — every submission is appended, so an overwritten answer can
+always be recovered. Rows from one submission share a `Timestamp`.
 
 > If you edit `Code.gs` later, you must **Deploy → Manage deployments → ✏️ Edit →
 > Version: New version → Deploy** for the change to go live.
