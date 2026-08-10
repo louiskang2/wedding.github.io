@@ -30,9 +30,9 @@
   }
 
   // Build initial member list: sheet members + anyone added in a
-  // previous submission, prefilled with previous answers.
+  // submission saved on this device, prefilled with those answers.
   function initMembers() {
-    var prev = session.previous || null;
+    var prev = WeddingAPI.getAnswers(session.partyId);
     var prevGuests = prev && prev.guests ? prev.guests : [];
     comments = prev && prev.comments ? prev.comments : "";
 
@@ -79,7 +79,12 @@
     return members.some(function (m) { return m.isPlusOne; });
   }
   function esc(s) {
-    return $("<div>").text(s == null ? "" : String(s)).html();
+    return String(s == null ? "" : s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
   }
 
   // ---------- Guest chip strip (below the top nav) -------------
@@ -145,14 +150,23 @@
       ? '<button class="btn btn-wed-outline" id="add-guest">+ Add a guest</button>' : "";
 
     var returning = members.some(function (m) { return m.done; });
+    // The backend reports only that a response exists, never its contents.
+    var elsewhere = session.hasResponded && !WeddingAPI.getAnswers(session.partyId);
+
+    var warning = elsewhere
+      ? '<div class="rsvp-warn">' +
+          "<strong>We already have an RSVP from your party, and what you send now replaces it.</strong>" +
+        "</div>"
+      : "";
 
     $app.html(
       '<div class="rsvp-card">' +
         '<h3>Your party</h3>' +
+        warning +
         '<p class="rsvp-note">These are the people on your invitation.' +
         (plusOneAllowed ? " You may bring one guest." : "") +
         " You can also add children." +
-        (returning ? " <strong>Your previous answers are saved. Click any name above to review or edit them.</strong>" : "") +
+        (returning ? " <strong>Your previous answers are saved on this device. Click any name above to review or edit them.</strong>" : "") +
         "</p>" +
         rows +
         '<div class="d-flex flex-wrap gap-2 mt-4">' + addGuestBtn +
@@ -363,9 +377,7 @@
       WeddingAPI.submit(payload)
         .then(function (res) {
           if (res && res.ok) {
-            // keep session's "previous" fresh so re-opening prefills
-            session.previous = { comments: comments, guests: payload.guests };
-            WeddingAPI.saveSession(session);
+            WeddingAPI.saveAnswers(session.partyId, { comments: comments, guests: payload.guests });
             phase = "success";
             render();
           } else { throw new Error("bad response"); }

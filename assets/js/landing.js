@@ -19,8 +19,10 @@
     revealSite();
   }
 
-  // Log out & switch guest: clear the session and return to the gate
+  // Log out & switch guest: clear the session and return to the gate.
+  // Saved answers go too — logging out means this isn't the guest's device.
   $("#logout-btn").on("click", function () {
+    if (session && session.partyId) WeddingAPI.clearAnswers(session.partyId);
     WeddingAPI.clearSession();
     window.location.reload();
   });

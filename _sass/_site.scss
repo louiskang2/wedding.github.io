@@ -74,7 +74,7 @@ body.no-scroll { overflow: hidden; height: 100vh; }
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(18, 18, 16, .3);
+      background: rgba(18, 18, 16, var(--scrim));
       pointer-events: none;
     }
   }
@@ -460,7 +460,7 @@ body[data-page="rsvp"] #top-nav {
 #chip-strip {
   position: fixed;
   top: var(--nav-height); left: 0; right: 0;
-  min-height: var(--stickybar-height);
+  min-height: 52px;
   background: var(--translucent);
   backdrop-filter: blur(8px);
   border-bottom: var(--nline-h) solid var(--ink);
@@ -494,7 +494,7 @@ body[data-page="rsvp"] #top-nav {
 // under the (initially hidden) nav and must be visible immediately.
 body[data-page="home"] #page-content { opacity: 1; padding-top: 0; }
 // The RSVP page needs room for the guest-chip strip below the nav.
-body[data-page="rsvp"] #page-content { padding-top: calc(var(--nav-height) + var(--stickybar-height) + 8px); }
+body[data-page="rsvp"] #page-content { padding-top: calc(var(--nav-height) + var(--stickybar-height)); }
 
 .page-hero {
   text-align: center;
@@ -575,7 +575,7 @@ body[data-page="rsvp"] #page-content { padding-top: calc(var(--nav-height) + var
 
 
 // Embeds & photos: straight ink frame + comic offset shadow -----
-// (corner style comes from --frame-radius in _theme.scss)
+// (corner style comes from --rad in _theme.scss)
 figure.embed-figure {
   margin: 1.6rem 0;
   img { border: var(--line) solid var(--ink); border-radius: var(--rad); box-shadow: var(--pop-shadow-soft); }
@@ -719,3 +719,13 @@ figure.embed-figure {
   .big-check { font-size: 2.6rem; display: block; margin-bottom: .4rem; color: var(--green); }
 }
 .rsvp-note { color: var(--gray); font-size: .98rem; }
+
+.rsvp-warn {
+  background: var(--contrast-soft);
+  border: var(--line) solid var(--ink);
+  border-radius: var(--rad);
+  box-shadow: var(--pop-shadow-soft);
+  padding: .9rem 1.1rem;
+  margin: 0 0 1.2rem;
+  font-size: .98rem;
+}

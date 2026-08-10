@@ -29,6 +29,14 @@
   };
   if (page !== "home") revealSite();
 
+  // The strip's height depends on the web font, which lands after first paint.
+  if (page === "rsvp" && window.ResizeObserver) {
+    var strip = document.getElementById("chip-strip");
+    new ResizeObserver(function () {
+      document.documentElement.style.setProperty("--stickybar-height", strip.offsetHeight + "px");
+    }).observe(strip);
+  }
+
   // ---- Flickity (in case cells load after auto-init) ----------
   $(window).on("load", function () {
     $(".js-flickity").each(function () {

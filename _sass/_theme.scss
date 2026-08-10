@@ -2,13 +2,13 @@
 // THEME — hand-drawn feel with clean, simple geometry: ink borders
 // with straight (vertical + horizontal) edges and plain rules.
 //
-// Two knobs control most of the chrome:
-//   --frame-radius  corner style shared by the date banner, the
-//                   landing name card, image frames and map/video
-//                   embeds (0 = straight edges)
-//   --rule / --rule-gap  thickness and spacing of the plain lines
-//                   used under the nav bar, under page/section
-//                   titles, and along page bottoms
+// The knobs that control most of the chrome:
+//   --line   border thickness on frames, cards and buttons
+//   --rad    the shared corner shape for the date banner, the landing
+//            name card, image frames and map / video embeds
+//   --nline-h / --uline-h / --tbar-h
+//            thickness of the nav's bottom rule, its hover underline,
+//            and the bar under a section title
 // No image assets are needed for any of it.
 // ============================================================
 :root {
@@ -36,19 +36,10 @@
   // --- Pen weight & panels ---------------------------------------
   --line: 4px;  // For graphical elements
   --form-line: 2px;  // For form inputs
-  // --rad-btn:  240px 16px 220px 14px / 14px 220px 16px 240px; // wobbly (buttons)
-  --rad:  30px 3px 30px 3px / 3px 30px 3px 30px; // wobbly (buttons)
+  --rad:  30px 3px 30px 3px / 3px 30px 3px 30px; // shared frame corners; set 0 for straight edges
   --pop-shadow: 4px 4px 0 var(--ink);
   --pop-shadow-soft: 5px 5px 0 rgba(33, 34, 29, .2);
-
-  // ---------------------------------------------------------------
-  // FRAME STYLE — the shared look for the small date banner, the
-  // landing name card, image frames, and the map / video embeds:
-  // a plain ink border whose edges are purely vertical + horizontal.
-  // Set this to a length (e.g. 10px) if you ever want soft corners
-  // on ALL of those frames at once.
-  // ---------------------------------------------------------------
-  --frame-radius: 0;
+  --scrim: .3;  // darkness of the wash over the landing backdrop (0 = none)
 
   // ---------------------------------------------------------------
   // SIMPLE RULES — plain straight lines used for the bands under the
@@ -84,5 +75,5 @@
   --content-width: 720px;
   --radius: 12px;
   --nav-height: 74px;               // includes the stripe band
-  --stickybar-height: 52px;
+  --stickybar-height: 60px;   // replaced at runtime with the strip's measured height
 }

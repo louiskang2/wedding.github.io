@@ -85,30 +85,17 @@ function verifyGuest_(first, last) {
     matched: { first: primaryName_(match[1]), last: primaryName_(match[2]) },
     members: members,
     plusOneAllowed: plusOneAllowed,
-    previous: previousRsvp_(partyId)
+    hasResponded: hasResponded_(partyId)
   };
 }
 
-// Latest saved answers for a party (or null)
-function previousRsvp_(partyId) {
-  var sh = rsvpSheet_();
-  var rows = sh.getDataRange().getValues();
-  var guests = [];
-  var comments = '';
+// Look for a previous reponse
+function hasResponded_(partyId) {
+  var rows = rsvpSheet_().getDataRange().getValues();
   for (var i = 1; i < rows.length; i++) {
-    if (String(rows[i][1]) === String(partyId)) {
-      guests.push({
-        first: String(rows[i][2]), last: String(rows[i][3]),
-        type: String(rows[i][4]), isPlusOne: norm_(rows[i][5]) === 'yes',
-        email: String(rows[i][6]), age: String(rows[i][7]),
-        wedding: String(rows[i][8]), dietary: String(rows[i][9]),
-        shuttleTo: String(rows[i][10]), shuttleFrom: String(rows[i][11]),
-        afterparty: String(rows[i][12]), skiTrip: String(rows[i][13])
-      });
-      comments = String(rows[i][14] || comments);
-    }
+    if (String(rows[i][1]) === String(partyId)) return true;
   }
-  return guests.length ? { comments: comments, guests: guests } : null;
+  return false;
 }
 
 // Replace the party's old rows with the new submission
@@ -116,24 +103,37 @@ function saveRsvp_(data) {
   if (!data || !data.partyId || !data.guests || !data.guests.length) {
     return { ok: false, error: 'bad_payload' };
   }
-  var sh = rsvpSheet_();
 
-  // delete existing rows for this party (bottom-up so indexes hold)
-  var rows = sh.getDataRange().getValues();
-  for (var i = rows.length - 1; i >= 1; i--) {
-    if (String(rows[i][1]) === String(data.partyId)) sh.deleteRow(i + 1);
+  var lock = LockService.getScriptLock();
+  try {
+    lock.waitLock(20000);
+  } catch (e) {
+    return { ok: false, error: 'busy' };
   }
 
-  var ts = new Date();
-  data.guests.forEach(function (g) {
-    sh.appendRow([
-      ts, data.partyId, g.first || '', g.last || '', g.type || 'Adult',
-      g.isPlusOne ? 'Yes' : 'No', g.email || '', g.age || '',
-      g.wedding || '', g.dietary || '', g.shuttleTo || '', g.shuttleFrom || '',
-      g.afterparty || '', g.skiTrip || '', data.comments || ''
-    ]);
-  });
-  return { ok: true };
+  try {
+    var sh = rsvpSheet_();
+
+    // delete existing rows for this party (bottom-up so indexes hold)
+    var rows = sh.getDataRange().getValues();
+    for (var i = rows.length - 1; i >= 1; i--) {
+      if (String(rows[i][1]) === String(data.partyId)) sh.deleteRow(i + 1);
+    }
+
+    var ts = new Date();
+    data.guests.forEach(function (g) {
+      sh.appendRow([
+        ts, data.partyId, g.first || '', g.last || '', g.type || 'Adult',
+        g.isPlusOne ? 'Yes' : 'No', g.email || '', g.age || '',
+        g.wedding || '', g.dietary || '', g.shuttleTo || '', g.shuttleFrom || '',
+        g.afterparty || '', g.skiTrip || '', data.comments || ''
+      ]);
+    });
+    SpreadsheetApp.flush();   // commit before another execution can read the sheet
+    return { ok: true };
+  } finally {
+    lock.releaseLock();
+  }
 }
 
 // ------------------------------------------------------------

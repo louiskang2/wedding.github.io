@@ -82,7 +82,6 @@ defaults:
 
 exclude:
   - README.md
-  - art-src
   - Gemfile
   - Gemfile.lock
   - apps-script

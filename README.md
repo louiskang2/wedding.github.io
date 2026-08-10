@@ -6,7 +6,7 @@ and RSVPs. Uses only Bootstrap, jQuery, and Flickity (all from CDN — nothing t
 
 ---
 
-## 1. Run it locally (2 minutes)
+## 1. Run it locally
 
 You need Ruby (3.x) with Bundler. On macOS: `brew install ruby`; on Windows use
 [RubyInstaller](https://rubyinstaller.org/) (check "install MSYS2 devkit").
@@ -83,24 +83,10 @@ An **`RSVPs`** tab is created automatically on the first submission. Resubmissio
 > If you edit `Code.gs` later, you must **Deploy → Manage deployments → ✏️ Edit →
 > Version: New version → Deploy** for the change to go live.
 
----
-
-## 3. Deploy to GitHub Pages
-
-1. Create a GitHub repository and push this folder to the `main` branch.
-2. In the repo: **Settings → Pages → Source: GitHub Actions.** The included
-   workflow (`.github/workflows/jekyll.yml`) builds Jekyll 4 and deploys automatically
-   on every push.
-3. If your site lives at `https://USERNAME.github.io/REPO/` (a *project* site),
-   set in `_config.yml`:
-   ```yaml
-   baseurl: "/REPO"
-   ```
-   For a *user* site (`USERNAME.github.io` repo) leave `baseurl: ""`.
 
 ---
 
-## 4. Editing content (no coding needed)
+## 3. Editing content (no coding needed)
 
 **Global details** — names, date, venue: edit `_config.yml`.
 
@@ -164,8 +150,8 @@ drawn *behind* the text, so even a badly placed one can never make the names
 unreadable.
 
 A gentle dark wash sits over the photo so pale drawings and the text stay
-readable on bright areas. Adjust or remove it with `--scrim` (default `.3`)
-in the `.landing-scene` rule in `_sass/_site.scss`.
+readable on bright areas. Adjust or remove it with `--scrim` (default `.3`,
+`0` for none) in `_sass/_theme.scss`.
 
 ### How the landing sequence behaves
 
@@ -190,13 +176,15 @@ plus one PNG per decoration. Swap them freely — the only rule is that
 decoration PNGs should have transparent backgrounds.
 
 Large photos are worth shrinking first; the shipped backdrop was reduced from
-33 megapixels to 2200px wide (about 350 KB). `art-src/README-art.md` has the
-one-line commands for resizing and compressing.
+33 megapixels to 2200px wide (about 350 KB). With ImageMagick:
 
-The UI chrome (frame borders, the nav/footer line bands, title bars, hover
-underlines) needs **no image assets at all** — it's drawn in CSS from
-`--frame-radius`, `--rule` and `--rule-gap` in `_sass/_theme.scss`. See
-`art-src/README-art.md` if you ever want the older traced-marker chrome back.
+```bash
+magick backdrop-original.jpg -resize 2200x -quality 82 assets/img/scene/backdrop.jpg
+```
+
+The UI chrome (frame borders, the nav rule, title bars, hover underlines) needs
+**no image assets at all** — it's drawn in CSS from `--line`, `--rad`,
+`--nline-h`, `--uline-h` and `--tbar-h` in `_sass/_theme.scss`.
 
 ## 5. How it works (map of the code)
 
@@ -236,9 +224,13 @@ in. That's the intended trade-off for a zero-cost, login-free wedding site.
 
 - **"Couldn't find that name"** — the name must match the sheet exactly (spacing
   aside; matching is case-insensitive). Check the `Guests` tab spelling.
-- **RSVP stuck on "Looking up your invitation…" / network errors** — re-check the
-  Apps Script deployment: access must be **Anyone**, and the URL in `_config.yml`
+- **"Something went wrong during verification" on the landing page, or an RSVP that
+  won't send** — these are the two places the backend is actually called. Re-check
+  the Apps Script deployment: access must be **Anyone**, and the URL in `_config.yml`
   must be the `/exec` URL. Redeploy a **new version** after any script edit.
+- **Blank RSVP page** — the backend isn't involved; the party is already in
+  `sessionStorage` by then. Check the browser console for an error in
+  `assets/js/rsvp.js`.
 - **Blank styles locally** — make sure you ran `bundle exec jekyll serve` from the
   project folder and are viewing `localhost:4000`, not opening the HTML file directly.
 - **Broken links on GitHub Pages** — set `baseurl` (see section 3).

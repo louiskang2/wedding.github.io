@@ -23,7 +23,7 @@ window.WeddingAPI = (function () {
     { partyId: "P004", first: "Haruto", last: "Sato",     type: "Adult", plusOne: false },
     { partyId: "P005", first: "Emma",   last: "Schmidt, Smith", type: "Adult", plusOne: true }
   ];
-  var DEMO_PREVIOUS = {}; // previous RSVPs saved in-memory during a demo session
+  var DEMO_RESPONDED = {}; // which parties submitted during this demo session
 
   function norm(s) { return (s || "").trim().toLowerCase(); }
 
@@ -51,7 +51,7 @@ window.WeddingAPI = (function () {
         return { first: primaryName(g.first), last: primaryName(g.last), type: g.type, fromSheet: true };
       }),
       plusOneAllowed: members.some(function (g) { return g.plusOne; }),
-      previous: DEMO_PREVIOUS[hit.partyId] || null
+      hasResponded: !!DEMO_RESPONDED[hit.partyId]
     };
   }
 
@@ -75,10 +75,7 @@ window.WeddingAPI = (function () {
     if (DEMO) {
       return new Promise(function (res) {
         setTimeout(function () {
-          DEMO_PREVIOUS[payload.partyId] = {
-            comments: payload.comments,
-            guests: payload.guests
-          };
+          DEMO_RESPONDED[payload.partyId] = true;
           console.log("[DEMO] RSVP submitted:", payload);
           res({ ok: true });
         }, 900);
@@ -100,12 +97,39 @@ window.WeddingAPI = (function () {
   }
   function clearSession() { sessionStorage.removeItem("wedding_party"); }
 
+  // ---- Saved answers (this device only) ----------------------
+  // The backend never sends a party's previous answers back, so RSVP
+  // prefill comes from here — signing in elsewhere reveals nothing.
+  var ANSWERS_KEY = "wedding_answers:";
+  var ANSWERS_TTL = 400 * 864e5;
+
+  function saveAnswers(partyId, answers) {
+    try {
+      localStorage.setItem(ANSWERS_KEY + partyId,
+        JSON.stringify({ savedAt: Date.now(), answers: answers }));
+    } catch (e) {}   // private browsing / quota: prefill is a nicety, never fatal
+  }
+  function getAnswers(partyId) {
+    try {
+      var rec = JSON.parse(localStorage.getItem(ANSWERS_KEY + partyId));
+      if (!rec) return null;
+      if (Date.now() - rec.savedAt > ANSWERS_TTL) { clearAnswers(partyId); return null; }
+      return rec.answers;
+    } catch (e) { return null; }
+  }
+  function clearAnswers(partyId) {
+    try { localStorage.removeItem(ANSWERS_KEY + partyId); } catch (e) {}
+  }
+
   return {
     demo: DEMO,
     verify: verify,
     submit: submit,
     saveSession: saveSession,
     getSession: getSession,
-    clearSession: clearSession
+    clearSession: clearSession,
+    saveAnswers: saveAnswers,
+    getAnswers: getAnswers,
+    clearAnswers: clearAnswers
   };
 })();
