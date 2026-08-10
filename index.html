@@ -38,5 +38,8 @@ permalink: /
   </div>
 </div>
 
-<!-- =============== MAIN CONTENT (revealed below) =============== -->
-{% include sections.html group="main" %}
+<!-- =============== MAIN CONTENT (mounted after verification) =============== -->
+<div id="home-sections"></div>
+<template id="home-sections-tpl">
+  {% include sections.html group="main" %}
+</template>

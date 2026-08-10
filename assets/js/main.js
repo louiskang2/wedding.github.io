@@ -15,14 +15,18 @@
     return;
   }
 
-  // ---- Home before verification: hero only, no scrolling -----
-  if (page === "home" && !session) {
-    $("body").addClass("no-scroll");
+  // Home's sections wait in a <template>, so their images and map embeds
+  // are never fetched for a visitor who hasn't been verified.
+  function mountHomeSections() {
+    var tpl = document.getElementById("home-sections-tpl");
+    if (!tpl) return;
+    document.getElementById("home-sections").appendChild(tpl.content.cloneNode(true));
+    tpl.remove();
   }
 
   // ---- Reveal (home waits for the landing gate; see landing.js)
   window.revealSite = function () {
-    $("body").removeClass("no-scroll");
+    if (page === "home") mountHomeSections();
     $("#page-content").addClass("visible");
     $("#top-nav").addClass("visible");
     $("#chip-strip").addClass("visible");

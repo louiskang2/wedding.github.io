@@ -28,8 +28,6 @@ a:hover { color: var(--contrast); }
 
 img { max-width: 100%; height: auto; border-radius: var(--rad); }
 
-body.no-scroll { overflow: hidden; height: 100vh; }
-
 // ============================================================
 // LANDING — a backdrop photo fades in first, then the decoration
 // drawings fade in one by one on top of it.
@@ -274,7 +272,7 @@ body.no-scroll { overflow: hidden; height: 100vh; }
   // window is very small.
   @media (max-width: 640px) {
     align-items: flex-end;
-    --decor-scale: 1;
+    --decor-scale: 0.9;
     --decor-gap-x: 7vw;
     --decor-widest: 13;   // largest `size` in the landing block of _config.yml
 
@@ -502,6 +500,8 @@ body[data-page="rsvp"] #top-nav {
 // The home page opens on the full-screen landing hero, which sits flush
 // under the (initially hidden) nav and must be visible immediately.
 body[data-page="home"] #page-content { opacity: 1; padding-top: 0; }
+// Until a guest is verified the hero is the whole page, footer included.
+body[data-page="home"] #page-content:not(.visible) .page-footer { display: none; }
 // The RSVP page needs room for the guest-chip strip below the nav.
 body[data-page="rsvp"] #page-content { padding-top: calc(var(--nav-height) + var(--stickybar-height)); }
 
