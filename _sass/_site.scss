@@ -173,7 +173,7 @@ body.no-scroll { overflow: hidden; height: 100vh; }
     .form-control {
       background: transparent;
       border: none;
-      border-bottom: var(--line) solid var(--ink);
+      border-bottom: var(--form-line) solid var(--ink);
       border-radius: 0;
       font-family: var(--font-body);
       font-size: 1.15rem;

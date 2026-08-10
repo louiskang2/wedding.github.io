@@ -34,7 +34,8 @@
   --body-size:    18px;
 
   // --- Pen weight & panels ---------------------------------------
-  --line: 4px;                       // UI border weight
+  --line: 4px;  // For graphical elements
+  --form-line: 2px;  // For form inputs
   // --rad-btn:  240px 16px 220px 14px / 14px 220px 16px 240px; // wobbly (buttons)
   --rad:  30px 3px 30px 3px / 3px 30px 3px 30px; // wobbly (buttons)
   --pop-shadow: 4px 4px 0 var(--ink);
