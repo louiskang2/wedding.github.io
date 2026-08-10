@@ -60,8 +60,8 @@ landing:
 
 # GitHub Pages: if the site lives at username.github.io/REPO,
 # set baseurl to "/REPO". If it's a root site, leave "".
-baseurl: ""
-url: ""
+baseurl: "/wedding.github.io"
+url: "https://louiskang2.github.io"
 
 # ------------------------------------------------------------
 # Build settings (you shouldn't need to touch these)
