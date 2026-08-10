@@ -1,0 +1,111 @@
+---
+# Jekyll processes this file so the Apps Script URL from _config.yml is injected.
+---
+/* ============================================================
+   API — connection to the Google Apps Script backend.
+   If site.apps_script_url is empty in _config.yml, the site runs
+   in DEMO MODE using the sample guests below (matches the
+   sample-data/Guests.csv file).
+   ============================================================ */
+
+window.WeddingAPI = (function () {
+  var API_URL = "{{ site.apps_script_url }}";
+  var DEMO = !API_URL;
+
+  // ---- Demo data (mirrors sample-data/Guests.csv) -----------
+  var DEMO_GUESTS = [
+    { partyId: "P001", first: "Alex, Alexander", last: "Tanaka", type: "Adult", plusOne: true  },
+    { partyId: "P002", first: "Jamie",  last: "Lee",      type: "Adult", plusOne: false },
+    { partyId: "P002", first: "Morgan", last: "Lee",      type: "Adult", plusOne: false },
+    { partyId: "P002", first: "Riley",  last: "Lee",      type: "Child", plusOne: false },
+    { partyId: "P003", first: "Sofia",  last: "Rossi",    type: "Adult", plusOne: true  },
+    { partyId: "P003", first: "Marco",  last: "Rossi",    type: "Adult", plusOne: true  },
+    { partyId: "P004", first: "Haruto", last: "Sato",     type: "Adult", plusOne: false },
+    { partyId: "P005", first: "Emma",   last: "Schmidt, Smith", type: "Adult", plusOne: true }
+  ];
+  var DEMO_PREVIOUS = {}; // previous RSVPs saved in-memory during a demo session
+
+  function norm(s) { return (s || "").trim().toLowerCase(); }
+
+  // A name cell may list several options separated by commas
+  // (e.g. "Robert, Bob, Bobby"): match any option, display the first.
+  function nameOptions(cell) {
+    return String(cell || "").split(",").map(norm).filter(Boolean);
+  }
+  function primaryName(cell) {
+    return (String(cell || "").split(",")[0] || "").trim();
+  }
+
+  function demoVerify(first, last) {
+    var hit = DEMO_GUESTS.find(function (g) {
+      return nameOptions(g.first).indexOf(norm(first)) !== -1 &&
+             nameOptions(g.last).indexOf(norm(last)) !== -1;
+    });
+    if (!hit) return { ok: false, error: "not_found" };
+    var members = DEMO_GUESTS.filter(function (g) { return g.partyId === hit.partyId; });
+    return {
+      ok: true,
+      partyId: hit.partyId,
+      matched: { first: primaryName(hit.first), last: primaryName(hit.last) },
+      members: members.map(function (g) {
+        return { first: primaryName(g.first), last: primaryName(g.last), type: g.type, fromSheet: true };
+      }),
+      plusOneAllowed: members.some(function (g) { return g.plusOne; }),
+      previous: DEMO_PREVIOUS[hit.partyId] || null
+    };
+  }
+
+  // ---- Public methods ---------------------------------------
+  // verify(first, last) -> Promise<result>
+  function verify(first, last) {
+    if (DEMO) {
+      return new Promise(function (res) {
+        setTimeout(function () { res(demoVerify(first, last)); }, 700);
+      });
+    }
+    var url = API_URL + "?action=verify" +
+      "&first=" + encodeURIComponent(first) +
+      "&last="  + encodeURIComponent(last);
+    return fetch(url).then(function (r) { return r.json(); });
+  }
+
+  // submit(payload) -> Promise<{ok:true}>
+  // payload: { partyId, comments, guests: [...] }
+  function submit(payload) {
+    if (DEMO) {
+      return new Promise(function (res) {
+        setTimeout(function () {
+          DEMO_PREVIOUS[payload.partyId] = {
+            comments: payload.comments,
+            guests: payload.guests
+          };
+          console.log("[DEMO] RSVP submitted:", payload);
+          res({ ok: true });
+        }, 900);
+      });
+    }
+    // text/plain avoids a CORS preflight, which Apps Script doesn't handle
+    return fetch(API_URL, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ action: "submit", data: payload })
+    }).then(function (r) { return r.json(); });
+  }
+
+  // ---- Session helpers (who is logged in) --------------------
+  function saveSession(party) { sessionStorage.setItem("wedding_party", JSON.stringify(party)); }
+  function getSession() {
+    try { return JSON.parse(sessionStorage.getItem("wedding_party")); }
+    catch (e) { return null; }
+  }
+  function clearSession() { sessionStorage.removeItem("wedding_party"); }
+
+  return {
+    demo: DEMO,
+    verify: verify,
+    submit: submit,
+    saveSession: saveSession,
+    getSession: getSession,
+    clearSession: clearSession
+  };
+})();

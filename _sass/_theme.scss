@@ -1,0 +1,87 @@
+// ============================================================
+// THEME — hand-drawn feel with clean, simple geometry: ink borders
+// with straight (vertical + horizontal) edges and plain rules.
+//
+// Two knobs control most of the chrome:
+//   --frame-radius  corner style shared by the date banner, the
+//                   landing name card, image frames and map/video
+//                   embeds (0 = straight edges)
+//   --rule / --rule-gap  thickness and spacing of the plain lines
+//                   used under the nav bar, under page/section
+//                   titles, and along page bottoms
+// No image assets are needed for any of it.
+// ============================================================
+:root {
+  // --- Colors --------------------------------------------------
+  --paper:         #fdfcf8;
+  --translucent:   rgba(253, 252, 248, .9);
+  --ink:           #21221d;
+  --ink-soft:      #eef0e4;
+  --gray:          #5c6055;
+  --contrast:      #e2801f;
+  --contrast-soft: #fdeeda;
+  --green:         #4d8a3f;
+  --green-soft:    #e7f3d4;
+  --yellow:        #f6c443;
+  --lime:          #a6d054;
+  --red:           #d6482f;
+  --red-soft:      #fbe2dd;
+
+  // --- Typography (loaded in _includes/head.html) ---------------
+  --font-flourish: "cc-spaghetti-western-swash", "Comic Sans MS", cursive;
+  --font-display: "cc-spaghetti-western-script", "Comic Sans MS", cursive;
+  --font-body:    "cc-spaghetti-western-sans", "Comic Sans MS", cursive;
+  --body-size:    18px;
+
+  // --- Pen weight & panels ---------------------------------------
+  --line: 4px;                       // UI border weight
+  // --rad-btn:  240px 16px 220px 14px / 14px 220px 16px 240px; // wobbly (buttons)
+  --rad:  30px 3px 30px 3px / 3px 30px 3px 30px; // wobbly (buttons)
+  --pop-shadow: 4px 4px 0 var(--ink);
+  --pop-shadow-soft: 5px 5px 0 rgba(33, 34, 29, .2);
+
+  // ---------------------------------------------------------------
+  // FRAME STYLE — the shared look for the small date banner, the
+  // landing name card, image frames, and the map / video embeds:
+  // a plain ink border whose edges are purely vertical + horizontal.
+  // Set this to a length (e.g. 10px) if you ever want soft corners
+  // on ALL of those frames at once.
+  // ---------------------------------------------------------------
+  --frame-radius: 0;
+
+  // ---------------------------------------------------------------
+  // SIMPLE RULES — plain straight lines used for the bands under the
+  // nav bar and page footers, the bars under page/section titles,
+  // and the nav hover underline.
+  // ---------------------------------------------------------------
+  --nline-h: 2px;  // nav bar bottom rule thickness
+
+  --uline-h: 3px;                    // nav hover underline thickness
+  --uline-color: var(--ink);
+  --ubar-clip-visible: polygon(
+    0 50%, 1px 10%, 2px 0,
+    100% 0,
+    calc(100% - 5px) 50%, calc(100% - 10px) 80%, calc(100% - 20px) 100%,
+    0 100%
+    );
+  --ubar-clip-hidden:  polygon(
+    0 50%, 0 10%, 0 0,
+    0 0,
+    0 50%, 0 80%, 0 100%,
+    0 100%
+    );
+  --tbar-h: 6px;                     // thickness of the bar under a title (width now tracks the text)
+  --tbar-color: var(--contrast);
+  --tbar-clip-path: polygon(
+    0px 50%, 1px 10%, 2px 0,
+    100% 0,
+    calc(100% - 5px) 50%, calc(100% - 10px) 80%, calc(100% - 20px) 100%,
+    0 100%
+    );
+
+  // --- Layout -----------------------------------------------------
+  --content-width: 720px;
+  --radius: 12px;
+  --nav-height: 74px;               // includes the stripe band
+  --stickybar-height: 52px;
+}

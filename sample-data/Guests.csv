@@ -1,0 +1,9 @@
+PartyID,FirstName,LastName,Type,PlusOneAllowed
+P001,"Alex, Alexander",Tanaka,Adult,Yes
+P002,Jamie,Lee,Adult,No
+P002,Morgan,Lee,Adult,No
+P002,Riley,Lee,Child,No
+P003,Sofia,Rossi,Adult,Yes
+P003,Marco,Rossi,Adult,Yes
+P004,Haruto,Sato,Adult,No
+P005,Emma,"Schmidt, Smith",Adult,Yes

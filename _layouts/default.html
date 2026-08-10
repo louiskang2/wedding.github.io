@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body data-baseurl="{{ site.baseurl }}" data-page="{{ page.nav_id }}">
+
+  {% include nav.html %}
+
+  {% if page.nav_id == 'rsvp' %}
+  <div id="chip-strip" aria-live="polite">
+    <div class="guest-chips" id="chip-bar"></div>
+  </div>
+  {% endif %}
+
+  <main id="page-content">
+    {{ content }}
+    <footer class="page-footer">
+      {{ site.couple.name_1 }} &amp; {{ site.couple.name_2 }} · {{ site.wedding.date_display }} · {{ site.wedding.city }}
+    </footer>
+  </main>
+
+  <script src="{{ '/assets/js/api.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  {% if page.nav_id == 'home' %}<script src="{{ '/assets/js/landing.js' | relative_url }}"></script>{% endif %}
+  {% if page.nav_id == 'rsvp' %}<script src="{{ '/assets/js/rsvp.js' | relative_url }}"></script>{% endif %}
+</body>
+</html>

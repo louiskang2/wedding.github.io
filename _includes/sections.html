@@ -1,0 +1,7 @@
+{% assign secs = site.sections | where: "group", include.group | sort: "order" %}
+{% for sec in secs %}
+<section class="section js-section" id="{{ sec.slug }}" data-title="{{ sec.title }}">
+  <h2 class="section-title">{{ sec.title }}</h2>
+  {{ sec.content }}
+</section>
+{% endfor %}

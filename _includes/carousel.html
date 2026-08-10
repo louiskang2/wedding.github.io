@@ -1,0 +1,10 @@
+{% comment %}
+Image carousel (Flickity):
+{% include carousel.html images="/assets/img/a.jpg,/assets/img/b.jpg,/assets/img/c.jpg" %}
+{% endcomment %}
+<div class="carousel js-flickity" data-flickity='{ "wrapAround": true, "pageDots": true, "autoPlay": 4500 }'>
+  {% assign imgs = include.images | split: "," %}
+  {% for img in imgs %}
+  <div class="carousel-cell"><img src="{{ img | strip | relative_url }}" alt="Carousel image {{ forloop.index }}" loading="lazy"></div>
+  {% endfor %}
+</div>

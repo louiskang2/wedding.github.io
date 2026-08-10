@@ -1,0 +1,7 @@
+{% comment %}
+Embed an image:  {% include figure.html src="/assets/img/photo.jpg" alt="Description" caption="Optional caption" %}
+{% endcomment %}
+<figure class="embed-figure">
+  <img src="{{ include.src | relative_url }}" alt="{{ include.alt }}" loading="lazy">
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>

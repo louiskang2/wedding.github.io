@@ -1,0 +1,7 @@
+<nav id="top-nav" aria-label="Site navigation">
+  <a href="{{ '/' | relative_url }}" {% if page.nav_id == 'home' %}class="active"{% endif %}>Home</a>
+  <a href="{{ '/wedding-info/' | relative_url }}" {% if page.nav_id == 'info' %}class="active"{% endif %}><span>Wedding</span> <span>Info</span></a>
+  <a href="{{ '/travel-guide/' | relative_url }}" {% if page.nav_id == 'travel' %}class="active"{% endif %}><span>Travel</span> <span>Guide</span></a>
+  <a href="{{ '/snow-trip/' | relative_url }}" {% if page.nav_id == 'snow' %}class="active"{% endif %}><span>Snow</span> <span>Trip</span></a>
+  <a href="{{ '/rsvp/' | relative_url }}" class="nav-rsvp{% if page.nav_id == 'rsvp' %} active{% endif %}">RSVP</a>
+</nav>

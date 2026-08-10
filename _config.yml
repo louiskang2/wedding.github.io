@@ -1,0 +1,90 @@
+# ============================================================
+# SITE SETTINGS — edit these to customize the whole site
+# ============================================================
+title: "Carley & Louis"
+description: "Carley and Louis are getting married in Japan!"
+
+# Couple / event details (used across pages)
+couple:
+  name_1: "Carley"
+  name_2: "Louis"
+wedding:
+  date_display: "Saturday, 16 January 2027"
+  date_short: "16 Jan 2027"
+  venue: "Kamakura Prince Hotel"
+  city: "Kamakura & Tokyo"
+
+# ------------------------------------------------------------
+# BACKEND — paste your Google Apps Script Web App URL here.
+# Leave empty ("") to run in DEMO MODE with built-in sample
+# guests (try first name "Alex", last name "Tanaka").
+# ------------------------------------------------------------
+apps_script_url: ""
+
+# ------------------------------------------------------------
+# LANDING SCENE
+# `backdrop` is the photo that fades in first (behind everything).
+#
+# `decorations` are the little drawings that fade in one by one on
+# top of it, in the order listed. ADD AS MANY AS YOU LIKE — each new
+# entry automatically becomes the next one to appear.
+#   file  filename inside assets/img/scene/
+#   size  width as a % of the shorter side of the window (10 ≈ 10%)
+#   x, y  where the CENTRE of the drawing sits, as a % of the window
+#         (x: 0 = left, 100 = right · y: 0 = top, 100 = bottom)
+#
+# The names box sits in the middle of the screen, so keep decorations
+# out toward the edges. Rough clock positions (centre = 50,50):
+#    12 → x 50, y 16       1 → x 74, y 20       2 → x 78, y 26
+#     3 → x 86, y 50       4 → x 78, y 74       5 → x 74, y 80
+#     6 → x 50, y 84       7 → x 26, y 80       8 → x 22, y 74
+#     9 → x 14, y 50      10 → x 22, y 26      11 → x 26, y 20
+# (These sit a little further out than a true clock face so they clear
+# the names box on smaller laptop screens.)
+#
+# Decorations are drawn BEHIND the text, so even a badly placed one can
+# never make the names unreadable — it would just be partly hidden.
+#
+# On narrow screens (where the names box drops to the bottom) the x/y
+# values are ignored: the drawings line up in a row between the date
+# banner and the names box instead, in this same order.
+# ------------------------------------------------------------
+landing:
+  backdrop: backdrop.jpg
+  decorations:
+    - { file: dango.png, size: 10, x: 80, y: 20 }   #  1 o'clock
+    - { file: taiyaki.png, size: 13, x: 15, y: 65 }   #  8 o'clock
+    - { file: sando.png, size: 10, x: 20, y: 25 }   #  11 o'clock
+    - { file: camellia.png, size: 13, x: 45, y: 84 }   #  6 o'clock
+    - { file: photo.png, size: 13, x: 85, y: 74 }   #  4 o'clock
+
+# GitHub Pages: if the site lives at username.github.io/REPO,
+# set baseurl to "/REPO". If it's a root site, leave "".
+baseurl: ""
+url: ""
+
+# ------------------------------------------------------------
+# Build settings (you shouldn't need to touch these)
+# ------------------------------------------------------------
+markdown: kramdown
+sass:
+  style: compressed
+
+collections:
+  sections:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+      type: "sections"
+    values: {}
+
+exclude:
+  - README.md
+  - art-src
+  - Gemfile
+  - Gemfile.lock
+  - apps-script
+  - sample-data
+  - vendor

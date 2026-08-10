@@ -1,0 +1,43 @@
+{% comment %}
+  ============================================================
+  LANDING SCENE
+  A backdrop photo fades in first, then each decoration drawing
+  fades in one after another on top of it.
+
+  Everything here is driven by the `landing:` block in _config.yml —
+  to add another drawing, drop the PNG in assets/img/scene/ and add
+  one line there. It is picked up automatically and becomes the next
+  one to appear; no changes to this file or the CSS are needed.
+
+  Per-item size/position travel as inline custom properties, so the
+  stylesheet stays generic:
+    --i           its place in the sequence (drives the fade delay)
+    --decor-size  width, as a % of the window's shorter side
+    --decor-x/y   centre position, as a % of the window
+
+  Layer order: backdrop (z 0) → decorations (z 1) → names/date (z 2),
+  so a drawing can never cover the text even if it is placed centrally.
+  ============================================================
+{% endcomment %}
+{% assign scene_dir = '/assets/img/scene/' %}
+
+{% comment %}
+  How many drawings there are is published to the CSS as --decor-count,
+  so the date banner / names / gate automatically wait for the last one
+  to finish. Add a decoration and the whole sequence re-times itself.
+{% endcomment %}
+<style>#landing { --decor-count: {{ site.landing.decorations | size | default: 0 }}; }</style>
+
+<div class="landing-scene" aria-hidden="true">
+  <img class="landing-backdrop"
+       src="{{ scene_dir | append: site.landing.backdrop | relative_url }}" alt="" decoding="async">
+</div>
+
+{% if site.landing.decorations %}
+<div class="landing-decor" aria-hidden="true">
+  {% for d in site.landing.decorations %}
+  <img class="decor" src="{{ scene_dir | append: d.file | relative_url }}" alt="" decoding="async"
+       style="--i: {{ forloop.index }}; --decor-size: {{ d.size | default: 10 }}; --decor-x: {{ d.x | default: 50 }}; --decor-y: {{ d.y | default: 50 }};">
+  {% endfor %}
+</div>
+{% endif %}

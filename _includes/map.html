@@ -1,0 +1,11 @@
+{% comment %}
+Embed a Google Map:  {% include map.html query="Kotobuki Garden House, Kamakura" caption="Optional caption" %}
+Just put the place name or address in "query" — no API key needed.
+{% endcomment %}
+<figure class="embed-figure">
+  <div class="embed-frame">
+    <iframe src="https://www.google.com/maps?q={{ include.query | url_encode }}&output=embed"
+            title="Map: {{ include.query }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>

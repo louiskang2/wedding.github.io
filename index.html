@@ -1,0 +1,43 @@
+---
+layout: default
+title: Welcome
+nav_id: home
+permalink: /
+---
+
+<!-- =============== LANDING HERO (stays in place) =============== -->
+<div id="landing">
+  {% include landing-scene.html %}
+
+  <div class="landing-dateline">{{ site.wedding.date_short }} · {{ site.wedding.city }}</div>
+
+  <div class="landing-center">
+    <h1 class="landing-names"><span class="name">{{ site.couple.name_1 }}</span> <span class="amp">and</span> <span class="name">{{ site.couple.name_2 }}</span></h1>
+    <div class="landing-sub">invite you to their wedding in Japan</div>
+
+    <div class="landing-swap">
+      <div id="landing-gate">
+        <!-- <p class="mb-3" style="color: var(--gray); font-size:.95rem;">Enter your name</p> -->
+        <div class="row g-2 justify-content-center">
+          <div class="col-6 col-sm-5"><input id="gate-first" class="form-control" type="text" placeholder="Your first name" autocomplete="given-name"></div>
+          <div class="col-6 col-sm-5"><input id="gate-last" class="form-control" type="text" placeholder="Your last name" autocomplete="family-name"></div>
+        </div>
+        <button id="gate-btn" class="btn btn-gate" type="button">Enter</button>
+        <div class="gate-error" id="gate-error"></div>
+      </div>
+
+      <!-- Overlays the gate's exact space after a name is verified; nothing moves -->
+      <div id="landing-welcome">
+        <p class="welcome-msg" id="welcome-heading"></p>
+        <button id="logout-btn" class="logout-link" type="button">Not you? Log out and switch guest</button>
+        <div class="landing-scroll">
+          Scroll for more
+          <span class="scroll-chevron" aria-hidden="true">^</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =============== MAIN CONTENT (revealed below) =============== -->
+{% include sections.html group="main" %}
