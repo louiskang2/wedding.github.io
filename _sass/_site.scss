@@ -6,6 +6,15 @@
 
 html { scroll-behavior: smooth; }
 
+// The root background becomes the canvas, which is what iOS shows at either end
+// of a rubber-band scroll. Dark behind the gated hero, paper once the site opens.
+html {
+  background-color: var(--overscroll);
+  transition: background-color .8s ease;
+}
+html.authed,
+html.revealed { background-color: var(--paper); }
+
 body {
   margin: 0;
   background: var(--paper);

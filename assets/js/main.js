@@ -27,6 +27,7 @@
   // ---- Reveal (home waits for the landing gate; see landing.js)
   window.revealSite = function () {
     if (page === "home") mountHomeSections();
+    document.documentElement.classList.add("revealed");
     $("#page-content").addClass("visible");
     $("#top-nav").addClass("visible");
     $("#chip-strip").addClass("visible");
