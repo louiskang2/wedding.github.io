@@ -102,7 +102,7 @@ img { max-width: 100%; height: auto; border-radius: var(--rad); }
       left: calc(var(--decor-x, 50) * 1%);
       top: calc(var(--decor-y, 50) * 1%);
       width: calc(
-        var(--decor-size, 10) * max(1vmin, 6.4px) * var(--decor-scale, 1)
+        var(--decor-size, 10) * max(1svh, 6.4px) * var(--decor-scale, 1)
         );
       height: auto;
       // centre the drawing on its x/y point (kept out of the
@@ -281,7 +281,7 @@ img { max-width: 100%; height: auto; border-radius: var(--rad); }
   // window is very small.
   @media (max-width: 640px) {
     align-items: flex-end;
-    --decor-scale: 0.9;
+    --decor-scale: 0.8;
     --decor-gap-x: 7vw;
     --decor-widest: 13;   // largest `size` in the landing block of _config.yml
 
