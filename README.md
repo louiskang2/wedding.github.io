@@ -194,10 +194,8 @@ The UI chrome (frame borders, the nav rule, title bars, hover underlines) needs
 ```
 _config.yml               site settings + Apps Script URL
 index.html                landing sequence + main page (Wedding / Afterparty / Shuttle)
-wedding-info.md           page shells — content comes from _sections/
-travel-guide.md
-snow-trip.md
 rsvp.html                 RSVP wizard shell (logic in assets/js/rsvp.js)
+*.md                      page shells — content comes from _sections/
 _sections/*.md            ← ALL page content lives here
 _layouts/                 default.html (chrome), page.html (hero + sections)
 _includes/                top nav, embed helpers (figure/youtube/map/carousel)

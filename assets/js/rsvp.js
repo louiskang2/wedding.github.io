@@ -380,7 +380,7 @@
       '<div class="rsvp-success">' +
         '<span class="big-check">✓</span>' +
         "<strong>Your RSVP has been received. Thank you!</strong>" +
-        '<p class="mb-0 mt-2">Plans changed? Come back and resubmit — your newest answers replace the old ones.</p>' +
+        '<p class="mb-0 mt-2">Plans changed? Come back and resubmit—your newest answers replace the old ones.</p>' +
       "</div>" +
       '<div class="text-center mt-4">' +
         '<button class="btn btn-wed-outline btn-rsvp-update" id="r-again">Update my RSVP</button>' +
