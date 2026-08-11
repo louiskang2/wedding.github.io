@@ -187,7 +187,7 @@ magick backdrop-original.jpg -resize 2200x -quality 82 assets/img/scene/backdrop
 
 The UI chrome (frame borders, the nav rule, title bars, hover underlines) needs
 **no image assets at all** — it's drawn in CSS from `--line`, `--rad`,
-`--nline-h`, `--uline-h` and `--tbar-h` in `_sass/_theme.scss`.
+`--nrule-h`, `--nbar-h` and `--tbar-h` in `_sass/_theme.scss`.
 
 ## 5. How it works (map of the code)
 

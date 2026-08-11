@@ -35,11 +35,28 @@
   if (page !== "home") revealSite();
 
   // The strip's height depends on the web font, which lands after first paint.
-  if (page === "rsvp" && window.ResizeObserver) {
-    var strip = document.getElementById("chip-strip");
+  var strip = document.getElementById("chip-strip");
+  if (strip && window.ResizeObserver) {
     new ResizeObserver(function () {
       document.documentElement.style.setProperty("--stickybar-height", strip.offsetHeight + "px");
     }).observe(strip);
+  }
+
+  // Responses are closed: the notice is personalised from the session, so it
+  // lives here rather than in rsvp.js, which isn't loaded in that case.
+  var $closed = $("#rsvp-closed");
+  if ($closed.length) {
+    var name = session && session.matched ? session.matched.first : "";
+    var received = name
+      ? "Your party's RSVP has been received, " + name + ", thank you!"
+      : "Your party's RSVP has been received, thank you!";
+    if (session && session.hasResponded) {
+      $closed.append($("<p>").append($("<strong>").text(received)));
+    }
+    $closed.append(
+      $("<p>").addClass("mb-0")
+        .text("The response period has ended. Please contact us if you have any questions.")
+    );
   }
 
   // ---- Flickity (in case cells load after auto-init) ----------

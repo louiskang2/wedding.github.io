@@ -21,6 +21,10 @@ wedding:
 # ------------------------------------------------------------
 apps_script_url: "https://script.google.com/macros/s/AKfycbyglrmUx-KLzq-C0aUpchhnJyqTqFv-r6PpwjpJQlvFFaDD4oPyfMsb0co-pXh8fNo/exec"
 
+# Set to false once responses close: the RSVP page then shows a short
+# notice instead of the form, and no RSVP code is sent to the browser.
+rsvp_active: true
+
 # ------------------------------------------------------------
 # LANDING SCENE
 # `backdrop` is the photo that fades in first (behind everything).

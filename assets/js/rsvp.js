@@ -153,20 +153,14 @@
     // The backend reports only that a response exists, never its contents.
     var elsewhere = session.hasResponded && !WeddingAPI.getAnswers(session.partyId);
 
-    var warning = elsewhere
-      ? '<div class="rsvp-warn">' +
-          "<strong>We already have an RSVP from your party, and what you send now replaces it.</strong>" +
-        "</div>"
-      : "";
-
     $app.html(
       '<div class="rsvp-card">' +
         '<h3>Your party</h3>' +
-        warning +
-        '<p class="rsvp-note">These are the people on your invitation.' +
-        (plusOneAllowed ? " You may bring one guest." : "") +
-        " You can also add children." +
-        (returning ? " <strong>Your previous answers are saved on this device.</strong>" : "") +
+        '<p class="rsvp-note">' +
+          (elsewhere ? "<strong>We already have an RSVP from your party, and what you send now replaces it.</strong> " : "") +
+          'These are the people on your invitation.' +
+          (plusOneAllowed ? " You may bring one guest." : "") +
+          " You can also add children." +
         "</p>" +
         rows +
         '<div class="d-flex flex-wrap gap-2 mt-4">' + addGuestBtn +
@@ -389,7 +383,7 @@
         '<p class="mb-0 mt-2">Plans changed? Come back and resubmit — your newest answers replace the old ones.</p>' +
       "</div>" +
       '<div class="text-center mt-4">' +
-        '<button class="btn btn-wed-outline" id="r-again">Update my RSVP</button>' +
+        '<button class="btn btn-wed-outline btn-rsvp-update" id="r-again">Update my RSVP</button>' +
       "</div>"
     );
     $("#r-again").on("click", function () {

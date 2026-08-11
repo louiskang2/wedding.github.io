@@ -9,9 +9,17 @@ permalink: /rsvp/
   <div class="hero-kicker">{{ site.couple.name_1 }} &amp; {{ site.couple.name_2 }}</div>
   <h1>RSVP</h1>
   <p class="hero-announce">Please respond by 15 October 2026</p>
+  {% if site.rsvp_active %}
   <p class="hero-note">Answer a few questions for each person in your party. Resubmit if your plans change.</p>
+  {% endif %}
 </header>
 
 <div class="section" style="padding-top: 30px;">
+  {% if site.rsvp_active %}
   <div id="rsvp-app"></div>
+  {% else %}
+  <div class="rsvp-card text-center">
+    <div id="rsvp-closed"></div>
+  </div>
+  {% endif %}
 </div>

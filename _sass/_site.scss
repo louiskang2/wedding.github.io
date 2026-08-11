@@ -394,8 +394,8 @@ html.authed #landing #landing-gate:not(.gate-out) {
   height: var(--nav-height);
   background: var(--translucent);
   backdrop-filter: blur(8px);
-  border-bottom: var(--nline-h) solid var(--ink);
-  padding-bottom: var(--nline-h);
+  border-bottom: var(--nrule-h) solid var(--ink);
+  padding-bottom: var(--nrule-h);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -427,12 +427,12 @@ html.authed #landing #landing-gate:not(.gate-out) {
       content: "";
       position: absolute;
       left: .55rem; right: .55rem; bottom: .1rem;
-      height: var(--uline-h);
-      background: var(--uline-color);
-      clip-path: var(--ubar-clip-hidden);
+      height: var(--nbar-h);
+      background: var(--nbar-color);
+      clip-path: var(--nbar-clip-hidden);
       transition: clip-path .35s ease;
     }
-    &:hover::after, &.active::after { clip-path: var(--ubar-clip-visible); }
+    &:hover::after, &.active::after { clip-path: var(--nbar-clip-path); }
 
     &.nav-rsvp { color: var(--contrast); }
   }
@@ -470,7 +470,8 @@ html.authed #chip-strip {
 // RSVP page: guest chips live in a strip pinned below the nav.
 // The chip-strip supplies its own separator right below,
 // so the nav doesn't need its own bottom rule too.
-body[data-page="rsvp"] #top-nav {
+// data-rsvp-open marks the one page/state where that strip is rendered.
+body[data-rsvp-open] #top-nav {
   border-bottom-color: transparent;
 }
 #chip-strip {
@@ -479,7 +480,7 @@ body[data-page="rsvp"] #top-nav {
   min-height: 52px;
   background: var(--translucent);
   backdrop-filter: blur(8px);
-  border-bottom: var(--nline-h) solid var(--ink);
+  border-bottom: var(--nrule-h) solid var(--ink);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -512,7 +513,7 @@ body[data-page="home"] #page-content { opacity: 1; padding-top: 0; }
 // Until a guest is verified the hero is the whole page, footer included.
 body[data-page="home"] #page-content:not(.visible) .page-footer { display: none; }
 // The RSVP page needs room for the guest-chip strip below the nav.
-body[data-page="rsvp"] #page-content { padding-top: calc(var(--nav-height) + var(--stickybar-height)); }
+body[data-rsvp-open] #page-content { padding-top: calc(var(--nav-height) + var(--stickybar-height)); }
 
 .page-hero {
   text-align: center;
@@ -579,7 +580,22 @@ body[data-page="rsvp"] #page-content { padding-top: calc(var(--nav-height) + var
     th, td { border-bottom: 1.5px solid var(--gray); padding: .55rem .4rem; text-align: left; }
     th { font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); font-family: var(--font-body); }
   }
-  blockquote { border-left: 4px solid var(--lime); margin: 1.2rem 0; padding: .2rem 0 .2rem 1.1rem; color: var(--gray); }
+  // blockquote { border-left: 4px solid var(--lime); border-radius: 4px; margin: 1.2rem 0; padding: .2rem 0 .2rem 1.1rem; color: var(--gray); }
+  blockquote {
+    position: relative;
+    margin: 1.2rem 0;
+    padding: .2rem 0 .2rem 1.5rem;
+    color: var(--gray);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: var(--lime);
+      clip-path: var(--qbar-clip-path);
+    }
+  }
 }
 
 .page-footer {
@@ -668,7 +684,7 @@ figure.embed-figure {
 }
 
 .rsvp-card {
-  background: var(--paper);
+  background: var(--contrast-soft);
   border: var(--line) solid var(--ink);
   border-radius: var(--rad);
   padding: 26px;
@@ -723,6 +739,9 @@ figure.embed-figure {
   border-color: var(--ink) !important;
   &:hover { background: var(--green) !important; }
 }
+.btn-rsvp-update {
+  background: var(--contrast-soft) !important;
+}
 .btn-remove:hover { background: var(--red-soft) !important; }
 
 .rsvp-success {
@@ -737,13 +756,3 @@ figure.embed-figure {
   .big-check { font-size: 2.6rem; display: block; margin-bottom: .4rem; color: var(--green); }
 }
 .rsvp-note { color: var(--gray); font-size: .98rem; }
-
-.rsvp-warn {
-  background: var(--contrast-soft);
-  border: var(--line) solid var(--ink);
-  border-radius: var(--rad);
-  box-shadow: var(--pop-shadow-soft);
-  padding: .9rem 1.1rem;
-  margin: 0 0 1.2rem;
-  font-size: .98rem;
-}

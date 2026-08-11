@@ -6,7 +6,7 @@
 //   --line   border thickness on frames, cards and buttons
 //   --rad    the shared corner shape for the date banner, the landing
 //            name card, image frames and map / video embeds
-//   --nline-h / --uline-h / --tbar-h
+//   --nrule-h / --nbar-h / --tbar-h
 //            thickness of the nav's bottom rule, its hover underline,
 //            and the bar under a section title
 // No image assets are needed for any of it.
@@ -45,31 +45,39 @@
   // ---------------------------------------------------------------
   // SIMPLE RULES — plain straight lines used for the bands under the
   // nav bar and page footers, the bars under page/section titles,
-  // and the nav hover underline.
+  // the nav hover underline, and the blockquote ribbon.
   // ---------------------------------------------------------------
-  --nline-h: 2px;  // nav bar bottom rule thickness
+  --nrule-h: 2px;  // nav bar bottom rule thickness
 
-  --uline-h: 3px;                    // nav hover underline thickness
-  --uline-color: var(--ink);
-  --ubar-clip-visible: polygon(
+  --nbar-h: 3px;                    // nav hover underline thickness
+  --nbar-color: var(--ink);
+  --nbar-clip-path: polygon(
     0 50%, 1px 10%, 2px 0,
     100% 0,
     calc(100% - 5px) 50%, calc(100% - 10px) 80%, calc(100% - 20px) 100%,
     0 100%
     );
-  --ubar-clip-hidden:  polygon(
+  --nbar-clip-hidden:  polygon(
     0 50%, 0 10%, 0 0,
     0 0,
     0 50%, 0 80%, 0 100%,
     0 100%
     );
+
   --tbar-h: 6px;                     // thickness of the bar under a title (width now tracks the text)
   --tbar-color: var(--contrast);
   --tbar-clip-path: polygon(
-    0px 50%, 1px 10%, 2px 0,
+    .5px 50%, 2px 10%, 4px 0,
     100% 0,
-    calc(100% - 5px) 50%, calc(100% - 10px) 80%, calc(100% - 20px) 100%,
+    calc(100% - 10px) 50%, calc(100% - 20px) 80%, calc(100% - 40px) 100%,
     0 100%
+    );
+
+  --qbar-clip-path: polygon(
+      50% 0, 90% 1px, 100% 2px,
+      100% 100%,
+      50% calc(100% - 5px), 20% calc(100% - 10px), 0 calc(100% - 20px),
+      0 0
     );
 
   // --- Layout -----------------------------------------------------
