@@ -558,11 +558,14 @@ body[data-rsvp-open] #page-content { padding-top: calc(var(--nav-height) + var(-
   margin: 0 auto;
   padding: 84px 24px 30px;
 
-  .section-title {
+  // One .section now wraps a whole page, so each "## " heading opens a
+  // section and carries the gap that used to come from per-section padding.
+  h2 {
     display: inline-block;
     position: relative;
     font-size: clamp(1.7rem, 3.6vw, 2.3rem);
-    margin-bottom: 1.8rem;
+    margin: 84px 0 1.8rem;
+    &:first-child { margin-top: 0; }
     // a line under every section title
     &::after {
       content: "";
@@ -580,6 +583,8 @@ body[data-rsvp-open] #page-content { padding-top: calc(var(--nav-height) + var(-
     th, td { border-bottom: 1.5px solid var(--gray); padding: .55rem .4rem; text-align: left; }
     th { font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); font-family: var(--font-body); }
   }
+  // Markdown always emits a header row; `{: .no-head}` after a table drops it.
+  table.no-head thead { display: none; }
   // blockquote { border-left: 4px solid var(--lime); border-radius: 4px; margin: 1.2rem 0; padding: .2rem 0 .2rem 1.1rem; color: var(--gray); }
   blockquote {
     position: relative;

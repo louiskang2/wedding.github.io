@@ -1,0 +1,14 @@
+{% comment %}
+  Renders one page's content file from _content/, matched by filename:
+  {% include page-body.html key="japan" %} -> _content/japan.md
+
+  Each "## " heading in that file becomes a section, styled by `.section h2`.
+  Kramdown derives the anchor id from the heading text; pin an explicit one
+  with `## Title {#custom-id}` when the generated slug isn't what you want.
+{% endcomment %}
+{% assign body = site.content | where: "slug", include.key | first %}
+{% if body %}
+<div class="section">
+  {{ body.content }}
+</div>
+{% endif %}

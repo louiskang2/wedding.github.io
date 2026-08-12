@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Japan Guide
-nav_id: japan
-section_group: japan
+nav_id: japan-guide
+body: japan-guide
 permalink: /japan-guide/
-note: "Our favorite corners of Japan in winter, plus practical tips for getting around."
+note: "Practical and personal tips for your trip."
 ---

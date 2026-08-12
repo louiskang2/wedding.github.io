@@ -24,9 +24,21 @@
     tpl.remove();
   }
 
+  // Anchors resolve .hostname against this document, so relative links and
+  // mailto:/tel: fall through and only genuinely off-site ones are rewritten.
+  function externalLinksNewTab() {
+    $("a[href]").each(function () {
+      if (this.hostname && this.hostname !== window.location.hostname) {
+        this.target = "_blank";
+        this.rel = "noopener noreferrer";
+      }
+    });
+  }
+
   // ---- Reveal (home waits for the landing gate; see landing.js)
   window.revealSite = function () {
     if (page === "home") mountHomeSections();
+    externalLinksNewTab();
     document.documentElement.classList.add("revealed");
     $("#page-content").addClass("visible");
     $("#top-nav").addClass("visible");

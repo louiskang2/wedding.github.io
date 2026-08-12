@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Snow Trip
-nav_id: snow
-section_group: snow
+nav_id: snow-trip
+body: snow-trip
 permalink: /snow-trip/
-note: "Two extra days of powder, onsen, and hot sake in Echigo-Yuzawa. Everyone is invited."
+note: "Follow us from the Shonan coast to Snow Country."
 ---

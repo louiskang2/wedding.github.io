@@ -75,14 +75,8 @@ sass:
   style: compressed
 
 collections:
-  sections:
+  content:
     output: false
-
-defaults:
-  - scope:
-      path: ""
-      type: "sections"
-    values: {}
 
 exclude:
   - README.md
