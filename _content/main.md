@@ -12,12 +12,15 @@ Keep checking this website as we post more detailed information about our weddin
 ## Our wedding day
 
 The events on 16 January will take place at two locations:
-1. [**Kamakura Prince Hotel**](https://maps.app.goo.gl/vFMUi2bqNk7rTSQU9) in Kamakura for the ceremony and reception **from 3:30 pm sharp until 8:30 pm**
-2. [**Music Bar Cave Shibuya**](https://maps.app.goo.gl/QV9rpdxm6jZX3DjMA) in Tokyo for the afterparty (nijikai) **from 10 pm until 1 am**
+1. [**Kamakura Prince Hotel**](https://maps.app.goo.gl/vFMUi2bqNk7rTSQU9) in Kamakura for the ceremony and reception from 3:30 pm sharp until 8:30 pm,
+2. [**Music Bar Cave Shibuya**](https://maps.app.goo.gl/QV9rpdxm6jZX3DjMA) in Tokyo for the afterparty (nijikai) from 10 pm until 1 am.
 
-> We have arranged **shuttle buses** between Music Bar Cave Shibuya and the Kamakura Prince Hotel. The details have not been fixed yet, but they will depart approximately at **1 pm from near Music Bar Cave Shibuya** and return to the **same location around 10 pm**.
+A **shuttle bus** to the wedding venue will pick up guests near Music Bar Cave Shibuya at around 1 pm and drop off guests at the same location around 10 pm. We'll provide the exact locations and times once they are confirmed.
 
+**Visit [Wedding Info]({{ '/wedding-info/' | relative_url }}) for more information!**
 
 ## Post-wedding snow trip
 
-Between **18-21 January**, we’ll bask in our wedding afterglow at [**Yuzawa**](https://maps.app.goo.gl/GHeGJE1CaMsk5o2Z8), a ski town 80 minutes away from Tokyo by Shinkansen. Feel free to come by for as long as you’d like—there are no official plans but let’s meet up for skiing, sake tasting, onsen relaxation, and more.
+From **18** to **21 January**, we’ll bask in our wedding afterglow at [**Yuzawa**](https://maps.app.goo.gl/GHeGJE1CaMsk5o2Z8), a ski town 80 minutes away from Tokyo by Shinkansen. Feel free to come by for as long as you’d like—there are no official plans but let’s meet up for skiing, sake tasting, onsen relaxation, and more.
+
+**Visit [Snow Trip]({{ '/snow-trip/' | relative_url }}) for more information!**

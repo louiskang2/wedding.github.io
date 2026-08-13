@@ -105,19 +105,27 @@ img { max-width: 100%; height: auto; border-radius: var(--rad); }
         var(--decor-size, 10) * max(1svh, 6.4px) * var(--decor-scale, 1)
         );
       height: auto;
-      // centre the drawing on its x/y point (kept out of the
-      // animation so the fade never fights the positioning)
-      transform: translate(-50%, -50%);
+      // Centring uses the `translate` property, not a transform function:
+      // the composed order is translate -> rotate, so the drawing spins about
+      // its own centre and is only then shifted onto its x/y point.
+      translate: -50% -50%;
+      rotate: var(--decor-angle, 0deg);
       border-radius: 0;
       // a soft shadow so the drawings stay legible even where the
       // photo behind them is pale
       filter: drop-shadow(0 1px 4px rgba(0, 0, 0, .65));
       opacity: 0;
-      animation: scIn .8s ease forwards;
       // each drawing waits its turn: --i is its place in the list
-      animation-delay: calc(
+      --decor-delay: calc(
         var(--decor-start) + (var(--i) - 1) * var(--decor-step)
       );
+      animation:
+        scIn .8s ease forwards,
+        // decorSwing var(--decor-swing, 1s) ease-in-out infinite alternate;  // smooth swing
+        decorSwing var(--decor-swing, 1s) steps(2, jump-none) infinite;  // stepped swing
+      animation-delay: var(--decor-delay), 0s;
+      // a paused swing never leaves its delay, so the static angle shows
+      animation-play-state: running, var(--decor-play, paused);
     }
   }
 
@@ -304,7 +312,7 @@ img { max-width: 100%; height: auto; border-radius: var(--rad); }
         position: static;
         left: auto;
         top: auto;
-        transform: none;      // flexbox handles the placement now
+        translate: none;      // flexbox handles the placement now
       }
     }
 
@@ -333,6 +341,12 @@ img { max-width: 100%; height: auto; border-radius: var(--rad); }
 // ------------------------------------------------------------
 @keyframes scIn { to { opacity: 1; } }
 
+// var() resolves per element, so each drawing swings around its own angle.
+@keyframes decorSwing {
+  from { rotate: var(--decor-angle, 0deg); }
+  to   { rotate: calc(-1 * var(--decor-angle, 0deg)); }
+}
+
 #landing {
   --decor-start: .8s;
   --decor-step: .4s;
@@ -359,11 +373,16 @@ img { max-width: 100%; height: auto; border-radius: var(--rad); }
 // -- Returning (verified) visitors: no entrance, everything is
 //    already in place the moment Home opens. --------------------------
 html.authed #landing .landing-backdrop,
-html.authed #landing .decor,
 html.authed #landing .landing-dateline,
 html.authed #landing .landing-names,
 html.authed #landing .landing-sub {
   animation: none;
+  opacity: 1;
+}
+// The drawings drop the entrance but keep swinging.
+html.authed #landing .decor {
+  animation-name: none, decorSwing;
+  animation-delay: 0s, 0s;
   opacity: 1;
 }
 html.authed #landing #landing-gate:not(.gate-out) {
@@ -380,6 +399,8 @@ html.authed #landing #landing-gate:not(.gate-out) {
   #landing .landing-dateline, #landing .landing-names, #landing .landing-sub, #landing #landing-gate {
     animation-duration: .01s !important; animation-delay: 0s !important;
   }
+  // beats the inline <style> the landing include writes, whatever its order
+  #landing { --decor-play: paused !important; }
   #landing .scroll-chevron { animation: none; }
   html { scroll-behavior: auto; }
 }

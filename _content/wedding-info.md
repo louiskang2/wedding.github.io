@@ -16,7 +16,7 @@
 
 ## Ceremony and reception
 
-Our wedding ceremony will take place at **Kamakura Prince Hotel** at **3:30 pm** sharp. It will be immediately followed by a reception at the same location at **4:00** pm with dinner and live music until **8:30 pm**. The venue has a Japanese-Western style with a hint of nostalgia familiar to those who have spent time in Japan, and it offers sweeping views of the Shonan coast before sunset.
+Our wedding ceremony will take place at **Kamakura Prince Hotel** at **3:30 pm** sharp. It will be immediately followed by a reception at the same location at **4:00 pm** with dinner and live music until **8:30 pm**. The venue has a Japanese-Western style with a hint of nostalgia familiar to those who have spent time in Japan, and it offers sweeping views of the Shonan coast before sunset.
 
 Children are warmly welcome for the ceremony and reception.
 
@@ -49,7 +49,7 @@ A shuttle bus will pick up and drop off guests near the afterparty location in *
 
 Shibuya is also easily accessible by train or taxi to **many other locations in Tokyo**. So feel free to find a neighborhood with a more local feel or indulge in one of the world’s top hotels.
 
-For those who prefer easier travel to the wedding or those who want to stay in a charming, historic town (see Japan Guide soon for tips), **Kamakura** would be a wonderful place to stay. It is directly connected to central Tokyo by a 1-hour train ride. While we do not have experience staying in that area, the Hotel Metropolitan Kamakura is a solid upscale option near Kamakura station.
+For those who prefer easier travel to the wedding or those who want to stay in a charming, historic town (see [Japan Guide]({{ '/japan-guide/' | relative_url }}) soon for tips), **Kamakura** would be a wonderful place to stay. It is directly connected to central Tokyo by a 60-minute train ride. While we do not have experience staying in that area, the Hotel Metropolitan Kamakura is a solid upscale option near Kamakura station.
 
 > While hotel rooms in Japan are generally very functional, some of them can be quite small. To avoid surprises, we recommend that you check the room size on the hotel website or a booking website before you make a reservation.
 
@@ -58,7 +58,7 @@ And of course, you are welcome to stay at the **wedding hotel** for the ultimate
 
 ## Getting there
 
-For those staying in Tokyo, we have arranged the following shuttle buses from Shibuya to the Kamakura Prince Hotel and back. The times and locations are approximate for now:
+For those staying in Tokyo, we have arranged the following **shuttle buses** from Shibuya to the Kamakura Prince Hotel and back. The times and locations are approximate for now:
 
 | | |
 |---|---|
@@ -66,9 +66,9 @@ For those staying in Tokyo, we have arranged the following shuttle buses from Sh
 | **8:30 pm** pick up at Kamakura Prince Hotel | **10:00 pm** drop off at Music Bar Cave Shibuya |
 {: .no-head}
 
-Please sign up for one or both trips using the RSVP form. You can use them whether you plan to attend the afterparty or not. There will be two buses and they will be equipped with karaoke,  so we’ll try to separate guests who prefer a quieter ride from those in the mood for a livelier journey back to Tokyo.
+Please sign up for one or both trips using the [RSVP form]({{ '/rsvp/' | relative_url }}). You can use them whether you plan to attend the afterparty or not. There will be two buses and they will be equipped with karaoke, so we’ll try to separate guests who prefer a quieter ride from those in the mood for a livelier journey back to Tokyo.
 
-Alternatively, the train ride from central Tokyo to the Kamakura Prince Hotel only takes 90 minutes. You will most likely transfer one or two times, so please leave enough time to navigate from one platform to the next, which may be in a different building. The final local train that takes you to the venue is the Enoden, which is extremely cute and scenic and iconic to the Shonan coast.
+Alternatively, the **train ride** from central Tokyo to the Kamakura Prince Hotel only takes 90 minutes. You will most likely transfer one or two times, so please leave enough time to navigate from one platform to the next, which may be in a different building. The final local train that takes you to the venue is the Enoden, which is extremely cute and scenic and iconic to the Shonan coast.
 
 For those staying in Kamakura, you can simply take the Enoden or a taxi to the venue.
 
@@ -89,7 +89,7 @@ Dress up and feel fabulous!
 
 Wear a suit, wear a dress, wear your traditional dress, or something else entirely! The exact formula is up to you. Got something extravagant in your cupboard/wardrobe/closet that you adore but have never had the occasion to wear? Wear that! Been eyeing off Grandpa's old velvet suit? Maybe now's the time! Love a classic tux or formal black dress? Amazing! Feel more "you" keeping things low key in slacks and your most celebratory shirt? That's fabulous too!
 
-Just remember that January means winter in Japan. Expect highs of around 10°C (50°F) and overnight lows of around 5°C (41°F). So while all events will be held indoors, you might appreciate a jacket, coat or shawl for those in-between moments!
+Just remember that January means winter in Japan. Expect highs of around 10°C (50°F) and overnight lows of around 2°C (35°F). So while all events will be held indoors, you might appreciate a jacket, coat or shawl for those in-between moments!
 
 
 ## Gifts

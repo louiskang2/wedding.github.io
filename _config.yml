@@ -36,6 +36,7 @@ rsvp_active: true
 #   size  width as a % of the shorter side of the window (10 ≈ 10%)
 #   x, y  where the CENTRE of the drawing sits, as a % of the window
 #         (x: 0 = left, 100 = right · y: 0 = top, 100 = bottom)
+#   angle degrees of rotation about its own centre (negative = anticlockwise)
 #
 # The names box sits in the middle of the screen, so keep decorations
 # out toward the edges. Rough clock positions (centre = 50,50):
@@ -55,12 +56,17 @@ rsvp_active: true
 # ------------------------------------------------------------
 landing:
   backdrop: backdrop.jpg
+
+  # How long a drawing takes to swing from +angle to -angle. Set 0s to hold
+  # each drawing still at its `angle` instead.
+  decor_swing: 3s
+
   decorations:
-    - { file: dango.png, size: 10, x: 80, y: 20 }   #  1 o'clock
-    - { file: taiyaki.png, size: 13, x: 15, y: 65 }   #  8 o'clock
-    - { file: sando.png, size: 10, x: 20, y: 25 }   #  11 o'clock
-    - { file: camellia.png, size: 13, x: 45, y: 84 }   #  6 o'clock
-    - { file: photo.png, size: 13, x: 85, y: 74 }   #  4 o'clock
+    - { file: dango.png, size: 10, x: 80, y: 20, angle: -8 }   #  1 o'clock
+    - { file: taiyaki.png, size: 13, x: 15, y: 65, angle: 8 }   #  8 o'clock
+    - { file: sando.png, size: 10, x: 20, y: 25, angle: 8 }   #  11 o'clock
+    - { file: camellia.png, size: 13, x: 45, y: 84, angle: -8 }   #  6 o'clock
+    - { file: photo.png, size: 13, x: 85, y: 74, angle: 8 }   #  4 o'clock
 
 # GitHub Pages: if the site lives at username.github.io/REPO,
 # set baseurl to "/REPO". If it's a root site, leave "".

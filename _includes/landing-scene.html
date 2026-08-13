@@ -25,8 +25,16 @@
   How many drawings there are is published to the CSS as --decor-count,
   so the date banner / names / gate automatically wait for the last one
   to finish. Add a decoration and the whole sequence re-times itself.
+
+  --decor-play only flips to `running` when decor_swing is a real duration,
+  so a swing of 0s leaves every drawing parked at its own `angle`.
 {% endcomment %}
-<style>#landing { --decor-count: {{ site.landing.decorations | size | default: 0 }}; }</style>
+{% assign swing = site.landing.decor_swing | default: '0s' %}
+<style>#landing {
+  --decor-count: {{ site.landing.decorations | size | default: 0 }};
+  --decor-swing: {{ swing }};
+  --decor-play: {% if swing == '0s' or swing == '0' %}paused{% else %}running{% endif %};
+}</style>
 
 <div class="landing-scene" aria-hidden="true">
   <img class="landing-backdrop"
@@ -37,7 +45,7 @@
 <div class="landing-decor" aria-hidden="true">
   {% for d in site.landing.decorations %}
   <img class="decor" src="{{ scene_dir | append: d.file | relative_url }}" alt="" decoding="async"
-       style="--i: {{ forloop.index }}; --decor-size: {{ d.size | default: 10 }}; --decor-x: {{ d.x | default: 50 }}; --decor-y: {{ d.y | default: 50 }};">
+       style="--i: {{ forloop.index }}; --decor-size: {{ d.size | default: 10 }}; --decor-x: {{ d.x | default: 50 }}; --decor-y: {{ d.y | default: 50 }}; --decor-angle: {{ d.angle | default: 0 }}deg;">
   {% endfor %}
 </div>
 {% endif %}
