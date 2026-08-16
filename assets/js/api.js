@@ -25,12 +25,22 @@ window.WeddingAPI = (function () {
   ];
   var DEMO_RESPONDED = {}; // which parties submitted during this demo session
 
-  function norm(s) { return (s || "").trim().toLowerCase(); }
+  function norm(s) {
+    return String(s || "")
+      .replace(/[\u00A0\u2000-\u200B\u3000]/g, " ")
+      .replace(/\s+/g, " ")
+      .trim()
+      .toLowerCase();
+  }
+
+  // Ignores the spacing and punctuation guests type inconsistently, so
+  // "de Koonig" / "deKoonig" and "Mary Jane" / "Mary-Jane" all match.
+  function nameKey(s) { return norm(s).replace(/[\s'\u2019\u02BC.\-]/g, ""); }
 
   // A name cell may list several options separated by commas
   // (e.g. "Robert, Bob, Bobby"): match any option, display the first.
   function nameOptions(cell) {
-    return String(cell || "").split(",").map(norm).filter(Boolean);
+    return String(cell || "").split(",").map(nameKey).filter(Boolean);
   }
   function primaryName(cell) {
     return (String(cell || "").split(",")[0] || "").trim();
@@ -38,8 +48,8 @@ window.WeddingAPI = (function () {
 
   function demoVerify(first, last) {
     var hit = DEMO_GUESTS.find(function (g) {
-      return nameOptions(g.first).indexOf(norm(first)) !== -1 &&
-             nameOptions(g.last).indexOf(norm(last)) !== -1;
+      return nameOptions(g.first).indexOf(nameKey(first)) !== -1 &&
+             nameOptions(g.last).indexOf(nameKey(last)) !== -1;
     });
     if (!hit) return { ok: false, error: "not_found" };
     var members = DEMO_GUESTS.filter(function (g) { return g.partyId === hit.partyId; });

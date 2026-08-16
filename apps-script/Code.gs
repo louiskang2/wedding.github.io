@@ -57,11 +57,15 @@ function verifyGuest_(first, last) {
   // Columns: PartyID | FirstName | LastName | Type | PlusOneAllowed
   // A FirstName or LastName cell may hold several options separated by
   // commas (e.g. "Robert, Bob, Bobby") — a guest matches if their typed
-  // name equals ANY first option AND ANY last option.
+  // name equals ANY first option AND ANY last option. Names with spaces,
+  // hyphens or apostrophes ("Mary Jane", "de Koonig", "O'Brien") match
+  // regardless of how the guest spaces or punctuates them.
+  var firstKey = nameKey_(first);
+  var lastKey = nameKey_(last);
   var match = null;
   for (var i = 1; i < rows.length; i++) {
-    if (nameOptions_(rows[i][1]).indexOf(first) !== -1 &&
-        nameOptions_(rows[i][2]).indexOf(last) !== -1) {
+    if (nameOptions_(rows[i][1]).indexOf(firstKey) !== -1 &&
+        nameOptions_(rows[i][2]).indexOf(lastKey) !== -1) {
       match = rows[i];
       break;
     }
@@ -189,14 +193,25 @@ function rsvpTab_(name) {
 }
 
 function norm_(s) {
-  return String(s == null ? '' : s).trim().toLowerCase();
+  return String(s == null ? '' : s)
+    .replace(/[\u00A0\u2000-\u200B\u3000]/g, ' ')   // non-breaking and exotic spaces
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+// Matching key: drops the spaces, hyphens, apostrophes and periods that
+// guests type inconsistently, so "de Koonig", "De  Koonig" and "deKoonig"
+// — or "Mary Jane" and "Mary-Jane" — all resolve to the same value.
+function nameKey_(s) {
+  return norm_(s).replace(/[\s'\u2019\u02BC.\-]/g, '');
 }
 
 // A name cell may list several options separated by commas
-// (e.g. "Robert, Bob, Bobby"). Return them normalized for matching.
+// (e.g. "Robert, Bob, Bobby"). Return them as matching keys.
 function nameOptions_(cell) {
   return String(cell == null ? '' : cell).split(',')
-    .map(function (s) { return norm_(s); })
+    .map(function (s) { return nameKey_(s); })
     .filter(function (s) { return s.length; });
 }
 
