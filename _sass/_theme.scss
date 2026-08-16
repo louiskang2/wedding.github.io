@@ -29,9 +29,14 @@
   --overscroll:    #000;   // only ever seen in iOS rubber-band overscroll
 
   // --- Typography (loaded in _includes/head.html) ---------------
-  --font-flourish: "cc-spaghetti-western-swash", "Comic Sans MS", cursive;
+  // --font-flourish: "cc-spaghetti-western-swash", "Comic Sans MS", cursive;
+  --font-flourish: "cc-spaghetti-western-script", "Comic Sans MS", cursive;
   --font-display: "cc-spaghetti-western-script", "Comic Sans MS", cursive;
-  --font-body:    "cc-spaghetti-western-sans", "Comic Sans MS", cursive;
+  // --font-body:    "cc-spaghetti-western-sans", "Comic Sans MS", cursive;
+  // --font-flourish: "dolly-new", cursive;
+  // --font-display: "dolly-new", cursive;
+  // --font-body:    "dolly-new", cursive;
+  --font-body:    "aquavit", cursive;
   --body-size:    18px;
 
   // --- Pen weight & panels ---------------------------------------
