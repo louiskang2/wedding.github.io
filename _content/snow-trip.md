@@ -34,7 +34,7 @@ Shinkansen tickets to ski areas sell out early, so you should get tickets soon a
 
 ## Yuzawa ski resorts
 
-There are a few ski lifts that leave directly from Yuzawa town and connect to the (Yuzawa Snow Link)[https://www.yuzawasnowlink.com/winter/en/] collection of three interconnected resorts: Yuzawa Kogen, Gala Yuzawa, and Ishiuchi Maruyama. Last year’s lift tickets were 8,500 yen for a 1-day pass to all three. They offer a decent range of runs for your child’s first time on skis, regulars on the slopes, and everyone in between. There are [lessons](https://canyons.jp/en/winter-tours/gala-yuzawa-snow-resort/) available in English, Japanese, Mandarin, and Cantonese.
+There are a few ski lifts that leave directly from Yuzawa town and connect to the [Yuzawa Snow Link](https://www.yuzawasnowlink.com/winter/en/) collection of three interconnected resorts: Yuzawa Kogen, Gala Yuzawa, and Ishiuchi Maruyama. Last year’s lift tickets were 8,500 yen for a 1-day pass to all three. They offer a decent range of runs for your child’s first time on skis, regulars on the slopes, and everyone in between. There are [lessons](https://canyons.jp/en/winter-tours/gala-yuzawa-snow-resort/) available in English, Japanese, Mandarin, and Cantonese.
 
 Incredibly, Gala Yuzawa is based at a Shinkansen station that is just one short stop after Echigo-Yuzawa, so you can easily spend a day in the mountains even if you are staying in Tokyo. To be clear, the lifts leave from the station. It contains an extensive ski and snowboard rental center (demo skis are on the second floor) and changing areas with lockers.
 
