@@ -34,6 +34,41 @@ Only adults are allowed in Music Bar Cave Shibuya for the afterparty.
 {% include map.html pb="!1m14!1m8!1m3!1d810.4125876750986!2d139.7029103!3d35.6609853!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188dc190c39e49%3A0xf1a7ffe95f92120c!2sTHE%20MUSIC%20BAR%20-CAVE%20SHIBUYA-!5e0!3m2!1sen!2sjp!4v1786460046245!5m2!1sen!2sjp" title="Music Bar Cave Shibuya" caption="Afterparty venue." %}
 
 
+## Getting there
+
+For those staying in Tokyo, we have arranged the following **shuttle buses** from Shibuya to the Kamakura Prince Hotel and back. The times and locations are approximate for now:
+
+| | |
+|---|---|
+| **1:00 pm** pick up at Music Bar Cave Shibuya | **2:30 pm** drop off at Kamakura Prince Hotel |
+| **8:30 pm** pick up at Kamakura Prince Hotel | **10:00 pm** drop off at Music Bar Cave Shibuya |
+{: .no-head}
+
+Please sign up for one or both trips using the [RSVP form]({{ '/rsvp/' | relative_url }}). You can use them whether you plan to attend the afterparty or not. There will be two buses and they will be equipped with karaoke, so we’ll try to separate guests who prefer a quieter ride from those in the mood for a livelier journey back to Tokyo.
+
+Alternatively, the **train ride** from central Tokyo to the Kamakura Prince Hotel only takes 90 minutes. You will most likely transfer one or two times, so please leave enough time to navigate from one platform to the next, which may be in a different building. The final local train that takes you to the venue is the Enoden, which is extremely cute and scenic and iconic to the Shonan coast.
+
+For those staying in Kamakura, you can simply take the Enoden or a taxi to the venue.
+
+> See our "Where to stay" section below for guidance on hotel locations.
+
+{% include figure.html src="/assets/img/louis.jpg" alt="Louis" caption="All aboard the Enoden!" %}
+
+
+## Dress code
+Dress up and feel fabulous!
+
+Wear a suit, wear a dress, wear your traditional dress, or something else entirely! The exact formula is up to you. Got something extravagant in your cupboard/wardrobe/closet that you adore but have never had the occasion to wear? Wear that! Been eyeing off Grandpa's old velvet suit? Maybe now's the time! Love a classic tux or formal black dress? Amazing! Feel more "you" keeping things low key in slacks and your most celebratory shirt? That's fabulous too!
+
+{% include figure.html src="/assets/img/cat.jpg" alt="Stylish cat" caption="Zum Beispiel." %}
+
+Just remember that January means winter in Japan. Expect highs of around 10°C (50°F) and overnight lows of around 2°C (35°F). So while all events will be held indoors, you might appreciate a jacket, coat or shawl for those in-between moments!
+
+
+## Gifts
+We sincerely ask that you refrain from giving us any gifts. We're just excited that you're coming all this way to celebrate with us. If you want to give us a note or card, there will be a place to leave them at the reception.
+
+
 ## Where to stay
 
 Depending on your plans for the wedding day and plans in Japan overall, different hotel locations may suit you better.
@@ -56,22 +91,6 @@ For those who prefer easier travel to the wedding or those who want to stay in a
 And of course, you are welcome to stay at the **wedding hotel** for the ultimate convenience and for seaside tranquility. Kamakura Prince Hotel offers easy access to Shonan attractions such as Kamakura and Enoshima, though the immediate area is quiet in the evenings. We have not arranged a hotel block, so please book your stay directly.
 
 
-## Getting there
-
-For those staying in Tokyo, we have arranged the following **shuttle buses** from Shibuya to the Kamakura Prince Hotel and back. The times and locations are approximate for now:
-
-| | |
-|---|---|
-| **1:00 pm** pick up at Music Bar Cave Shibuya | **2:30 pm** drop off at Kamakura Prince Hotel |
-| **8:30 pm** pick up at Kamakura Prince Hotel | **10:00 pm** drop off at Music Bar Cave Shibuya |
-{: .no-head}
-
-Please sign up for one or both trips using the [RSVP form]({{ '/rsvp/' | relative_url }}). You can use them whether you plan to attend the afterparty or not. There will be two buses and they will be equipped with karaoke, so we’ll try to separate guests who prefer a quieter ride from those in the mood for a livelier journey back to Tokyo.
-
-Alternatively, the **train ride** from central Tokyo to the Kamakura Prince Hotel only takes 90 minutes. You will most likely transfer one or two times, so please leave enough time to navigate from one platform to the next, which may be in a different building. The final local train that takes you to the venue is the Enoden, which is extremely cute and scenic and iconic to the Shonan coast.
-
-For those staying in Kamakura, you can simply take the Enoden or a taxi to the venue.
-
 
 ## Around the venue
 
@@ -83,14 +102,4 @@ If you arrive to the venue early (bus companies in Japan like to incorporate a l
 - Get a sweet potato crepe at IMOS cafestand
 - Browse cute shops including this beach-themed Barbour
 
-
-## Dress code
-Dress up and feel fabulous!
-
-Wear a suit, wear a dress, wear your traditional dress, or something else entirely! The exact formula is up to you. Got something extravagant in your cupboard/wardrobe/closet that you adore but have never had the occasion to wear? Wear that! Been eyeing off Grandpa's old velvet suit? Maybe now's the time! Love a classic tux or formal black dress? Amazing! Feel more "you" keeping things low key in slacks and your most celebratory shirt? That's fabulous too!
-
-Just remember that January means winter in Japan. Expect highs of around 10°C (50°F) and overnight lows of around 2°C (35°F). So while all events will be held indoors, you might appreciate a jacket, coat or shawl for those in-between moments!
-
-
-## Gifts
-We sincerely ask that you refrain from giving us any gifts. We're just excited that you're coming all this way to celebrate with us. If you want to give us a note or card, there will be a place to leave them at the reception.
+{% include figure.html src="/assets/img/carley.jpg" alt="Carley" caption="Sweet potato crepe, 4.5 stars." %}

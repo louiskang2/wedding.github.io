@@ -4,7 +4,7 @@
 
 ## Welcome
 
-Join us in Japan to celebrate our wedding on Saturday, 16 January 2027 in Kamakura and Tokyo! **Please visit the [RSVP page]({{ '/rsvp/' | relative_url }}) to submit a response by 15 October 2026.** You can resubmit until then with any updates. Many thanks!
+Carley Bartlett and Louis Kang are getting married in Japan! Join our wedding celebrations on Saturday, 16 January 2027 in Kamakura and Tokyo. **Please visit the [RSVP page]({{ '/rsvp/' | relative_url }}) to submit a response by 15 October 2026.** You can resubmit until then with any updates. Many thanks!
 
 Keep checking this website as we post more detailed information about our wedding events. We'll also provide guides for travel in Japan so you can get around like a local—or at least as local as us.
 
