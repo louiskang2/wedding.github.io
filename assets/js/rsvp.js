@@ -98,7 +98,6 @@
                     'title="Click to ' + (m.done ? "review or edit" : "fill in") + " " + esc(m.first) + '\u2019s answers"></span>');
       if (m.done) $chip.append('<span class="chip-check">✓</span> ');
       $chip.append(esc(m.first + " " + m.last));
-      if (m.type === "Child") $chip.append(' <small>👶</small>');
       $chip.append('<span class="chip-edit" aria-hidden="true">✎</span>');
       if (phase === "party" && !m.fromSheet) {
         $chip.append('<button class="chip-remove" title="Remove ' + esc(m.first) + '" data-remove="' + i + '">×</button>');
@@ -159,8 +158,8 @@
         '<p class="rsvp-note">' +
           (elsewhere ? "<strong>We already have an RSVP from your party, and what you send now replaces it.</strong> " : "") +
           'These are the people on your invitation.' +
-          (plusOneAllowed ? " You may bring one guest." : "") +
-          " You can also add children." +
+          (plusOneAllowed ? " We would be delighted for you to bring a guest." : "") +
+          " You may also add children." +
         "</p>" +
         rows +
         '<div class="d-flex flex-wrap gap-2 mt-4">' + addGuestBtn +
@@ -250,7 +249,7 @@
     $app.html(
       '<div class="rsvp-card">' +
         '<p class="rsvp-note mb-1">Guest ' + (activeIdx + 1) + " of " + members.length + "</p>" +
-        '<h3>' + esc(m.first + " " + m.last) + (isChild ? ' <small class="member-tag">Child</small>' : "") + "</h3>" +
+        '<h3>' + esc(m.first + " " + m.last) + (isChild ? ' <span class="member-tag">Child</span>' : "") + "</h3>" +
         '<div class="row g-3">' + fields + "</div>" +
         '<div class="text-danger small mt-2" id="f-err"></div>' +
         '<div class="d-flex justify-content-between mt-4">' +
@@ -328,7 +327,7 @@
     $app.html(
       '<div class="rsvp-card">' +
         '<h3>Almost done</h3>' +
-        '<p class="rsvp-note">Everyone in your party is checked off above ✓. Add an optional note, then send it our way.</p>' +
+        '<p class="rsvp-note">Everyone above is checked off ✓. Add an optional note, then send it our way.</p>' +
         '<label class="form-label">Comments (optional)</label>' +
         '<textarea class="form-control" id="r-comments" rows="4" ' +
           'placeholder="Anything else…">' + esc(comments) + "</textarea>" +

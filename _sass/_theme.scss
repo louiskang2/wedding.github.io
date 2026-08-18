@@ -29,18 +29,16 @@
   --overscroll:    #000;   // only ever seen in iOS rubber-band overscroll
 
   // --- Typography (loaded in _includes/head.html) ---------------
-  --font-flourish: "cc-spaghetti-western-swash",  cursive;
+  --font-flourish: "cc-spaghetti-western-swash", "Comic Sans MS", cursive;
   // --font-flourish: "cc-spaghetti-western-script", "Comic Sans MS", cursive;
   --font-display: "cc-spaghetti-western-script", "Comic Sans MS", cursive;
   // --font-body:    "cc-spaghetti-western-sans", "Comic Sans MS", cursive;
-  // --font-body:    "dolly-new", "Georgia", serif;
   // --font-body:    "monarcha", "Georgia", serif;
   // --font-body:    "aquavit", "Georgia", serif;
-  // --font-body:    "new-spirit", "Georgia", serif;
-  // --font-body:    "maecenas", "Georgia", serif;
   --font-body:    "ogg-text", "Georgia", serif;
   --body-size:    18px;
   --body-weight:    400;
+  --light-weight:    200;
   --bold-weight:    800;
 
   // --- Pen weight & panels ---------------------------------------
