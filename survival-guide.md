@@ -9,9 +9,9 @@ note: "Practical and cultural tips for Japan"
 
 ## Suica and Pasmo
 
-Get a Suica or Pasmo card from a ticket machine or a service counter right when you land at the airport. They are both called *IC cards* along with a few other types found elsewhere in Japan, and they all essentially provide the same contactless payment functionality. They can be used for all local trains, subways, and public buses throughout the country. They can also be used at many vending machines and stores. Keeping the card as a souvenir makes up for the 500 yen deposit that is charged upon purchase, especially since the penguin mascot on the Suica card is retiring in March 2027. The Welcome Suica involves no deposit, but it also shows no penguin.
+**Get a Suica or Pasmo card** from a ticket machine or a service counter right when you land at the airport. They are both called *IC cards* along with a few other types found elsewhere in Japan, and they all essentially provide the same contactless payment functionality. They can be used for all local trains, subways, and public buses throughout the country. They can also be used at many vending machines and stores. Keeping the card as a souvenir makes up for the 500 yen deposit that is charged upon purchase, especially since the penguin mascot on the Suica card is retiring in March 2027. The Welcome Suica involves no deposit, but it also shows no penguin.
 
-If you have an iPhone, you can also add Suica or Pasmo to your Wallet even before you leave for Japan. You can then add value to the card using Apple Pay. Some foreign credit cards cannot be used—Suica may be more reliable than Pasmo, but check before using it.
+If you have an iPhone, you can also **add Suica or Pasmo to your Apple Wallet** even before you leave for Japan. You can then add value to the card using Apple Pay. Some foreign credit cards cannot be used—Suica may be more reliable than Pasmo, but check before trying to use it. Suica and Pasmo can only be used on Android phones manufactured for the Japanese market.
 
 Some tips for charging IC cards:
 - Some foreign credit cards cannot be used to recharge an IC card at a ticket machine. At the very least, your credit card must use a PIN.

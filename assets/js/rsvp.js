@@ -23,9 +23,10 @@
 
   var YESNO = ["Yes", "No"];
   var SHUTTLE_FROM_OPTIONS = ["Yes, party bus!", "Yes, relaxing bus", "No"];
+  var SKI_OPTIONS = ["Yes, at least for some part", "Maybe, keep me updated", "No thanks"];
 
   function blankData() {
-    return { email: "", age: "", wedding: "", dietary: "",
+    return { email: "", age: "", wedding: "", dietary: "", highChair: "",
              shuttleTo: "", shuttleFrom: "", afterparty: "", skiTrip: "" };
   }
 
@@ -51,7 +52,8 @@
         done: !!p,   // already answered last time — editable by clicking the chip
         data: $.extend(blankData(), {
           email: (p && p.email) || "", age: (p && p.age) || "", wedding: (p && p.wedding) || "",
-          dietary: (p && p.dietary) || "", shuttleTo: (p && p.shuttleTo) || "",
+          dietary: (p && p.dietary) || "", highChair: (p && p.highChair) || "",
+          shuttleTo: (p && p.shuttleTo) || "",
           shuttleFrom: (p && p.shuttleFrom) || "", afterparty: (p && p.afterparty) || "",
           skiTrip: (p && p.skiTrip) || ""
         })
@@ -78,6 +80,34 @@
   function hasPlusOne() {
     return members.some(function (m) { return m.isPlusOne; });
   }
+
+  // ---------- Step history ------------------------------------
+  // Each step gets its own history entry, so the browser's back button
+  // walks the wizard instead of leaving the page. `leaveStep` lets the
+  // step being left stash whatever is typed into its fields first.
+  var leaveStep = null;
+
+  function stepState() {
+    return { rsvpStep: true, phase: phase, activeIdx: activeIdx };
+  }
+
+  function go(nextPhase, nextIdx) {
+    if (leaveStep) leaveStep();
+    phase = nextPhase;
+    if (nextIdx != null) activeIdx = nextIdx;
+    history.pushState(stepState(), "");
+    render();
+  }
+
+  window.addEventListener("popstate", function (e) {
+    if (!e.state || !e.state.rsvpStep) return;   // leaving the RSVP page entirely
+    if (leaveStep) leaveStep();
+    phase = e.state.phase;
+    activeIdx = Math.min(e.state.activeIdx, members.length - 1);
+    if (phase === "details" && activeIdx < 0) phase = "party";
+    render();
+  });
+
   function esc(s) {
     return String(s == null ? "" : s)
       .replace(/&/g, "&amp;")
@@ -110,10 +140,7 @@
   // works in every phase, including when revisiting a finished RSVP.
   function chipJump(el, e) {
     if ($(e.target).is(".chip-remove")) return;
-    var i = $(el).data("idx");
-    phase = "details";
-    activeIdx = i;
-    render();
+    go("details", $(el).data("idx"));
   }
   $chips.on("click", ".guest-chip", function (e) { chipJump(this, e); });
   $chips.on("keydown", ".guest-chip", function (e) {
@@ -134,7 +161,7 @@
   function renderParty() {
     var rows = members.map(function (m, i) {
       var tag = m.fromSheet ? (m.type === "Child" ? "Child" : "Invited")
-                            : (m.isPlusOne ? "Your guest" : "Child");
+                            : (m.isPlusOne ? "Guest" : "Child");
       var del = m.fromSheet ? "" :
         '<button class="btn btn-wed-outline btn-remove btn-sm" data-del="' + i + '">Remove</button>';
       return '<div class="member-row">' +
@@ -167,7 +194,7 @@
         '</div>' +
         '<div id="add-form" class="mt-3"></div>' +
         '<div class="text-end mt-4">' +
-          '<button class="btn btn-wed" id="to-details">Continue →</button>' +
+          '<button class="btn btn-wed" id="to-details">Next →</button>' +
         '</div>' +
       '</div>'
     );
@@ -204,9 +231,7 @@
     $("#add-child").on("click", function () { showAddForm("child"); });
 
     $("#to-details").on("click", function () {
-      phase = "details";
-      activeIdx = 0;
-      render();
+      go("details", 0);
     });
   }
 
@@ -240,11 +265,12 @@
       '<div class="col-12"><label class="form-label">Dietary restrictions</label>' +
         '<input class="form-control" id="f-dietary" value="' + esc(d.dietary) + '" placeholder="None / vegetarian / allergies…"></div>' +
       selectField("f-shuttle-to", "Shuttle bus to the venue?", d.shuttleTo, YESNO) +
-      selectField("f-shuttle-from", "Shuttle bus back to Tokyo?", d.shuttleFrom, SHUTTLE_FROM_OPTIONS);
+      selectField("f-shuttle-from", "Shuttle bus back to Tokyo?", d.shuttleFrom, SHUTTLE_FROM_OPTIONS) +
+      (isChild ? selectField("f-high-chair", "Need a high chair?", d.highChair, YESNO) : "");
     fields += '<div class="col-12" id="wedding-only"><div class="row g-3">' + weddingOnly + '</div></div>';
 
     if (!isChild) fields += selectField("f-afterparty", "Attending the afterparty?", d.afterparty, YESNO);
-    fields += selectField("f-ski", "Joining the snow trip?", d.skiTrip, YESNO);
+    fields += selectField("f-ski", "Joining the snow trip?", d.skiTrip, SKI_OPTIONS);
 
     $app.html(
       '<div class="rsvp-card">' +
@@ -253,25 +279,23 @@
         '<div class="row g-3">' + fields + "</div>" +
         '<div class="text-danger small mt-2" id="f-err"></div>' +
         '<div class="d-flex justify-content-between mt-4">' +
-          '<button class="btn btn-wed-outline" id="f-back">' +
-            (activeIdx === 0 ? "← Your party" : "← Back") + "</button>" +
-          '<button class="btn btn-wed" id="f-save">' +
-            (activeIdx === members.length - 1 ? "Save & finish" : "Save & next →") + "</button>" +
+          '<button class="btn btn-wed-outline" id="f-back">← Back</button>' +
+          '<button class="btn btn-wed" id="f-save">Next →</button>' +
         "</div>" +
       "</div>"
     );
 
     $("#f-back").on("click", function () {
-      saveFields(false);
       if (activeIdx === 0) {
-        phase = "party";        // step back out to the "Your party" list
+        go("party");            // step back out to the "Your party" list
       } else {
-        activeIdx--;
+        go("details", activeIdx - 1);
       }
-      render();
     });
 
     $("#f-save").on("click", function () { saveFields(true); });
+
+    leaveStep = function () { saveFields(false); };
 
     // Show the dietary + shuttle questions only when attending the wedding.
     function toggleWeddingOnly() {
@@ -293,12 +317,14 @@
         d.dietary = ($("#f-dietary").val() || "").trim();
         d.shuttleTo = $("#f-shuttle-to").val() || "";
         d.shuttleFrom = $("#f-shuttle-from").val() || "";
+        d.highChair = isChild ? ($("#f-high-chair").val() || "") : "";
       } else {
         // Not attending the wedding — these questions don't apply, so clear
         // any previously entered answers rather than storing stale values.
         d.dietary = "";
         d.shuttleTo = "";
         d.shuttleFrom = "";
+        d.highChair = "";
       }
 
       if (!validate) return;
@@ -306,6 +332,7 @@
       var missing = !d.wedding || !d.skiTrip ||
                     (!isChild && (!d.email || !d.afterparty)) ||
                     (isChild && d.age === "") ||
+                    (attending && isChild && !d.highChair) ||
                     (attending && (!d.dietary || !d.shuttleTo || !d.shuttleFrom));
       if (missing) {
         $("#f-err").text("Please answer every question before continuing.");
@@ -314,11 +341,10 @@
 
       m.done = true;
       if (activeIdx === members.length - 1) {
-        phase = "comments";
+        go("comments");
       } else {
-        activeIdx++;
+        go("details", activeIdx + 1);
       }
-      render();
     }
   }
 
@@ -333,18 +359,17 @@
           'placeholder="Anything else…">' + esc(comments) + "</textarea>" +
         '<div class="text-danger small mt-2" id="r-err"></div>' +
         '<div class="d-flex justify-content-between mt-4">' +
-          '<button class="btn btn-wed-outline" id="r-back">← Review answers</button>' +
+          '<button class="btn btn-wed-outline" id="r-back">← Back</button>' +
           '<button class="btn btn-wed btn-contrast" id="r-submit">Submit RSVP</button>' +
         "</div>" +
       "</div>"
     );
 
     $("#r-back").on("click", function () {
-      comments = $("#r-comments").val();
-      phase = "details";
-      activeIdx = 0;
-      render();
+      go("details", 0);
     });
+
+    leaveStep = function () { comments = $("#r-comments").val(); };
 
     $("#r-submit").on("click", function () {
       comments = $("#r-comments").val().trim();
@@ -362,8 +387,7 @@
         .then(function (res) {
           if (res && res.ok) {
             WeddingAPI.saveAnswers(session.partyId, { comments: comments, guests: payload.guests });
-            phase = "success";
-            render();
+            go("success");
           } else { throw new Error("bad response"); }
         })
         .catch(function () {
@@ -388,26 +412,27 @@
     $("#r-again").on("click", function () {
       // Answers stay saved (✓) — click any name in the strip to edit,
       // or use this to revisit the party list and re-send.
-      phase = "party";
-      render();
+      go("party");
     });
   }
 
   // ---------- Render loop -------------------------------------
   function render() {
+    leaveStep = null;   // each step re-registers its own on the way in
     renderChips();
     if (phase === "party") renderParty();
     else if (phase === "details") renderDetails();
     else if (phase === "comments") renderComments();
     else renderSuccess();
     // keep the sticky bar's scroll on the active chip
+    // ("nearest" so the page's own scroll position is left where it was)
     var $active = $chips.find(".guest-chip.active");
     if ($active.length && $active[0].scrollIntoView) {
       $active[0].scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
     }
-    window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
   initMembers();
+  history.replaceState(stepState(), "");
   render();
 })(jQuery);

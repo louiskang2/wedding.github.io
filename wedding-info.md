@@ -80,13 +80,14 @@ Depending on your plans for the wedding day and plans in Japan overall, differen
 
 There are many hotels near the shuttle bus location in **Shibuya, Tokyo**, and here are a few:
 
-- Shibuya Tokyu REI Hotel (*good value*)
-- All Day Place Shibuya (*casual-chic*)
-- Shibuya Stream Hotel (*upscale*)
-- Trunk Hotel (*trendy*)
-- Hyatt House Tokyo Shibuya (*luxury*)
+- [Shibuya Tokyu REI Hotel](https://maps.app.goo.gl/riKEh6Z6reQuBSno7) *(good value)*
+- [All Day Place Shibuya](https://maps.app.goo.gl/8V8nnvrrqBBME3B69) *(casual-chic)*
+- [Hyatt House Tokyo Shibuya](https://maps.app.goo.gl/8MT3dRBfNuxcNj4G7) *(upscale)*
+- [Shibuya Stream Hotel](https://maps.app.goo.gl/K9P1UVUGTHpP1W5k6) *(high-end)*
+- [Trunk Hotel](https://maps.app.goo.gl/g89b81n7JeWDxpTT8) *(trendy)*
+- [Cerulean Tower Tokyu Hotel](https://maps.app.goo.gl/rLjLXnSPS5SYBeS99) *(luxury)*
 
-Note Shibuya is a versatile neighborhood with quiet, charming areas as well as loud, lively areas. Be careful if a hotel's price seems too good to be true—it could be a love hotel, especially in the [Dogenzaka](https://maps.app.goo.gl/4x32D7cPSm7cmaGT6) area, where we do not recommend you to stay. We also do not recommend Sequence Miyashita Park because the trains cause a lot of noise starting from early in the morning.
+Note Shibuya is a versatile neighborhood with quiet, charming areas as well as loud, lively areas. Be careful if a hotel's price seems too good to be true—it could be a love hotel, especially in the [Dogenzaka](https://maps.app.goo.gl/4x32D7cPSm7cmaGT6) area. We also do not recommend Sequence Miyashita Park because the trains cause a lot of noise starting from early in the morning.
 
 Shibuya is also easily accessible by train or taxi to **many other locations in Tokyo**. So feel free to find a neighborhood with a more local feel or indulge in one of the world’s top hotels. **Shinjuku** is central and bustling, and the west side of the train tracks is much more quiet at night compared to the east side. **Shinagawa** is very convenient for traveling to the airport, coming to our wedding by train, and taking the Shinkansen, but it is a business district and the surrounding area is rather deserted at night. The same holds for **Tokyo station**, though you can walk to Ginza and Kanda for shops and restaurants. The neighborhoods in Minato Ward, such as **Roppongi**, are posh and international, though the area is slightly less connected to the train network.
 

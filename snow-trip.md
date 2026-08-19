@@ -9,11 +9,11 @@ note: "Follow us from the Shonan coast to Snow Country"
 
 ## When and where
 
-Japanese snow culture is one of the reasons for having our wedding in January. From **18** to **21 January**, we will be in **Yuzawa**, a town tucked between the mountains of Niigata prefecture. Feel free to come for any part of that time, even for a day trip from Tokyo—it’s only 80 minutes away by Shinkansen.
+Japanese snow culture is one of the reasons for having our wedding in January. **From 18 to 21 January**, we will be in **Yuzawa**, a town tucked between the mountains of Niigata prefecture. Feel free to come for any part of that time, even for a day trip from Tokyo—it’s only 80 minutes away by Shinkansen.
 
 > We'll organize a group chat for those who are interested to share information and coordinate activities.
 
-We will be staying near Echigo-Yuzawa station. There are a number of hotels in the area, but please **book your accommodation early** because Japanese ski destinations are very popular among locals and internationals alike. Many of the hotels will be **ryokan**, which offer traditional Japanese hospitality that may include breakfast and dinner, futon beds and tatami mats, and onsen baths with natural hot spring water.
+We will be staying near Echigo-Yuzawa station. There are a number of hotels in the area, but please **book your accommodation early** because Japanese ski destinations are very popular among locals and internationals alike. Many of the hotels will be *ryokan*, which offer traditional Japanese hospitality that may include breakfast and dinner, futon beds and tatami mats, and onsen baths with natural hot spring water.
 
 {% include map.html pb="!1m18!1m12!1m3!1d12756.26497302461!2d138.80032221847804!3d36.93658425088337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601e0230012657b5%3A0xa476074db2869ec8!2sECHIGO%20YUZAWA%20STATION!5e0!3m2!1sen!2sjp!4v1786494335705!5m2!1sen!2sjp" title="Echigo-Yuzawa station" caption="Snow trip location." %}
 
@@ -39,11 +39,11 @@ Shinkansen tickets to ski areas sell out early, so you should get tickets soon a
 
 ## Yuzawa ski resorts
 
-There are a few ski lifts that leave directly from Yuzawa town and connect to the [Yuzawa Snow Link](https://www.yuzawasnowlink.com/winter/en/) collection of three interconnected resorts: Yuzawa Kogen, Gala Yuzawa, and Ishiuchi Maruyama. Last year’s lift tickets were 8,500 yen for a 1-day pass to all three. They offer a decent range of runs for your child’s first time on skis, regulars on the slopes, and everyone in between. There are [lessons](https://canyons.jp/en/winter-tours/gala-yuzawa-snow-resort/) available in English, Japanese, Mandarin, and Cantonese.
+There are a few ski lifts that leave directly from Yuzawa town and connect to the [Yuzawa Snow Link](https://www.yuzawasnowlink.com/winter/en/) collection of three interconnected resorts: **Yuzawa Kogen, Gala Yuzawa, and Ishiuchi Maruyama**. Last year’s lift tickets were 8,500 yen for a 1-day pass to all three. They offer a decent range of runs for your child’s first time on skis, regulars on the slopes, and everyone in between. There are [lessons](https://canyons.jp/en/winter-tours/gala-yuzawa-snow-resort/) available in English, Japanese, Mandarin, and Cantonese.
 
 Incredibly, Gala Yuzawa is based at a Shinkansen station that is just one short stop after Echigo-Yuzawa, so you can easily spend a day in the mountains even if you are staying in Tokyo. To be clear, the lifts leave from the station. It contains an extensive ski and snowboard rental center (demo skis are on the second floor) and changing areas with lockers.
 
-For those hungry for Japanese powder, [Kagura Ski Resort](https://www.princehotels.com/en/ski/kagura/) is just a 20-minute bus ride away from Echigo-Yuzawa station. It features plenty of off-piste terrain in addition to its standard courses which connect with those of Naeba Ski Resort. [Check it out before it gets too popular!](https://www.skimag.com/adventure/japan-snow-country/)
+For those hungry for Japanese powder, [**Kagura Ski Resort**](https://www.princehotels.com/en/ski/kagura/) is just a 20-minute bus ride away from Echigo-Yuzawa station. It features plenty of off-piste terrain in addition to its standard courses which connect with those of Naeba Ski Resort. [Check it out before it gets too popular!](https://www.skimag.com/adventure/japan-snow-country/)
 
 See our [Japan Guide]({{ '/japan-guide/' | relative_url }}) for more information about skiing and snowboarding in Japan.
 

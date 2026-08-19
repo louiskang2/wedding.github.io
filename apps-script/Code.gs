@@ -26,7 +26,7 @@ var RSVP_LOG_SHEET = 'RSVP log';
 var RSVP_HEADERS = [
   'Timestamp', 'PartyID', 'FirstName', 'LastName', 'Type', 'IsPlusOne',
   'Email', 'Age', 'Wedding', 'Dietary', 'ShuttleTo', 'ShuttleFrom',
-  'Afterparty', 'SkiTrip', 'Comments'
+  'HighChair', 'Afterparty', 'SkiTrip', 'Comments'
 ];
 
 function doGet(e) {
@@ -137,7 +137,7 @@ function saveRsvp_(data) {
         ts, data.partyId, g.first || '', g.last || '', g.type || 'Adult',
         g.isPlusOne ? 'Yes' : 'No', g.email || '', g.age || '',
         g.wedding || '', g.dietary || '', g.shuttleTo || '', g.shuttleFrom || '',
-        g.afterparty || '', g.skiTrip || '', data.comments || ''
+        g.highChair || '', g.afterparty || '', g.skiTrip || '', data.comments || ''
       ];
     });
 

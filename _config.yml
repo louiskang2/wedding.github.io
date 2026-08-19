@@ -19,7 +19,7 @@ wedding:
 # Leave empty ("") to run in DEMO MODE with built-in sample
 # guests (try first name "Alex", last name "Tanaka").
 # ------------------------------------------------------------
-apps_script_url: "https://script.google.com/macros/s/AKfycbzE6lfMNwUwsLrZZHKCwBgH3Lvqo_Vak7QgIBLTu3hL-zRRoppH1u2H73KpkPkzDSg/exec"
+apps_script_url: "https://script.google.com/macros/s/AKfycbyxZRoYa6P5DqEdNGwGvsXT6pMd-mqhiBJNX9Vg-M34yvfs4u3nTKOeboMmqn3cOrY/exec"
 
 # Set to false once responses close: the RSVP page then shows a short
 # notice instead of the form, and no RSVP code is sent to the browser.
