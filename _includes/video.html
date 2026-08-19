@@ -1,0 +1,12 @@
+{% comment %}
+Embed a self-hosted MP4:  {% include video.html src="/assets/video/clip.mp4" caption="Optional caption" %}
+Options:  poster="/assets/img/still.jpg"  (frame shown before play)
+          autoplay=true                   (starts muted and loops; controls stay available)
+{% endcomment %}
+<figure class="embed-figure">
+  <video src="{{ include.src | relative_url }}"
+         {% if include.poster %}poster="{{ include.poster | relative_url }}"{% endif %}
+         {% if include.autoplay %}autoplay muted loop{% endif %}
+         controls playsinline preload="metadata"></video>
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>

@@ -156,7 +156,7 @@
       '<div class="rsvp-card">' +
         '<h3>Your party</h3>' +
         '<p class="rsvp-note">' +
-          (elsewhere ? "<strong>We already have an RSVP from your party, and what you send now replaces it.</strong> " : "") +
+          (elsewhere ? "<strong>We have already received your RSVP, and what you send now replaces your entire party.</strong> " : "") +
           'These are the people on your invitation.' +
           (plusOneAllowed ? " We would be delighted for you to bring a guest." : "") +
           " You may also add children." +

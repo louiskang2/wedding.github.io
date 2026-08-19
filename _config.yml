@@ -80,10 +80,6 @@ markdown: kramdown
 sass:
   style: compressed
 
-collections:
-  content:
-    output: false
-
 exclude:
   - README.md
   - Gemfile

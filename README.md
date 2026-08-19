@@ -93,8 +93,10 @@ always be recovered. Rows from one submission share a `Timestamp`.
 
 **Global details** — names, date, venue: edit `_config.yml`.
 
-**Page content** — each page's body is one Markdown file in `_content/`, named
-after the page: `main.md` (home), `info.md`, `japan.md`, `snow.md`.
+**Page content** — each page is one Markdown file in the site root, named after
+its URL: `index.md` (home), `wedding-info.md`, `snow-trip.md`, and so on. The
+front matter at the top sets the title, permalink and layout; everything below
+it is the page body.
 
 Every `## ` heading starts a new section on that page, in the order written:
 
@@ -112,13 +114,15 @@ Add a section = add a heading. Reorder = move the block. The anchor id is
 derived from the heading text (`## Tokyo Guide` → `#tokyo-guide`); pin your own
 with `## What to Wear & Bring {#what-to-wear}` when the generated one is awkward.
 
-A page is wired to its file by the `body:` key in the page's front matter
-(`body: japan-guide` → `_content/japan-guide.md`).
+The home page uses `layout: home`, which wraps its sections in the landing
+hero and reveals them after a guest's name is verified. Every other page uses
+`layout: page`.
 
 **Embeds** — drop these lines anywhere inside a section:
 
 ```liquid
 {% include figure.html src="/assets/img/photo.jpg" alt="Description" caption="Optional" %}
+{% include video.html src="/assets/video/clip.mp4" poster="/assets/img/still.jpg" caption="Optional" %}
 {% include youtube.html id="dQw4w9WgXcQ" caption="Optional" %}
 {% include map.html embed="pb=!1m18!1m12!..." title="Kamakura Prince Hotel" caption="Optional" %}
 {% include carousel.html images="/assets/img/a.jpg,/assets/img/b.jpg,/assets/img/c.jpg" %}
@@ -201,11 +205,10 @@ The UI chrome (frame borders, the nav rule, title bars, hover underlines) needs
 
 ```
 _config.yml               site settings + Apps Script URL
-index.html                landing sequence + home page content
+index.md                  home page content (landing sequence in _layouts/home.html)
 rsvp.html                 RSVP wizard shell (logic in assets/js/rsvp.js)
-*.md                      page shells — content comes from _content/
-_content/*.md             ← ALL page content lives here, one file per page
-_layouts/                 default.html (chrome), page.html (hero + sections)
+*.md                      ← ALL page content lives here, one file per page
+_layouts/                 default.html (chrome), home.html (landing), page.html (hero + sections)
 _includes/                top nav, embed helpers (figure/youtube/map/carousel)
 _sass/_theme.scss         ← ALL design variables live here
 _sass/_site.scss          component styles

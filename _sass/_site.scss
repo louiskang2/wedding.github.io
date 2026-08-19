@@ -642,7 +642,8 @@ body[data-rsvp-open] #page-content { padding-top: calc(var(--nav-height) + var(-
 // (corner style comes from --rad in _theme.scss)
 figure.embed-figure {
   margin: 1.6rem 0;
-  img { border: var(--line) solid var(--ink); border-radius: var(--rad); box-shadow: var(--pop-shadow-soft); }
+  img, video { border: var(--line) solid var(--ink); border-radius: var(--rad); box-shadow: var(--pop-shadow-soft); }
+  video { display: block; width: 100%; height: auto; background: var(--ink); }
   figcaption { font-size: .9rem; color: var(--gray); margin-top: .55rem; letter-spacing: .02em; }
 }
 .embed-frame {

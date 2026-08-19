@@ -7,4 +7,6 @@ layout: default
   {% if page.note %}<p class="hero-note">{{ page.note }}</p>{% endif %}
 </header>
 
-{% include page-body.html key=page.body %}
+<div class="section">
+  {{ content }}
+</div>

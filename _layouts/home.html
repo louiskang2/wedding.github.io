@@ -1,10 +1,6 @@
 ---
 layout: default
-title: Welcome
-nav_id: home
-permalink: /
 ---
-
 <!-- =============== LANDING HERO (stays in place) =============== -->
 <div id="landing">
   {% include landing-scene.html %}
@@ -41,5 +37,7 @@ permalink: /
 <!-- =============== MAIN CONTENT (mounted after verification) =============== -->
 <div id="home-sections"></div>
 <template id="home-sections-tpl">
-  {% include page-body.html key="main" %}
+  <div class="section">
+    {{ content }}
+  </div>
 </template>
