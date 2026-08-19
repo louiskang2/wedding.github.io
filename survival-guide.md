@@ -41,3 +41,7 @@ Two sets of Shinkansen depart from Tokyo station with separate fare gates, so be
 For the Tokaido Shinkansen, note that **oversized luggage** requires special seat reservations. For the Joetsu Shinkansen, such reservations are not needed.
 
 In certain cases, you enter the Shinkansen tracks from one set of fare gates; in other cases, you first enter the JR area through one set and then the Shinkansen area through a second set of fare gates. The same goes for leaving a station. So if the fare gate returns your paper ticket as you pass through, keep it at hand in case you need to use it again.
+
+## More coming soon!
+
+Check back for more tips.

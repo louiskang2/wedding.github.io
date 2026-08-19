@@ -22,7 +22,9 @@ We will be staying near Echigo-Yuzawa station. There are a number of hotels in t
 
 You can reach Echigo-Yuzawa station from Tokyo Station or Ueno Station easily by the Joetsu Shinkansen. If you are using Tokyo Station, please give yourself an **extra 20 minutes** at least because the station is massive and very crowded. There are two different sets of Shinkansen, so follow signs for the **green** Shinkansen which include the Joetsu lines.
 
-Shinkansen tickets to ski areas sell out early, so you should get tickets soon after arriving in Japan. Read more about the Shinkansen in the [Japan Guide]({{ '/japan-guide/' | relative_url }}).
+{% include video.html src="/assets/video/train.mp4" caption="Shinkansen ride into Yuzawa" autoplay=true %}
+
+Shinkansen tickets to ski areas **sell out early**, so you should get tickets soon after arriving in Japan. Read more about the Shinkansen in [Survival Guide]({{ '/survival-guide/' | relative_url }}).
 
 
 ## What to do
@@ -31,7 +33,7 @@ Shinkansen tickets to ski areas sell out early, so you should get tickets soon a
 - **Snow fun**: Even without strapping in, there are ways for families to enjoy the snow. You can take the resort gondolas up to [observations decks](https://www.yuzawakogen.com/tips/kumocafe/) with panoramic viewpoints. There’s a [Snow Enjoyment Park](https://gala.co.jp/en/winter/course/#c_a4) for kids to play in the snow, go sledding, and build snowmen.
 - **Sake tasting**: Echigo-Yuzawa station contains the Ponshukan Sake Museum where 500 yen gets you 5 tokens that each gets you a pour of sake from an automated dispenser. There are 100 different types to choose from.
 - **Food tasting**: The many restaurants around town offer food that you won’t get in Tokyo. Hegi soba is a local specialty—even in the winter, we prefer to eat our soba cold rather than warm to appreciate its texture.  And of course, Niigata is the home of koshihikari rice, which is the most prized cultivar in Japan.
-- **Onsen**: There are a few public baths in Yuzawa town with hot spring water, but the most scenic is a bus ride away. Kaikake Onsen has a 700-year history and offers large outdoor baths that overlook the mountains—the catch is that its waters are warm instead of hot to encourage prolonged bathing. [It seems to be tattoo-friendly.](https://yumo.to/onsen/nagano/%E8%B2%9D%E6%8E%9B%E6%B8%A9%E6%B3%89--onsen_99fb1206) (See our Japan guide for more information about onsens.)
+- **Onsen**: There are a few public baths in Yuzawa town with hot spring water, but the most scenic is a bus ride away. Kaikake Onsen has a 700-year history and offers large outdoor baths that overlook the mountains—the catch is that its waters are warm instead of hot to encourage prolonged bathing. [It seems to be tattoo-friendly.](https://yumo.to/onsen/nagano/%E8%B2%9D%E6%8E%9B%E6%B8%A9%E6%B3%89--onsen_99fb1206) (See [Survival Guide]({{ '/survival-guide/' | relative_url }}) for more information about onsens.)
 - **Kiyotsu Gorge**: If your vigor and the weather allows for a wintry hike, you can take a bus to a paved road that leads to this Kiyotsu Gorge, whose viewpoints are accessed by walking through a 750-meter-long tunnel that contains art installations.
 - **Snow Country**: Find a quiet spot to read Snow Country, a novel cited by the Nobel Committee when it awarded Yasunari Kawabata the Nobel Prize in Literature. It was published in 1956 and takes place in Yuzawa, though the town name is not mentioned. You can even book the ryokan where he stayed or visit their onsen or mini Kawabata exhibit in the afternoon.
 
@@ -43,7 +45,9 @@ There are a few ski lifts that leave directly from Yuzawa town and connect to th
 
 Incredibly, Gala Yuzawa is based at a Shinkansen station that is just one short stop after Echigo-Yuzawa, so you can easily spend a day in the mountains even if you are staying in Tokyo. To be clear, the lifts leave from the station. It contains an extensive ski and snowboard rental center (demo skis are on the second floor) and changing areas with lockers.
 
-For those hungry for Japanese powder, [**Kagura Ski Resort**](https://www.princehotels.com/en/ski/kagura/) is just a 20-minute bus ride away from Echigo-Yuzawa station. It features plenty of off-piste terrain in addition to its standard courses which connect with those of Naeba Ski Resort. [Check it out before it gets too popular!](https://www.skimag.com/adventure/japan-snow-country/)
+{% include video.html src="/assets/video/station.mp4" caption="Arriving at Gala-Yuzawa station" autoplay=true %}
 
-See our [Japan Guide]({{ '/japan-guide/' | relative_url }}) for more information about skiing and snowboarding in Japan.
+For those thirsty for Japanese powder, [**Kagura Ski Resort**](https://www.princehotels.com/en/ski/kagura/) is just a 20-minute bus ride away from Echigo-Yuzawa station. It features plenty of off-piste terrain in addition to its standard courses which connect with those of Naeba Ski Resort. [Check it out before it gets too popular!](https://www.skimag.com/adventure/japan-snow-country/)
+
+See [Fun in Japan]({{ '/fun-in-japan/' | relative_url }}) for more information about skiing and snowboarding in Japan.
 

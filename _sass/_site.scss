@@ -20,8 +20,8 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: var(--body-size);
   font-weight: var(--body-weight);
+  font-size: var(--body-size);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
@@ -172,10 +172,10 @@ img { max-width: 100%; height: auto; border-radius: var(--rad); }
     }
     .landing-sub {
       color: var(--gray);
-      letter-spacing: .3em;
+      font-weight: var(--light-weight);
       text-transform: uppercase;
       font-size: .8rem;
-      font-weight: var(--light-weight);
+      letter-spacing: .3em;
       opacity: 0;
       animation: fadeUp 1.6s ease forwards;
     }
@@ -244,8 +244,8 @@ img { max-width: 100%; height: auto; border-radius: var(--rad); }
 
     .welcome-msg {
       font-family: var(--font-display);
-      font-size: 1.5rem;
       font-weight: var(--bold-weight);
+      font-size: 1.5rem;
       color: var(--ink);
       margin-bottom: .4rem;
       .name { color: var(--contrast); }
@@ -266,10 +266,10 @@ img { max-width: 100%; height: auto; border-radius: var(--rad); }
     }
     .landing-scroll {
       color: var(--gray);
-      font-size: .7rem;
       font-weight: var(--light-weight);
-      letter-spacing: .3em;
       text-transform: uppercase;
+      font-size: .7rem;
+      letter-spacing: .3em;
       .scroll-chevron {
         display: block;
         rotate: 180deg;
@@ -436,8 +436,8 @@ html.authed #landing #landing-gate:not(.gate-out) {
     color: var(--ink);
     text-decoration: none;
     font-family: var(--font-display);
-    font-size: 1rem;
     font-weight: var(--bold-weight);
+    font-size: 1rem;
     letter-spacing: .05em;
     padding: .45rem .95rem;
     white-space: nowrap;
@@ -543,23 +543,10 @@ body[data-rsvp-open] #page-content { padding-top: calc(var(--nav-height) + var(-
     display: inline-block;
     position: relative;
     font-size: clamp(2.1rem, 5vw, 3.1rem);
-    // a line under every page title
-    // &::after {
-    //   content: "";
-    //   position: absolute;
-    //   top: 100%;
-    //   left: -1rem; right: -1rem;
-    //   height: var(--tbar-h);
-    //   background: var(--tbar-color);
-    //   clip-path: var(--tbar-clip-path);
-    //   margin: .5rem auto 0;
-    // }
   }
   .hero-kicker {
     color: var(--contrast);
     letter-spacing: .3rem;
-    // text-transform: uppercase;
-    // font-family: var(--font-body);
     font-family: var(--font-display);
     font-size: .78rem;
     margin-bottom: .8rem;
@@ -602,7 +589,7 @@ body[data-rsvp-open] #page-content { padding-top: calc(var(--nav-height) + var(-
 
   table { width: 100%; border-collapse: collapse; margin: 1rem 0;
     th, td { border-bottom: 1.5px solid var(--gray); padding: .55rem .4rem; text-align: left; }
-    th { font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); font-family: var(--font-body); }
+    th { text-transform: uppercase; font-size: .82rem; letter-spacing: .1em; color: var(--gray); font-family: var(--font-body); }
   }
   // Markdown always emits a header row; `{: .no-head}` after a table drops it.
   table.no-head thead { display: none; }
@@ -640,7 +627,7 @@ figure.embed-figure {
   margin: 1.6rem 0;
   img, video { border: var(--line) solid var(--ink); border-radius: var(--rad); box-shadow: var(--pop-shadow-soft); }
   video { display: block; width: 100%; height: auto; background: var(--ink); }
-  figcaption { font-size: .9rem; color: var(--gray); margin-top: .55rem; }
+  figcaption { font-weight: var(--light-weight); font-size: .9rem; color: var(--gray); margin-top: .55rem; }
 }
 .embed-frame {
   position: relative;
@@ -720,7 +707,7 @@ figure.embed-figure {
   h3 { 
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    .member-tag { font-family: var(--font-body); font-size: .76rem; letter-spacing: .1em; font-weight: var(--light-weight); text-transform: uppercase; padding-left: 0.5rem; }
+    .member-tag { font-family: var(--font-body); font-weight: var(--light-weight); text-transform: uppercase; font-size: .76rem; letter-spacing: .1em; padding-left: 0.5rem; }
   }
   .form-label {
     font-family: var(--font-body);
@@ -746,7 +733,6 @@ figure.embed-figure {
   padding: .7rem .2rem;
   border-bottom: 1.5px dashed var(--gray);
   .member-name { font-family: var(--font-display); font-size: 1.2rem; }
-  .member-tag { font-size: .76rem; letter-spacing: .1em; font-weight: var(--light-weight); text-transform: uppercase; color: var(--ink); background: var(--yellow); border: 2px solid var(--ink); border-radius: 6px; padding: .1rem .5rem; }
 }
 
 .btn-wed {

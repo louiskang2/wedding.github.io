@@ -13,6 +13,7 @@
 
   var $app = $("#rsvp-app");
   var $chips = $("#chip-bar");
+  var $strip = $("#chip-strip");   // the horizontally scrollable wrapper
 
   // ---------- State ------------------------------------------
   var members = [];        // {first,last,type,fromSheet,isPlusOne,done,data{}}
@@ -20,6 +21,7 @@
   var activeIdx = -1;
   var comments = "";
   var plusOneAllowed = !!session.plusOneAllowed;
+  var stashFields = null;  // set while a guest form is on screen; saves its fields
 
   var YESNO = ["Yes", "No"];
   var SHUTTLE_FROM_OPTIONS = ["Yes, party bus!", "Yes, relaxing bus", "No"];
@@ -80,34 +82,6 @@
   function hasPlusOne() {
     return members.some(function (m) { return m.isPlusOne; });
   }
-
-  // ---------- Step history ------------------------------------
-  // Each step gets its own history entry, so the browser's back button
-  // walks the wizard instead of leaving the page. `leaveStep` lets the
-  // step being left stash whatever is typed into its fields first.
-  var leaveStep = null;
-
-  function stepState() {
-    return { rsvpStep: true, phase: phase, activeIdx: activeIdx };
-  }
-
-  function go(nextPhase, nextIdx) {
-    if (leaveStep) leaveStep();
-    phase = nextPhase;
-    if (nextIdx != null) activeIdx = nextIdx;
-    history.pushState(stepState(), "");
-    render();
-  }
-
-  window.addEventListener("popstate", function (e) {
-    if (!e.state || !e.state.rsvpStep) return;   // leaving the RSVP page entirely
-    if (leaveStep) leaveStep();
-    phase = e.state.phase;
-    activeIdx = Math.min(e.state.activeIdx, members.length - 1);
-    if (phase === "details" && activeIdx < 0) phase = "party";
-    render();
-  });
-
   function esc(s) {
     return String(s == null ? "" : s)
       .replace(/&/g, "&amp;")
@@ -129,7 +103,7 @@
       if (m.done) $chip.append('<span class="chip-check">✓</span> ');
       $chip.append(esc(m.first + " " + m.last));
       $chip.append('<span class="chip-edit" aria-hidden="true">✎</span>');
-      if (phase === "party" && !m.fromSheet) {
+      if ((phase === "party" || phase === "details") && !m.fromSheet) {
         $chip.append('<button class="chip-remove" title="Remove ' + esc(m.first) + '" data-remove="' + i + '">×</button>');
       }
       $chips.append($chip);
@@ -140,7 +114,10 @@
   // works in every phase, including when revisiting a finished RSVP.
   function chipJump(el, e) {
     if ($(e.target).is(".chip-remove")) return;
-    go("details", $(el).data("idx"));
+    var i = $(el).data("idx");
+    phase = "details";
+    activeIdx = i;
+    render();
   }
   $chips.on("click", ".guest-chip", function (e) { chipJump(this, e); });
   $chips.on("keydown", ".guest-chip", function (e) {
@@ -151,24 +128,28 @@
   });
 
   function removeMember(i) {
-    if (members[i] && !members[i].fromSheet) {
-      members.splice(i, 1);
-      render();
+    if (!members[i] || members[i].fromSheet) return;
+    // The open form belongs to activeIdx, so keep what's typed there unless
+    // that's the guest going away.
+    if (stashFields && i !== activeIdx) stashFields();
+    members.splice(i, 1);
+    if (phase === "details") {
+      // Follow the guest being edited, or fall back to the one before a
+      // removed active guest (staying put when they were the first).
+      if (i < activeIdx || (i === activeIdx && activeIdx > 0)) activeIdx--;
+      activeIdx = Math.min(activeIdx, members.length - 1);
     }
+    render();
   }
 
   // ---------- Phase 1: build the party ------------------------
   function renderParty() {
     var rows = members.map(function (m, i) {
-      var tag = m.fromSheet ? (m.type === "Child" ? "Child" : "Invited")
-                            : (m.isPlusOne ? "Guest" : "Child");
       var del = m.fromSheet ? "" :
         '<button class="btn btn-wed-outline btn-remove btn-sm" data-del="' + i + '">Remove</button>';
       return '<div class="member-row">' +
                '<span class="member-name">' + esc(m.first + " " + m.last) + '</span>' +
-               '<span class="d-flex align-items-center gap-2">' +
-                 '<span class="member-tag">' + tag + '</span>' + del +
-               '</span>' +
+               del +
              '</div>';
     }).join("");
 
@@ -231,7 +212,9 @@
     $("#add-child").on("click", function () { showAddForm("child"); });
 
     $("#to-details").on("click", function () {
-      go("details", 0);
+      phase = "details";
+      activeIdx = 0;
+      render();
     });
   }
 
@@ -286,16 +269,18 @@
     );
 
     $("#f-back").on("click", function () {
+      saveFields(false);
       if (activeIdx === 0) {
-        go("party");            // step back out to the "Your party" list
+        phase = "party";        // step back out to the "Your party" list
       } else {
-        go("details", activeIdx - 1);
+        activeIdx--;
       }
+      render();
     });
 
     $("#f-save").on("click", function () { saveFields(true); });
 
-    leaveStep = function () { saveFields(false); };
+    stashFields = function () { saveFields(false); };
 
     // Show the dietary + shuttle questions only when attending the wedding.
     function toggleWeddingOnly() {
@@ -341,10 +326,11 @@
 
       m.done = true;
       if (activeIdx === members.length - 1) {
-        go("comments");
+        phase = "comments";
       } else {
-        go("details", activeIdx + 1);
+        activeIdx++;
       }
+      render();
     }
   }
 
@@ -366,10 +352,11 @@
     );
 
     $("#r-back").on("click", function () {
-      go("details", 0);
+      comments = $("#r-comments").val();
+      phase = "details";
+      activeIdx = members.length - 1;
+      render();
     });
-
-    leaveStep = function () { comments = $("#r-comments").val(); };
 
     $("#r-submit").on("click", function () {
       comments = $("#r-comments").val().trim();
@@ -387,7 +374,8 @@
         .then(function (res) {
           if (res && res.ok) {
             WeddingAPI.saveAnswers(session.partyId, { comments: comments, guests: payload.guests });
-            go("success");
+            phase = "success";
+            render();
           } else { throw new Error("bad response"); }
         })
         .catch(function () {
@@ -412,27 +400,29 @@
     $("#r-again").on("click", function () {
       // Answers stay saved (✓) — click any name in the strip to edit,
       // or use this to revisit the party list and re-send.
-      go("party");
+      phase = "party";
+      render();
     });
   }
 
   // ---------- Render loop -------------------------------------
   function render() {
-    leaveStep = null;   // each step re-registers its own on the way in
+    var y = window.pageYOffset;   // hold the reader's place across re-renders
+    stashFields = null;   // only a guest form registers one, on its way in
     renderChips();
     if (phase === "party") renderParty();
     else if (phase === "details") renderDetails();
     else if (phase === "comments") renderComments();
     else renderSuccess();
-    // keep the sticky bar's scroll on the active chip
-    // ("nearest" so the page's own scroll position is left where it was)
-    var $active = $chips.find(".guest-chip.active");
-    if ($active.length && $active[0].scrollIntoView) {
-      $active[0].scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+    // keep the sticky bar's scroll on the active chip — set scrollLeft directly
+    // so the browser never scrolls the page to reveal the chip
+    var active = $chips.find(".guest-chip.active")[0];
+    if (active && $strip.length) {
+      $strip[0].scrollLeft = active.offsetLeft + active.offsetWidth / 2 - $strip[0].clientWidth / 2;
     }
+    window.scrollTo(0, y);
   }
 
   initMembers();
-  history.replaceState(stepState(), "");
   render();
 })(jQuery);

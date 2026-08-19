@@ -57,7 +57,7 @@ Alternatively, the **train ride** from central Tokyo to the Kamakura Prince Hote
 
 For those staying in Kamakura, you can simply take the Enoden or a taxi to the venue.
 
-{% include figure.html src="/assets/img/louis.jpg" alt="Louis" caption="All aboard the Enoden!" %}
+{% include figure.html src="/assets/img/enoden.jpg" alt="Louis" caption="All aboard the Enoden!" %}
 
 
 ## Dress code
@@ -91,7 +91,7 @@ Note Shibuya is a versatile neighborhood with quiet, charming areas as well as l
 
 Shibuya is also easily accessible by train or taxi to **many other locations in Tokyo**. So feel free to find a neighborhood with a more local feel or indulge in one of the world’s top hotels. **Shinjuku** is central and bustling, and the west side of the train tracks is much more quiet at night compared to the east side. **Shinagawa** is very convenient for traveling to the airport, coming to our wedding by train, and taking the Shinkansen, but it is a business district and the surrounding area is rather deserted at night. The same holds for **Tokyo station**, though you can walk to Ginza and Kanda for shops and restaurants. The neighborhoods in Minato Ward, such as **Roppongi**, are posh and international, though the area is slightly less connected to the train network.
 
-For those who prefer easier travel to the wedding or those who want to stay in a charming, historic town (see [Japan Guide]({{ '/japan-guide/' | relative_url }}) soon for tips), **Kamakura** would be a wonderful place to stay. It is directly connected to central Tokyo by a 60-minute train ride. While we do not have experience staying in that area, the Hotel Metropolitan Kamakura is a solid upscale option near Kamakura station.
+For those who prefer easier travel to the wedding or those who want to stay in a charming, historic town (see [Fun in Japan]({{ '/fun-in-japan/' | relative_url }}) for more info), **Kamakura** would be a wonderful place to stay. It is directly connected to central Tokyo by a 60-minute train ride. While we do not have experience staying in that area, the Hotel Metropolitan Kamakura is a solid upscale option near Kamakura station.
 
 > While hotel rooms in Japan are generally very functional, some of them can be quite small. To avoid surprises, we recommend that you check the room size on the hotel website or a booking website before you make a reservation.
 
@@ -109,4 +109,4 @@ If you arrive to the venue early (bus companies in Japan like to incorporate a l
 - Get a sweet potato crepe at IMOS cafestand
 - Browse cute shops including this beach-themed Barbour
 
-{% include figure.html src="/assets/img/carley.jpg" alt="Carley" caption="Sweet potato crepe, 4.5 stars." %}
+{% include figure.html src="/assets/img/crepe.jpg" alt="Carley" caption="Sweet potato crepe, 4.5 stars." %}

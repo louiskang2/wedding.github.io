@@ -16,9 +16,3 @@ We’ll simply say for now that if you’re interested in skiing or snowboarding
 
 More information about all things Japan to follow.
 
-
-<!-- {% include figure.html src="/assets/img/attire.jpg" alt="Winter attire palette" caption="Sample palette inspiration — replace with your own moodboard." %} -->
-
-<!-- {% include carousel.html images="/assets/img/tokyo-1.jpg,/assets/img/tokyo-2.jpg,/assets/img/tokyo-3.jpg" %} -->
-
-<!-- {% include youtube.html id="oPqOOhoAGCs" caption="Sample YouTube embed — swap the id for any video you like." %} -->
