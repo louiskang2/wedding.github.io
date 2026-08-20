@@ -23,16 +23,16 @@ Some tips for charging IC cards:
 
 ## Special paper tickets
 
-Even with an IC card, you'll have to buy paper tickets from vending machines or service counters for certain trains labeled *Limited Express*, which includes the Narita Express and the Keisei Skyliner, and the Shinkansen. For legal reasons, the fares for these trains are divided into a *basic fare* component and a *limited express* component. Depending on your selections during the purchasing process, you'll be printed either two tickets, which correspond to both components, or one ticket, which may include both components or only represent the limited express component. At a fare gate, if you have two tickets, simply **stack them on top of each other** and insert both at the same time. The gate should open. If you only have one ticket, you may need to pay the basic fare component with your IC card. So first insert the paper ticket. If the gate opens, then you're all set, and simply pass through. If it doesn't open, tap your IC card at the reader, and the gate should then open. Either way, **don't forget to pick up your tickets** where the machine pops them out.
-
-Some tips for purchasing paper tickets:
+Even with an IC card, you'll need paper tickets for certain trains labeled *Limited Express*, which includes the Narita Express and the Keisei Skyliner, and the Shinkansen. You can purchase them through this [**booking website for foreigners**](https://japantravel.navitime.com/en/booking/jr/) and get them printed at a ticket machine using a QR code. Otherwise you can purchase them in person at a ticket machine or service counter. Some tips for purchasing paper tickets in person:
 - Some foreign credit cards cannot be used to purchase paper tickets at a ticket machine. At the very least, your credit card must use a PIN.
 - You can purchase paper tickets using all debit and credit cards at a service counter. You can also refund or change your reservation there.
+
+For legal reasons, the fares for these trains are divided into a *basic fare* component and a *limited express* component. Depending on your selections during the purchasing process, you'll be printed either two tickets, which correspond to both components, or one ticket, which may include both components or only represent the limited express component. At a fare gate, if you have two tickets, simply **stack them on top of each other** and insert both at the same time. The gate should open. If you only have one ticket, you may need to pay the basic fare component with your IC card. So first insert the paper ticket. If the gate opens, then you're all set, and simply pass through. If it doesn't open, tap your IC card at the reader, and the gate should then open. Either way, **don't forget to pick up your tickets** where the machine pops them out.
 
 
 ## Shinkansen
 
-The easiest way to buy tickets is at a **JR ticket counter** at major JR stations. These include the Shinkansen ticket counters at Tokyo, Shinagawa, and Ueno stations, as well as the JR East Travel Service Centers at other major stations that can be found on Google Maps. You can also buy them from Shinkansen ticket machines at major JR stations and the official website online, but these are not for the faint of heart, and many foreign credit cards are not accepted.
+This [**official website for foreigners**](https://www.japan-bullettrain.com/) provides detailed information about using the Shinkansen. It forwards you to the same [**booking website for foreigners**](https://japantravel.navitime.com/en/booking/jr/) mentioned above in the special paper tickets section. Also see that section for buying tickets in person—some Shinkansen service counters in Tokyo are called JR East Travel Service Centers and can be found on Google Maps. Shinkansen tickets to popular destinations often sell out, so we recommend that you **purchase your tickets well in advance** instead of immediately before you intend to depart.
 
 Although you can purchase non-reserved seats, we strongly recommend that you **purchase a reserved seat**. While the regular Shinkansen cars are very comfortable, you can consider getting tickets to premium cars if you want slightly more space—some classes even offer an open bar. But it's best to stick to the regular cars if you want to talk more loudly or if you have kids.
 
@@ -40,7 +40,7 @@ Two sets of Shinkansen depart from Tokyo station with separate fare gates, so be
 
 For the Tokaido Shinkansen, note that **oversized luggage** requires special seat reservations. For the Joetsu Shinkansen, such reservations are not needed.
 
-In certain cases, you enter the Shinkansen tracks from one set of fare gates; in other cases, you first enter the JR area through one set and then the Shinkansen area through a second set of fare gates. The same goes for leaving a station. So if the fare gate returns your paper ticket as you pass through, keep it at hand in case you need to use it again.
+In certain cases, you enter the Shinkansen tracks from one set of fare gates; in other cases, you first enter the JR area through one set and then the Shinkansen area through a **second set of fare gates**. The same goes for leaving a station. So if the fare gate returns your paper ticket as you pass through, keep it at hand in case you need to use it again for another set of gates.
 
 
 ## More coming soon!
