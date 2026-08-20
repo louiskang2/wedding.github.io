@@ -188,7 +188,7 @@ img { max-width: 100%; height: auto; border-radius: var(--rad); }
     .form-control {
       background: transparent;
       border: none;
-      border-bottom: var(--form-line) solid var(--ink);
+      border-bottom: var(--line-form) solid var(--ink);
       border-radius: 0;
       font-family: var(--font-body);
       font-size: 1.15rem;
@@ -670,6 +670,8 @@ figure.embed-figure {
   &.active { background: var(--yellow); color: var(--ink); font-weight: var(--bold-weight); }
   &.done { background: var(--green-soft); color: var(--ink); }
   .chip-check { font-weight: var(--bold-weight); color: var(--green); }
+  &.declined { background: var(--ink-soft); color: var(--gray); cursor: default;
+    .chip-check { color: var(--gray); } }
 
   // Clickable chips invite editing: pointer, lift, and a pencil on hover
   &.clickable {
@@ -732,6 +734,45 @@ figure.embed-figure {
   padding: .7rem .2rem;
   border-bottom: 1.5px dashed var(--gray);
   .member-name { font-family: var(--font-display); font-size: 1.2rem; }
+  .member-actions { display: flex; align-items: center; gap: 10px; }
+  &.declined .member-name { color: var(--gray); }
+}
+
+.decline-label {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: .9rem;
+  line-height: 1.1;
+  color: var(--gray);
+  text-align: right;
+  white-space: nowrap;
+  // the literal newline in the markup only takes effect on narrow screens
+  @media (max-width: 576px) { white-space: pre-line; font-size: .8rem; }
+}
+
+// Small square "can't make it" checkbox, drawn like the outline buttons
+.decline-box {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  border: var(--line-small) solid var(--ink);
+  border-radius: var(--rad-small);
+  box-shadow: var(--pop-shadow-small);
+  cursor: pointer;
+  transition: all .15s ease;
+  &:hover { background: var(--red-soft); transform: translate(1px, 1px); }
+  .decline-check {
+    font-family: var(--font-body);
+    font-weight: var(--bold-weight);
+    font-size: 1rem;
+    line-height: 1;
+    color: var(--red);
+  }
 }
 
 .btn-wed {
@@ -763,7 +804,13 @@ figure.embed-figure {
   background: var(--contrast-soft) !important;
   &:hover { background: var(--ink-soft) !important; }
 }
-.btn-remove:hover { background: var(--red-soft) !important; }
+.btn-remove {
+  padding: .25rem .8rem;
+  border: var(--line-small) solid var(--ink);
+  border-radius: var(--rad-small);
+  box-shadow: var(--pop-shadow-small);
+  &:hover { background: var(--red-soft) !important; }
+}
 
 .rsvp-success {
   background: var(--green-soft);

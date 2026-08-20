@@ -1,4 +1,4 @@
-PartyID,FirstName,LastName,Type,PlusOneAllowed
+PartyID,GivenName,FamilyName,Type,PlusOneAllowed
 P001,"Alex, Alexander",Tanaka,Adult,Yes
 P002,Jamie,Lee,Adult,No
 P002,Morgan,Lee,Adult,No

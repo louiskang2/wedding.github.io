@@ -29,7 +29,7 @@
 
   // Returning visitor in the same session: skip the gate
   if (session) {
-    var name = session.matched ? session.matched.first : "";
+    var name = session.matched ? session.matched.given : "";
     showWelcome(name ? "Welcome back, " : "Welcome back", name, true);
     return;
   }
@@ -37,19 +37,19 @@
   var $btn = $("#gate-btn"), $err = $("#gate-error");
 
   function tryEnter() {
-    var first = $("#gate-first").val().trim();
-    var last = $("#gate-last").val().trim();
+    var given = $("#gate-given").val().trim();
+    var family = $("#gate-family").val().trim();
     $err.text("");
-    if (!first || !last) {
-      $err.text("Please enter both your first and last name.");
+    if (!given || !family) {
+      $err.text("Please enter both your given and family name.");
       return;
     }
     $btn.prop("disabled", true).text("Checking…");
-    WeddingAPI.verify(first, last)
+    WeddingAPI.verify(given, family)
       .then(function (res) {
         if (res && res.ok) {
           WeddingAPI.saveSession(res);
-          showWelcome("Welcome, ", res.matched.first, false);
+          showWelcome("Welcome, ", res.matched.given, false);
         } else {
           $err.text("We couldn't find that name. Please try again or contact us.");
           $btn.prop("disabled", false).text("Enter");
@@ -62,7 +62,7 @@
   }
 
   $btn.on("click", tryEnter);
-  $("#gate-first, #gate-last").on("keydown", function (e) {
+  $("#gate-given, #gate-family").on("keydown", function (e) {
     if (e.key === "Enter") tryEnter();
   });
 })(jQuery);

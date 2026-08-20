@@ -39,10 +39,13 @@
 
   // --- Pen weight & panels ---------------------------------------
   --line: 4px;  // For graphical elements
-  --form-line: 2px;  // For form inputs
+  --line-small: 3px;
+  --line-form: 2px;  // For form inputs
   --rad:  30px 3px 30px 3px / 3px 30px 3px 30px; // shared frame corners; set 0 for straight edges
+  --rad-small:  20px 2px 20px 2px / 2px 20px 2px 20px;
   --pop-shadow: 4px 4px 0 var(--ink);
   --pop-shadow-soft: 5px 5px 0 rgba(33, 34, 29, .2);
+  --pop-shadow-small: 4px 4px 0 rgba(33, 34, 29, .2);
   --scrim: .3;  // darkness of the wash over the landing backdrop (0 = none)
 
   // ---------------------------------------------------------------

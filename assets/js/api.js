@@ -14,14 +14,14 @@ window.WeddingAPI = (function () {
 
   // ---- Demo data (mirrors sample-data/Guests.csv) -----------
   var DEMO_GUESTS = [
-    { partyId: "P001", first: "Alex, Alexander", last: "Tanaka", type: "Adult", plusOne: true  },
-    { partyId: "P002", first: "Jamie",  last: "Lee",      type: "Adult", plusOne: false },
-    { partyId: "P002", first: "Morgan", last: "Lee",      type: "Adult", plusOne: false },
-    { partyId: "P002", first: "Riley",  last: "Lee",      type: "Child", plusOne: false },
-    { partyId: "P003", first: "Sofia",  last: "Rossi",    type: "Adult", plusOne: true  },
-    { partyId: "P003", first: "Marco",  last: "Rossi",    type: "Adult", plusOne: true  },
-    { partyId: "P004", first: "Haruto", last: "Sato",     type: "Adult", plusOne: false },
-    { partyId: "P005", first: "Emma",   last: "Schmidt, Smith", type: "Adult", plusOne: true }
+    { partyId: "P001", given: "Alex, Alexander", family: "Tanaka", type: "Adult", plusOne: true  },
+    { partyId: "P002", given: "Jamie",  family: "Lee",      type: "Adult", plusOne: false },
+    { partyId: "P002", given: "Morgan", family: "Lee",      type: "Adult", plusOne: false },
+    { partyId: "P002", given: "Riley",  family: "Lee",      type: "Child", plusOne: false },
+    { partyId: "P003", given: "Sofia",  family: "Rossi",    type: "Adult", plusOne: true  },
+    { partyId: "P003", given: "Marco",  family: "Rossi",    type: "Adult", plusOne: true  },
+    { partyId: "P004", given: "Haruto", family: "Sato",     type: "Adult", plusOne: false },
+    { partyId: "P005", given: "Emma",   family: "Schmidt, Smith", type: "Adult", plusOne: true }
   ];
   var DEMO_RESPONDED = {}; // which parties submitted during this demo session
 
@@ -46,19 +46,19 @@ window.WeddingAPI = (function () {
     return (String(cell || "").split(",")[0] || "").trim();
   }
 
-  function demoVerify(first, last) {
+  function demoVerify(given, family) {
     var hit = DEMO_GUESTS.find(function (g) {
-      return nameOptions(g.first).indexOf(nameKey(first)) !== -1 &&
-             nameOptions(g.last).indexOf(nameKey(last)) !== -1;
+      return nameOptions(g.given).indexOf(nameKey(given)) !== -1 &&
+             nameOptions(g.family).indexOf(nameKey(family)) !== -1;
     });
     if (!hit) return { ok: false, error: "not_found" };
     var members = DEMO_GUESTS.filter(function (g) { return g.partyId === hit.partyId; });
     return {
       ok: true,
       partyId: hit.partyId,
-      matched: { first: primaryName(hit.first), last: primaryName(hit.last) },
+      matched: { given: primaryName(hit.given), family: primaryName(hit.family) },
       members: members.map(function (g) {
-        return { first: primaryName(g.first), last: primaryName(g.last), type: g.type, fromSheet: true };
+        return { given: primaryName(g.given), family: primaryName(g.family), type: g.type, fromSheet: true };
       }),
       plusOneAllowed: members.some(function (g) { return g.plusOne; }),
       hasResponded: !!DEMO_RESPONDED[hit.partyId]
@@ -66,16 +66,16 @@ window.WeddingAPI = (function () {
   }
 
   // ---- Public methods ---------------------------------------
-  // verify(first, last) -> Promise<result>
-  function verify(first, last) {
+  // verify(given, family) -> Promise<result>
+  function verify(given, family) {
     if (DEMO) {
       return new Promise(function (res) {
-        setTimeout(function () { res(demoVerify(first, last)); }, 700);
+        setTimeout(function () { res(demoVerify(given, family)); }, 700);
       });
     }
     var url = API_URL + "?action=verify" +
-      "&first=" + encodeURIComponent(first) +
-      "&last="  + encodeURIComponent(last);
+      "&given=" + encodeURIComponent(given) +
+      "&family="  + encodeURIComponent(family);
     return fetch(url).then(function (r) { return r.json(); });
   }
 

@@ -16,7 +16,7 @@
   var $strip = $("#chip-strip");   // the horizontally scrollable wrapper
 
   // ---------- State ------------------------------------------
-  var members = [];        // {first,last,type,fromSheet,isPlusOne,done,data{}}
+  var members = [];        // {given,family,type,fromSheet,isPlusOne,done,data{}}
   var phase = "party";     // party | details | comments | success
   var activeIdx = -1;
   var comments = "";
@@ -32,6 +32,22 @@
              shuttleTo: "", shuttleFrom: "", afterparty: "", skiTrip: "" };
   }
 
+  // A guest marked "can't make it" answers no to everything, with no email.
+  function declinedData() {
+    return { email: "", age: "", wedding: "No", dietary: "", highChair: "",
+             shuttleTo: "", shuttleFrom: "", afterparty: "No", skiTrip: SKI_OPTIONS[2] };
+  }
+
+  // Navigation helpers: declined guests are skipped by Back/Next.
+  function nextOpen(i) {
+    for (var j = i + 1; j < members.length; j++) if (!members[j].declined) return j;
+    return -1;
+  }
+  function prevOpen(i) {
+    for (var j = i - 1; j >= 0; j--) if (!members[j].declined) return j;
+    return -1;
+  }
+
   // Build initial member list: sheet members + anyone added in a
   // submission saved on this device, prefilled with those answers.
   function initMembers() {
@@ -41,15 +57,15 @@
 
     function findPrev(m) {
       return prevGuests.find(function (p) {
-        return p.first.toLowerCase() === m.first.toLowerCase() &&
-               p.last.toLowerCase() === m.last.toLowerCase();
+        return p.given.toLowerCase() === m.given.toLowerCase() &&
+               p.family.toLowerCase() === m.family.toLowerCase();
       });
     }
 
     session.members.forEach(function (m) {
       var p = findPrev(m);
       members.push({
-        first: m.first, last: m.last, type: m.type,
+        given: m.given, family: m.family, type: m.type,
         fromSheet: true, isPlusOne: false,
         done: !!p,   // already answered last time — editable by clicking the chip
         data: $.extend(blankData(), {
@@ -65,12 +81,12 @@
     // People added last time (plus-one / children) — deletable
     prevGuests.forEach(function (p) {
       var exists = members.some(function (m) {
-        return m.first.toLowerCase() === p.first.toLowerCase() &&
-               m.last.toLowerCase() === p.last.toLowerCase();
+        return m.given.toLowerCase() === p.given.toLowerCase() &&
+               m.family.toLowerCase() === p.family.toLowerCase();
       });
       if (!exists) {
         members.push({
-          first: p.first, last: p.last, type: p.type || "Adult",
+          given: p.given, family: p.family, type: p.type || "Adult",
           fromSheet: false, isPlusOne: p.isPlusOne === true || p.isPlusOne === "Yes",
           done: true,   // came from a completed submission
           data: $.extend(blankData(), p)
@@ -95,16 +111,20 @@
   function renderChips() {
     $chips.empty();
     members.forEach(function (m, i) {
-      var cls = "guest-chip clickable";
-      if (phase === "details" && i === activeIdx) cls += " active";
-      if (m.done) cls += " done";
-      var $chip = $('<span class="' + cls + '" data-idx="' + i + '" role="button" tabindex="0" ' +
-                    'title="Click to ' + (m.done ? "review or edit" : "fill in") + " " + esc(m.first) + '\u2019s answers"></span>');
-      if (m.done) $chip.append('<span class="chip-check">✓</span> ');
-      $chip.append(esc(m.first + " " + m.last));
-      $chip.append('<span class="chip-edit" aria-hidden="true">✎</span>');
+      var cls = m.declined ? "guest-chip declined" : "guest-chip clickable";
+      if (!m.declined && phase === "details" && i === activeIdx) cls += " active";
+      if (!m.declined && m.done) cls += " done";
+      var title = m.declined
+        ? esc(m.given) + "\u2019s can\u2019t make it"
+        : "Click to " + (m.done ? "review or edit" : "fill in") + " " + esc(m.given) + "\u2019s answers";
+      var $chip = $('<span class="' + cls + '" data-idx="' + i + '"' +
+                    (m.declined ? "" : ' role="button" tabindex="0"') +
+                    ' title="' + title + '"></span>');
+      if (m.done || m.declined) $chip.append('<span class="chip-check">✓</span> ');
+      $chip.append(esc(m.given + " " + m.family));
+      if (!m.declined) $chip.append('<span class="chip-edit" aria-hidden="true">✎</span>');
       if ((phase === "party" || phase === "details") && !m.fromSheet) {
-        $chip.append('<button class="chip-remove" title="Remove ' + esc(m.first) + '" data-remove="' + i + '">×</button>');
+        $chip.append('<button class="chip-remove" title="Remove ' + esc(m.given) + '" data-remove="' + i + '">×</button>');
       }
       $chips.append($chip);
     });
@@ -115,6 +135,7 @@
   function chipJump(el, e) {
     if ($(e.target).is(".chip-remove")) return;
     var i = $(el).data("idx");
+    if (members[i] && members[i].declined) return;
     phase = "details";
     activeIdx = i;
     render();
@@ -142,14 +163,42 @@
     render();
   }
 
+  // Toggling "can't make it" swaps in all-no answers, keeping whatever the
+  // guest had typed so unchecking the box brings it back.
+  function toggleDeclined(i) {
+    var m = members[i];
+    if (!m) return;
+    if (stashFields) stashFields();
+    if (m.declined) {
+      m.declined = false;
+      m.data = m.openData || blankData();
+      m.done = !!m.openDone;
+    } else {
+      m.declined = true;
+      m.openData = m.data;
+      m.openDone = m.done;
+      m.data = declinedData();
+      m.done = false;
+    }
+    render();
+  }
+
   // ---------- Phase 1: build the party ------------------------
   function renderParty() {
     var rows = members.map(function (m, i) {
       var del = m.fromSheet ? "" :
         '<button class="btn btn-wed-outline btn-remove btn-sm" data-del="' + i + '">Remove</button>';
-      return '<div class="member-row">' +
-               '<span class="member-name">' + esc(m.first + " " + m.last) + '</span>' +
-               del +
+      // Only invited guests can decline; added guests are removed instead.
+      var box = !m.fromSheet ? "" :
+        '<span class="decline-label">Can\u2019t\nmake it</span>' +
+        '<button type="button" class="decline-box" role="checkbox" data-decline="' + i + '" ' +
+          'aria-checked="' + (m.declined ? "true" : "false") + '" ' +
+          'aria-label="' + esc(m.given + " " + m.family) + ' can\u2019t make it">' +
+          (m.declined ? '<span class="decline-check">✓</span>' : "") +
+        '</button>';
+      return '<div class="member-row' + (m.declined ? " declined" : "") + '">' +
+               '<span class="member-name">' + esc(m.given + " " + m.family) + '</span>' +
+               '<span class="member-actions">' + del + box + '</span>' +
              '</div>';
     }).join("");
 
@@ -181,26 +230,27 @@
     );
 
     $("[data-del]").on("click", function () { removeMember($(this).data("del")); });
+    $("[data-decline]").on("click", function () { toggleDeclined($(this).data("decline")); });
 
     function showAddForm(kind) {
       $("#add-form").html(
         '<div class="row g-2 align-items-end">' +
-          '<div class="col-12 col-sm-4"><label class="form-label">First name</label>' +
-            '<input class="form-control" id="new-first"></div>' +
-          '<div class="col-12 col-sm-4"><label class="form-label">Last name</label>' +
-            '<input class="form-control" id="new-last"></div>' +
+          '<div class="col-12 col-sm-4"><label class="form-label">Given name</label>' +
+            '<input class="form-control" id="new-given"></div>' +
+          '<div class="col-12 col-sm-4"><label class="form-label">Family name</label>' +
+            '<input class="form-control" id="new-family"></div>' +
           '<div class="col-12 col-sm-4">' +
             '<button class="btn btn-wed w-100" id="new-save">Add ' +
             (kind === "child" ? "child" : "guest") + '</button></div>' +
           '<div class="col-12 text-danger small" id="new-err"></div>' +
         '</div>'
       );
-      $("#new-first").trigger("focus");
+      $("#new-given").trigger("focus");
       $("#new-save").on("click", function () {
-        var f = $("#new-first").val().trim(), l = $("#new-last").val().trim();
-        if (!f || !l) { $("#new-err").text("Please enter a first and last name."); return; }
+        var f = $("#new-given").val().trim(), l = $("#new-family").val().trim();
+        if (!f || !l) { $("#new-err").text("Please enter a given and family name."); return; }
         members.push({
-          first: f, last: l,
+          given: f, family: l,
           type: kind === "child" ? "Child" : "Adult",
           fromSheet: false, isPlusOne: kind === "guest",
           done: false, data: blankData()
@@ -212,8 +262,9 @@
     $("#add-child").on("click", function () { showAddForm("child"); });
 
     $("#to-details").on("click", function () {
-      phase = "details";
-      activeIdx = 0;
+      var first = nextOpen(-1);
+      if (first === -1) { phase = "comments"; }
+      else { phase = "details"; activeIdx = first; }
       render();
     });
   }
@@ -258,7 +309,7 @@
     $app.html(
       '<div class="rsvp-card">' +
         '<p class="rsvp-note mb-1">Guest ' + (activeIdx + 1) + " of " + members.length + "</p>" +
-        '<h3>' + esc(m.first + " " + m.last) + (isChild ? ' <span class="member-tag">Child</span>' : "") + "</h3>" +
+        '<h3>' + esc(m.given + " " + m.family) + (isChild ? ' <span class="member-tag">Child</span>' : "") + "</h3>" +
         '<div class="row g-3">' + fields + "</div>" +
         '<div class="text-danger small mt-2" id="f-err"></div>' +
         '<div class="d-flex justify-content-between mt-4">' +
@@ -270,10 +321,11 @@
 
     $("#f-back").on("click", function () {
       saveFields(false);
-      if (activeIdx === 0) {
+      var prev = prevOpen(activeIdx);
+      if (prev === -1) {
         phase = "party";        // step back out to the "Your party" list
       } else {
-        activeIdx--;
+        activeIdx = prev;
       }
       render();
     });
@@ -325,10 +377,11 @@
       }
 
       m.done = true;
-      if (activeIdx === members.length - 1) {
+      var next = nextOpen(activeIdx);
+      if (next === -1) {
         phase = "comments";
       } else {
-        activeIdx++;
+        activeIdx = next;
       }
       render();
     }
@@ -353,8 +406,9 @@
 
     $("#r-back").on("click", function () {
       comments = $("#r-comments").val();
-      phase = "details";
-      activeIdx = members.length - 1;
+      var last = prevOpen(members.length);
+      if (last === -1) { phase = "party"; }
+      else { phase = "details"; activeIdx = last; }
       render();
     });
 
@@ -366,7 +420,7 @@
         comments: comments,
         guests: members.map(function (m) {
           return $.extend({
-            first: m.first, last: m.last, type: m.type, isPlusOne: m.isPlusOne
+            given: m.given, family: m.family, type: m.type, isPlusOne: m.isPlusOne
           }, m.data);
         })
       };
@@ -409,6 +463,12 @@
   function render() {
     var y = window.pageYOffset;   // hold the reader's place across re-renders
     stashFields = null;   // only a guest form registers one, on its way in
+    if (phase === "details" && (!members[activeIdx] || members[activeIdx].declined)) {
+      var start = members[activeIdx] ? activeIdx : -1;
+      var open = nextOpen(start);
+      if (open === -1) open = prevOpen(Math.max(start, 0));
+      if (open === -1) phase = "party"; else activeIdx = open;
+    }
     renderChips();
     if (phase === "party") renderParty();
     else if (phase === "details") renderDetails();

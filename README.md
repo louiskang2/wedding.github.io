@@ -24,13 +24,13 @@ Open **http://localhost:4000**. Done.
 While `apps_script_url` in `_config.yml` is empty, the site runs in **demo mode**
 with a built-in sample guest list. Try entering on the landing page:
 
-| First name | Last name | What you'll see |
+| Given name | Family name | What you'll see |
 |---|---|---|
-| `Alex` *or* `Alexander` | `Tanaka` | Solo guest **with** a plus-one allowed (shows alternate first names) |
+| `Alex` *or* `Alexander` | `Tanaka` | Solo guest **with** a plus-one allowed (shows alternate given names) |
 | `Jamie` | `Lee` | Party of 3 (two adults + one child) |
 | `Sofia` | `Rossi` | Couple with a plus-one allowed |
 | `Haruto` | `Sato` | Solo guest, no plus-one |
-| `Emma` | `Schmidt` *or* `Smith` | Solo guest with an alternate last name |
+| `Emma` | `Schmidt` *or* `Smith` | Solo guest with an alternate family name |
 
 Note how `Alex`/`Alexander` and `Schmidt`/`Smith` both let the same guest in —
 see "Alternate names" below.
@@ -47,14 +47,14 @@ prefill correctly if you resubmit during the same session.
 2. **Import the guest list.** File → Import → Upload → choose
    `sample-data/Guests.csv` → Import location: **Replace current sheet**.
    Then double-click the tab at the bottom and rename it to exactly **`Guests`**.
-   - Columns: `PartyID | FirstName | LastName | Type | PlusOneAllowed`
+   - Columns: `PartyID | GivenName | FamilyName | Type | PlusOneAllowed`
    - Everyone with the same `PartyID` is on one invitation and sees each other's names.
    - `Type` is `Adult` or `Child`. `PlusOneAllowed` is `Yes` or `No`
      (Yes for anyone in a party = that party may add one guest).
-   - **Alternate names:** a `FirstName` or `LastName` cell may list several
+   - **Alternate names:** a `GivenName` or `FamilyName` cell may list several
      accepted spellings separated by commas, e.g. `Robert, Bob, Bobby` or a
      maiden/married name like `Schmidt, Smith`. The guest gets in by typing
-     **any** of the first-name options together with **any** of the last-name
+     **any** of the given-name options together with **any** of the family-name
      options, so nicknames and name changes both work. The **first** option
      listed is the one shown on the site (in the welcome message and the RSVP
      name chips), so put the name you'd like displayed first. In a spreadsheet

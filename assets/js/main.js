@@ -58,7 +58,7 @@
   // lives here rather than in rsvp.js, which isn't loaded in that case.
   var $closed = $("#rsvp-closed");
   if ($closed.length) {
-    var name = session && session.matched ? session.matched.first : "";
+    var name = session && session.matched ? session.matched.given : "";
     var received = name
       ? "Your party's RSVP has been received, " + name + ", thank you!"
       : "Your party's RSVP has been received, thank you!";

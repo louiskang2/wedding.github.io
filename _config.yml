@@ -16,7 +16,7 @@ wedding:
 # ------------------------------------------------------------
 # BACKEND — paste your Google Apps Script Web App URL here.
 # Leave empty ("") to run in DEMO MODE with built-in sample
-# guests (try first name "Alex", last name "Tanaka").
+# guests (try given name "Alex", family name "Tanaka").
 # ------------------------------------------------------------
 apps_script_url: "https://script.google.com/macros/s/AKfycbyxZRoYa6P5DqEdNGwGvsXT6pMd-mqhiBJNX9Vg-M34yvfs4u3nTKOeboMmqn3cOrY/exec"
 

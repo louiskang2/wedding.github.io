@@ -20,11 +20,11 @@
  */
 
 var GUESTS_SHEET = 'Guests';
-var GUEST_COLS = 5;   // PartyID | FirstName | LastName | Type | PlusOneAllowed
+var GUEST_COLS = 5;   // PartyID | GivenName | FamilyName | Type | PlusOneAllowed
 var RSVP_SHEET = 'RSVPs';
 var RSVP_LOG_SHEET = 'RSVP log';
 var RSVP_HEADERS = [
-  'Timestamp', 'PartyID', 'FirstName', 'LastName', 'Type', 'IsPlusOne',
+  'Timestamp', 'PartyID', 'GivenName', 'FamilyName', 'Type', 'IsPlusOne',
   'Email', 'Age', 'Wedding', 'Dietary', 'ShuttleTo', 'ShuttleFrom',
   'HighChair', 'Afterparty', 'SkiTrip', 'Comments'
 ];
@@ -32,7 +32,7 @@ var RSVP_HEADERS = [
 function doGet(e) {
   var action = (e.parameter.action || '').toLowerCase();
   if (action === 'verify') {
-    return json_(verifyGuest_(e.parameter.first, e.parameter.last));
+    return json_(verifyGuest_(e.parameter.given, e.parameter.family));
   }
   return json_({ ok: false, error: 'unknown_action' });
 }
@@ -48,24 +48,24 @@ function doPost(e) {
 }
 
 // ------------------------------------------------------------
-function verifyGuest_(first, last) {
-  first = norm_(first);
-  last = norm_(last);
-  if (!first || !last) return { ok: false, error: 'missing_name' };
+function verifyGuest_(given, family) {
+  given = norm_(given);
+  family = norm_(family);
+  if (!given || !family) return { ok: false, error: 'missing_name' };
 
   var rows = guestRows_();
-  // Columns: PartyID | FirstName | LastName | Type | PlusOneAllowed
-  // A FirstName or LastName cell may hold several options separated by
+  // Columns: PartyID | GivenName | FamilyName | Type | PlusOneAllowed
+  // A GivenName or FamilyName cell may hold several options separated by
   // commas (e.g. "Robert, Bob, Bobby") — a guest matches if their typed
-  // name equals ANY first option AND ANY last option. Names with spaces,
+  // name equals ANY given option AND ANY family option. Names with spaces,
   // hyphens or apostrophes ("Mary Jane", "de Koonig", "O'Brien") match
   // regardless of how the guest spaces or punctuates them.
-  var firstKey = nameKey_(first);
-  var lastKey = nameKey_(last);
+  var givenKey = nameKey_(given);
+  var familyKey = nameKey_(family);
   var match = null;
   for (var i = 1; i < rows.length; i++) {
-    if (nameOptions_(rows[i][1]).indexOf(firstKey) !== -1 &&
-        nameOptions_(rows[i][2]).indexOf(lastKey) !== -1) {
+    if (nameOptions_(rows[i][1]).indexOf(givenKey) !== -1 &&
+        nameOptions_(rows[i][2]).indexOf(familyKey) !== -1) {
       match = rows[i];
       break;
     }
@@ -82,8 +82,8 @@ function verifyGuest_(first, last) {
   for (var j = 1; j < rows.length; j++) {
     if (String(rows[j][0]).trim() === partyId) {
       members.push({
-        first: primaryName_(rows[j][1]),   // show the first-listed option
-        last: primaryName_(rows[j][2]),
+        given: primaryName_(rows[j][1]),   // show the first-listed option
+        family: primaryName_(rows[j][2]),
         type: String(rows[j][3] || 'Adult'),
         fromSheet: true
       });
@@ -94,7 +94,7 @@ function verifyGuest_(first, last) {
   return {
     ok: true,
     partyId: partyId,
-    matched: { first: primaryName_(match[1]), last: primaryName_(match[2]) },
+    matched: { given: primaryName_(match[1]), family: primaryName_(match[2]) },
     members: members,
     plusOneAllowed: plusOneAllowed,
     hasResponded: hasResponded_(partyId)
@@ -134,7 +134,7 @@ function saveRsvp_(data) {
     var ts = new Date();
     var out = data.guests.map(function (g) {
       return [
-        ts, data.partyId, g.first || '', g.last || '', g.type || 'Adult',
+        ts, data.partyId, g.given || '', g.family || '', g.type || 'Adult',
         g.isPlusOne ? 'Yes' : 'No', g.email || '', g.age || '',
         g.wedding || '', g.dietary || '', g.shuttleTo || '', g.shuttleFrom || '',
         g.highChair || '', g.afterparty || '', g.skiTrip || '', data.comments || ''
