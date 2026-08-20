@@ -191,11 +191,12 @@ img { max-width: 100%; height: auto; border-radius: var(--rad); }
       border-bottom: var(--line-form) solid var(--ink);
       border-radius: 0;
       font-family: var(--font-body);
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       text-align: center;
       padding: .5rem .25rem;
       color: var(--ink);
       &:focus { box-shadow: none; border-bottom-color: var(--contrast); background: transparent; }
+      @media (max-width: 576px) { font-size: 1rem; }
     }
     .btn-gate {
       margin-top: 1.4rem;
@@ -321,6 +322,7 @@ img { max-width: 100%; height: auto; border-radius: var(--rad); }
       margin-bottom: 40px;
       padding: 1.1rem 1rem .9rem;
       .landing-names { font-size: 1.9rem; }
+      .landing-sub { font-size: 0.75rem; }
     }
     #landing-gate { margin-top: 1rem; }
   }
