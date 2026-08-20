@@ -14,7 +14,7 @@ note: "Everything you need to know for the day itself"
 | **12:50 pm** | **Shuttle from Tokyo** — pick up in front of PMO Shibuya |
 | **3:30 pm** | **Ceremony** — Kamakura Prince Hotel |
 | **4:00 pm** | **Reception** — Kamakura Prince Hotel |
-| **8:30 pm** | **Shuttle to Tokyo**  — drop off in front of PMO Shibuya |
+| **8:30 pm** | **Shuttle to Tokyo** — drop off in front of PMO Shibuya |
 | **10:00 pm** | **Afterparty** — Music Bar Cave Shibuya until 1 am |
 {: .no-head}
 
@@ -46,12 +46,12 @@ For those staying in Tokyo, we have arranged the following **shuttle buses** fro
 | | |
 |---|---|
 | **12:50 pm** pick up in front of PMO Shibuya | **2:30 pm** drop off at Kamakura Prince Hotel |
-| **8:30 pm** pick up at Kamakura Prince Hotel | **10:00 pm** drop off in front of PMO Shibuya|
+| **8:30 pm** pick up at Kamakura Prince Hotel | **10:00 pm** drop off in front of PMO Shibuya |
 {: .no-head}
 
 {% include map.html pb="!1m18!1m12!1m3!1d3241.6342093950334!2d139.7035895!3d35.6613829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188ca783625843%3A0x291fd5cf44c9b770!2zUE1P5riL6LC3!5e0!3m2!1sen!2sjp!4v1787100143780!5m2!1sen!2sjp" title="PMO Shibuya" caption="Shuttle bus location." %}
 
-You can sign up for one or both trips when you submit your [RSVP]({{ '/rsvp/' | relative_url }}). You can use them whether you plan to attend the afterparty or not. There will be two buses and they will be equipped with karaoke, so we’ll try to separate guests who prefer a quieter ride from those in the mood for a livelier journey back to Tokyo.
+You can sign up for one or both trips when you submit your [RSVP]({{ '/rsvp/' | relative_url }}). You can use them whether you plan to attend the afterparty or not. There will be two buses and they will be equipped with karaoke, so we'll try to separate guests who prefer a quieter ride from those in the mood for a livelier journey back to Tokyo.
 
 Alternatively, the **train ride** from central Tokyo to the Kamakura Prince Hotel only takes 90 minutes. You will most likely transfer one or two times, so please leave enough time to navigate from one platform to the next, which may be in a different building. The final local train that takes you to the venue is the Enoden, which is extremely cute and scenic and iconic to the Shonan coast.
 
@@ -89,19 +89,18 @@ There are many hotels near the shuttle bus location in **Shibuya, Tokyo**, and h
 
 Note Shibuya is a versatile neighborhood with quiet, charming areas as well as loud, lively areas. Be careful if a hotel's price seems too good to be true—it could be a love hotel, especially in the [Dogenzaka](https://maps.app.goo.gl/4x32D7cPSm7cmaGT6) area. We also do not recommend Sequence Miyashita Park because the trains cause a lot of noise starting from early in the morning.
 
-Shibuya is also easily accessible by train or taxi to **many other locations in Tokyo**. So feel free to find a neighborhood with a more local feel or indulge in one of the world’s top hotels. **Shinjuku** is central and bustling, and the west side of the train tracks is much more quiet at night compared to the east side. **Shinagawa** is very convenient for traveling to the airport, coming to our wedding by train, and taking the Shinkansen, but it is a business district and the surrounding area is rather deserted at night. The same holds for **Tokyo station**, though you can walk to Ginza and Kanda for shops and restaurants. The neighborhoods in Minato Ward, such as **Roppongi**, are posh and international, though the area is slightly less connected to the train network.
-
-For those who prefer easier travel to the wedding or those who want to stay in a charming, historic town (see [Fun in Japan]({{ '/fun-in-japan/' | relative_url }}) for more info), **Kamakura** would be a wonderful place to stay. It is directly connected to central Tokyo by a 60-minute train ride. While we do not have experience staying in that area, the Hotel Metropolitan Kamakura is a solid upscale option near Kamakura station.
+Shibuya is also easily accessible by train or taxi from **many other locations in Tokyo**. So feel free to find a neighborhood with a more local feel or indulge in one of the world's top hotels. **Shinjuku** is central and bustling, and the west side of the train tracks is much more quiet at night compared to the east side. **Shinagawa** is very convenient for traveling to the airport, coming to our wedding by train, and taking the Shinkansen, but it is a business district and the surrounding area is rather deserted at night. The same holds for **Tokyo station**, though you can walk to Ginza and Kanda for shops and restaurants. The neighborhoods in Minato Ward, such as **Roppongi**, are posh and international, though the area is slightly less connected to the train network.
 
 > While hotel rooms in Japan are generally very functional, some of them can be quite small. To avoid surprises, we recommend that you check the room size on the hotel website or a booking website before you make a reservation.
 
-And of course, you are welcome to stay at the **wedding hotel** for the ultimate convenience and for seaside tranquility. Kamakura Prince Hotel offers easy access to Shonan attractions such as Kamakura and Enoshima, though the immediate area is quiet in the evenings. We have not arranged a hotel block, so please book your stay directly.
+For those who prefer easier travel to the wedding or those who want to stay in a charming, historic town (see [Fun in Japan]({{ '/fun-in-japan/' | relative_url }}) for more info), **Kamakura** would be a wonderful place to stay. It is directly connected to central Tokyo by a 60-minute train ride. While we do not have experience staying in that area, [Hotel Metropolitan Kamakura](https://maps.app.goo.gl/eF1DaT5QJAoTYeAX8) is a solid upscale option near Kamakura station.
 
+And of course, you are welcome to stay at the **wedding hotel** for seaside tranquility. [Kamakura Prince Hotel](https://maps.app.goo.gl/kSVJiNL3xoYJoz3T7) offers easy access to Shonan attractions such as Kamakura and Enoshima, though the immediate area is quiet in the evenings. We have not arranged a hotel block, so please book your stay directly.
 
 
 ## Around the venue
 
-If you arrive to the venue early (bus companies in Japan like to incorporate a lot of buffer time), here are a few things you can do:
+If you arrive at the venue early (bus companies in Japan like to incorporate a lot of buffer time), here are a few things you can do:
 - Walk over to Shichirigahama beach
 - Enjoy the views and a latte at Pacific Drive-In
 - Take a photo with the Enoden

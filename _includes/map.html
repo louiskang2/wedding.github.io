@@ -1,8 +1,8 @@
 {% comment %}
 Embed a Google Map. In Google Maps use Share -> Embed a map, then copy the
-src="..." of the <iframe> it hands you and pass everything after the "?":
+src="..." of the <iframe> it hands you and pass everything after "?pb=":
 
-  {% include map.html embed="pb=!1m18!1m12!..." title="Kamakura Prince Hotel" caption="Optional caption" %}
+  {% include map.html pb="!1m18!1m12!..." title="Kamakura Prince Hotel" caption="Optional caption" %}
 
 A maps.app.goo.gl short link cannot be used: Google refuses to be framed on
 that host, and a static build can't follow the redirect.

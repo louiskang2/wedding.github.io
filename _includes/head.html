@@ -8,21 +8,29 @@
 </script>
 <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
 <meta name="description" content="{{ site.description }}">
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
 
 <!-- Fonts (change here AND in _sass/_theme.scss to swap typefaces) -->
 <!-- The stylesheet only reveals p.typekit.net once it parses, so warm that connection early. -->
 <link rel="preconnect" href="https://p.typekit.net" crossorigin>
 <link rel="stylesheet" href="https://use.typekit.net/fgo8odo.css">
 
+<!-- Third-party CSS/JS. The integrity hashes pin the exact files, so a tampered
+     or swapped CDN response is refused rather than executed; they must be
+     recomputed if a version above ever changes. -->
 <!-- Bootstrap 5 -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <!-- Flickity -->
-<link href="https://cdn.jsdelivr.net/npm/flickity@2.3.0/dist/flickity.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flickity@2.3.0/dist/flickity.min.css"
+      integrity="sha384-wfOgSEM5nkw8PLlzyXQgRPrDQY0BpMazkjjgkfIB4IhTeIF1CD4u/R4NHgzhSF2q" crossorigin="anonymous">
 
 <!-- Site styles -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
-<!-- jQuery + Flickity JS -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/flickity@2.3.0/dist/flickity.pkgd.min.js"></script>
+<!-- jQuery + Flickity JS. Deferred, like the site scripts in _layouts/default.html:
+     they still run in document order, but only once the page has been parsed. -->
+<script defer src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"
+        integrity="sha384-1H217gwSVyLSIfaLxHbE7dRb3v4mYCKbpQvzx0cegeju1MVsGrX5xXxAvs/HgeFs" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/flickity@2.3.0/dist/flickity.pkgd.min.js"
+        integrity="sha384-6ma6pGRLjeu6PkX+yOaR0dUGt6OQl9evbv3H2kdLWwIXtUztaQrWUlbRBPVpDH4B" crossorigin="anonymous"></script>

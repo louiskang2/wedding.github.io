@@ -11,7 +11,6 @@ couple:
 wedding:
   date_display: "Saturday, 16 January 2027"
   date_short: "16 Jan 2027"
-  venue: "Kamakura Prince Hotel"
   city: "Kamakura & Tokyo"
 
 # ------------------------------------------------------------
@@ -62,11 +61,11 @@ landing:
   decor_swing: 3s
 
   decorations:
-    - { file: dango.png, size: 10, x: 80, y: 20, angle: -8 }   #  1 o'clock
-    - { file: taiyaki.png, size: 13, x: 15, y: 65, angle: 8 }   #  8 o'clock
-    - { file: sando.png, size: 10, x: 20, y: 25, angle: 8 }   #  11 o'clock
+    - { file: dango.png,    size: 10, x: 80, y: 20, angle: -8 }   #  1 o'clock
+    - { file: taiyaki.png,  size: 13, x: 15, y: 65, angle:  8 }   #  8 o'clock
+    - { file: sando.png,    size: 10, x: 20, y: 25, angle:  8 }   # 11 o'clock
     - { file: camellia.png, size: 13, x: 45, y: 84, angle: -8 }   #  6 o'clock
-    - { file: photo.png, size: 13, x: 85, y: 74, angle: 8 }   #  4 o'clock
+    - { file: photo.png,    size: 13, x: 85, y: 74, angle:  8 }   #  4 o'clock
 
 # GitHub Pages: if the site lives at username.github.io/REPO,
 # set baseurl to "/REPO". If it's a root site, leave "".

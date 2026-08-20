@@ -25,6 +25,6 @@ Visit [Wedding Info]({{ '/wedding-info/' | relative_url }}) for more information
 
 ## Post-wedding snow trip
 
-From **18 to 21 January**, we’ll bask in our wedding afterglow at [**Yuzawa**](https://maps.app.goo.gl/GHeGJE1CaMsk5o2Z8), a ski town 80 minutes away from Tokyo by Shinkansen. Feel free to come by for as long as you’d like—there are no official plans but let’s meet up for skiing, sake tasting, onsen relaxation, and more.
+From **18 to 21 January**, we'll bask in our wedding afterglow at [**Yuzawa**](https://maps.app.goo.gl/GHeGJE1CaMsk5o2Z8), a ski town 80 minutes away from Tokyo by Shinkansen. Feel free to come by for as long as you'd like—there are no official plans but let's meet up for skiing, sake tasting, onsen relaxation, and more.
 
 Visit [Snow Trip]({{ '/snow-trip/' | relative_url }}) for more information!

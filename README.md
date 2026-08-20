@@ -12,7 +12,7 @@ You need Ruby (3.x) with Bundler. On macOS: `brew install ruby`; on Windows use
 [RubyInstaller](https://rubyinstaller.org/) (check "install MSYS2 devkit").
 
 ```bash
-cd wedding-site
+cd wedding.github.io
 bundle install
 bundle exec jekyll serve
 ```
@@ -124,11 +124,14 @@ hero and reveals them after a guest's name is verified. Every other page uses
 {% include figure.html src="/assets/img/photo.jpg" alt="Description" caption="Optional" %}
 {% include video.html src="/assets/video/clip.mp4" poster="/assets/img/still.jpg" caption="Optional" %}
 {% include youtube.html id="dQw4w9WgXcQ" caption="Optional" %}
-{% include map.html embed="pb=!1m18!1m12!..." title="Kamakura Prince Hotel" caption="Optional" %}
+{% include map.html pb="!1m18!1m12!..." title="Kamakura Prince Hotel" caption="Optional" %}
 {% include carousel.html images="/assets/img/a.jpg,/assets/img/b.jpg,/assets/img/c.jpg" %}
 ```
 
-Put your own photos in `assets/img/` (the current images are generated placeholders).
+For `map.html`, use Share → Embed a map in Google Maps and pass everything after
+`?pb=` in the `src` of the `<iframe>` it hands you.
+
+Put your own photos in `assets/img/` and clips in `assets/video/`.
 
 **Design theme** — clean, hand-drawn feel with simple geometry: ink borders
 with straight (vertical + horizontal) edges and plain straight rules. No
@@ -144,8 +147,8 @@ the `landing:` block of `_config.yml`:
 landing:
   backdrop: backdrop.jpg
   decorations:
-    - { file: dango.png, size: 10, x: 74, y: 20 }   #  1 o'clock
-    - { file: fish.png,  size: 13, x: 22, y: 74 }   #  8 o'clock
+    - { file: dango.png,   size: 10, x: 80, y: 20, angle: -8 }   #  1 o'clock
+    - { file: taiyaki.png, size: 13, x: 15, y: 65, angle:  8 }   #  8 o'clock
 ```
 
 **To add another drawing:** drop a transparent PNG into
@@ -158,6 +161,7 @@ wait for it. There is no CSS or template to edit.
 | `file` | filename inside `assets/img/scene/` |
 | `size` | width as a % of the window's **shorter** side (`10` ≈ 10%) |
 | `x`, `y` | where the **centre** of the drawing sits, as a % of the window (`x`: 0 = left, 100 = right · `y`: 0 = top, 100 = bottom) |
+| `angle` | degrees of rotation about its own centre (negative = anticlockwise). Each drawing swings between `+angle` and `-angle`; set `decor_swing: 0s` to hold them still. |
 
 The names sit in the middle of the screen, so keep decorations toward the
 edges — `_config.yml` lists handy clock positions to copy from. Drawings are
@@ -201,7 +205,7 @@ The UI chrome (frame borders, the nav rule, title bars, hover underlines) needs
 **no image assets at all** — it's drawn in CSS from `--line`, `--rad`,
 `--nrule-h`, `--nbar-h` and `--tbar-h` in `_sass/_theme.scss`.
 
-## 5. How it works (map of the code)
+## 4. How it works (map of the code)
 
 ```
 _config.yml               site settings + Apps Script URL
@@ -209,7 +213,8 @@ index.md                  home page content (landing sequence in _layouts/home.h
 rsvp.html                 RSVP wizard shell (logic in assets/js/rsvp.js)
 *.md                      ← ALL page content lives here, one file per page
 _layouts/                 default.html (chrome), home.html (landing), page.html (hero + sections)
-_includes/                top nav, embed helpers (figure/youtube/map/carousel)
+_includes/                head, top nav, landing scene, embed helpers
+                          (figure/video/youtube/map/carousel)
 _sass/_theme.scss         ← ALL design variables live here
 _sass/_site.scss          component styles
 assets/js/api.js          talks to Apps Script (or demo data)
@@ -245,4 +250,9 @@ in. That's the intended trade-off for a zero-cost, login-free wedding site.
   `assets/js/rsvp.js`.
 - **Blank styles locally** — make sure you ran `bundle exec jekyll serve` from the
   project folder and are viewing `localhost:4000`, not opening the HTML file directly.
-- **Broken links on GitHub Pages** — set `baseurl` (see section 3).
+- **Bootstrap / Flickity / jQuery suddenly don't load** — their tags in
+  `_includes/head.html` carry `integrity` hashes that pin the exact file. After
+  changing a version number, recompute the hash, e.g.
+  `curl -sL <url> | openssl dgst -sha384 -binary | openssl base64 -A`.
+- **Broken links on GitHub Pages** — set `baseurl` in `_config.yml` (empty for a root
+  site, `/REPO` when the site lives at `username.github.io/REPO`).

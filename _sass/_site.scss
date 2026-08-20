@@ -4,11 +4,10 @@
 // variants all live in _theme.scss.
 // ============================================================
 
-html { scroll-behavior: smooth; }
-
 // The root background becomes the canvas, which is what iOS shows at either end
 // of a rubber-band scroll. Dark behind the gated hero, paper once the site opens.
 html {
+  scroll-behavior: smooth;
   background-color: var(--overscroll);
   transition: background-color .8s ease;
 }
@@ -26,7 +25,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, .display {
+h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: var(--bold-weight);
   color: var(--ink);
@@ -555,7 +554,7 @@ body[data-rsvp-open] #page-content { padding-top: calc(var(--nav-height) + var(-
     color: var(--contrast);
     font-family: var(--font-body);
     font-weight: var(--bold-weight);
-    max-width: 560px; 
+    max-width: 560px;
     margin: 1.1rem auto 0;
   }
   .hero-note { color: var(--gray); font-weight: var(--light-weight); max-width: 560px; margin: 1.1rem auto 0; }
@@ -581,7 +580,7 @@ body[data-rsvp-open] #page-content { padding-top: calc(var(--nav-height) + var(-
       top: 100%;
       left: -0.5rem; right: -1rem;
       height: var(--tbar-h);
-      background: var(--contrast);
+      background: var(--tbar-color);
       clip-path: var(--tbar-clip-path);
       margin-top: 0.5rem;
     }
@@ -593,7 +592,7 @@ body[data-rsvp-open] #page-content { padding-top: calc(var(--nav-height) + var(-
   }
   // Markdown always emits a header row; `{: .no-head}` after a table drops it.
   table.no-head thead { display: none; }
-  // blockquote { border-left: 4px solid var(--lime); border-radius: 4px; margin: 1.2rem 0; padding: .2rem 0 .2rem 1.1rem; color: var(--gray); }
+
   blockquote {
     position: relative;
     margin: 1.2rem 0;
@@ -704,7 +703,7 @@ figure.embed-figure {
   margin: 1.4rem 0;
   box-shadow: var(--pop-shadow-soft);
 
-  h3 { 
+  h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
     .member-tag { font-family: var(--font-body); font-weight: var(--light-weight); text-transform: uppercase; font-size: .76rem; letter-spacing: .1em; padding-left: 0.5rem; }

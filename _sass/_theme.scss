@@ -30,16 +30,12 @@
 
   // --- Typography (loaded in _includes/head.html) ---------------
   --font-flourish: "cc-spaghetti-western-swash", "Comic Sans MS", cursive;
-  // --font-flourish: "cc-spaghetti-western-script", "Comic Sans MS", cursive;
-  --font-display: "cc-spaghetti-western-script", "Comic Sans MS", cursive;
-  // --font-body:    "cc-spaghetti-western-sans", "Comic Sans MS", cursive;
-  // --font-body:    "monarcha", "Georgia", serif;
-  // --font-body:    "aquavit", "Georgia", serif;
-  --font-body:    "ogg-text", "Georgia", serif;
-  --body-size:    18px;
-  --body-weight:    400;
-  --light-weight:    300;
-  --bold-weight:    800;
+  --font-display:  "cc-spaghetti-western-script", "Comic Sans MS", cursive;
+  --font-body:     "ogg-text", "Georgia", serif;
+  --body-size:     18px;
+  --body-weight:   400;
+  --light-weight:  300;
+  --bold-weight:   800;
 
   // --- Pen weight & panels ---------------------------------------
   --line: 4px;  // For graphical elements
@@ -89,7 +85,6 @@
 
   // --- Layout -----------------------------------------------------
   --content-width: 720px;
-  --radius: 12px;
   --nav-height: 74px;               // includes the stripe band
   --stickybar-height: 60px;   // replaced at runtime with the strip's measured height
 }

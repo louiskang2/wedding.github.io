@@ -5,7 +5,7 @@
    ============================================================ */
 
 (function ($) {
-  var page = $("body").data("page");        // home | info | travel | snow | rsvp
+  var page = $("body").data("page");        // the nav_id of the current page
   var base = $("body").data("baseurl") || "";
   var session = WeddingAPI.getSession();
 

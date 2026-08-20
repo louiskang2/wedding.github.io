@@ -31,7 +31,6 @@
   if (session) {
     var name = session.matched ? session.matched.first : "";
     showWelcome(name ? "Welcome back, " : "Welcome back", name, true);
-
     return;
   }
 
