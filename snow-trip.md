@@ -24,7 +24,7 @@ You can reach Echigo-Yuzawa station from Tokyo Station or Ueno Station easily by
 
 {% include video.html src="/assets/video/train.mp4" caption="Shinkansen ride into Yuzawa" autoplay=true %}
 
-Shinkansen tickets to ski areas **sell out early**, so you should get tickets soon after arriving in Japan. Read more about the Shinkansen in [Survival Guide]({{ '/survival-guide/' | relative_url }}).
+Shinkansen tickets to ski areas **sell out early**, so aim to get tickets a week in advance or as soon as you get to Japan, especially to secure adjacent seats. Read more about the Shinkansen in [Survival Guide]({{ '/survival-guide/' | relative_url }}).
 
 
 ## What to do
