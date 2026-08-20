@@ -23,7 +23,7 @@ Some tips for charging IC cards:
 
 ## Special paper tickets
 
-Even with an IC card, you'll need paper tickets for certain trains labeled *Limited Express*, which includes the Narita Express and the Keisei Skyliner, and the Shinkansen. You can purchase them through this [**booking website for foreigners**](https://japantravel.navitime.com/en/booking/jr/) and get them printed at a ticket machine using a QR code. Otherwise you can purchase them in person at a ticket machine or service counter. Some tips for purchasing paper tickets in person:
+Even with an IC card, you'll need paper tickets for certain trains labeled *Limited Express*, which includes the Narita Express and the Keisei Skyliner, and the Shinkansen. You can purchase them through this [**booking website for visitors**](https://japantravel.navitime.com/en/booking/jr/) and get them printed at a ticket machine using a QR code. Otherwise you can purchase them in person at a ticket machine or service counter. Some tips for purchasing paper tickets in person:
 - Some foreign credit cards cannot be used to purchase paper tickets at a ticket machine. At the very least, your credit card must use a PIN.
 - You can purchase paper tickets using all debit and credit cards at a service counter. You can also refund or change your reservation there.
 
@@ -32,7 +32,7 @@ For legal reasons, the fares for these trains are divided into a *basic fare* co
 
 ## Shinkansen
 
-This [**official website for foreigners**](https://www.japan-bullettrain.com/) provides detailed information about using the Shinkansen. It forwards you to the same [**booking website for foreigners**](https://japantravel.navitime.com/en/booking/jr/) mentioned above in the special paper tickets section. Also see that section for buying tickets in person—some Shinkansen service counters in Tokyo are called JR East Travel Service Centers and can be found on Google Maps. Shinkansen tickets to popular destinations often sell out, so we recommend that you **purchase your tickets well in advance** instead of immediately before you intend to depart.
+This [**official website for visitors**](https://www.japan-bullettrain.com/) provides detailed information about using the Shinkansen. It forwards you to the same [**booking website for visitors**](https://japantravel.navitime.com/en/booking/jr/) mentioned above in the special paper tickets section. Also see that section for buying tickets in person—some Shinkansen service counters in Tokyo are called JR East Travel Service Centers and can be found on Google Maps. Shinkansen tickets to popular destinations often sell out, so we recommend that you **purchase your tickets well in advance** instead of immediately before you intend to depart.
 
 Although you can purchase non-reserved seats, we strongly recommend that you **purchase a reserved seat**. While the regular Shinkansen cars are very comfortable, you can consider getting tickets to premium cars if you want slightly more space—some classes even offer an open bar. But it's best to stick to the regular cars if you want to talk more loudly or if you have kids.
 
