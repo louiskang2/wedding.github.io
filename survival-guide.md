@@ -18,7 +18,7 @@ Some tips for charging IC cards:
 - Apple Wallet cards cannot be recharged at certain ticket machines that only have a slot for inserting a card. You need a machine that detects the card using a tray or ledge.
 - You can charge an IC card using a variety of payment methods at a convenience store.
 
-> In general, we recommend against getting a Japan Rail Pass unless you are planning to take 6 or more Shinkansen rides. You would need to visit a machine or counter anyway to buy reserved seats (which are extremely recommended) or tickets towards Kyoto (those trains cost extra). Also, IC cards are much easier to use.
+> In general, we **recommend against getting a Japan Rail Pass** unless you are planning to take 6 or more Shinkansen rides. You would need to visit a machine or counter anyway to buy reserved seats (which are extremely recommended) or tickets towards Kyoto (those trains cost extra). Also, IC cards are much easier to use.
 
 
 ## Special paper tickets
