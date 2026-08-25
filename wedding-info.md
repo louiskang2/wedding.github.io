@@ -106,6 +106,6 @@ If you arrive at the venue early (bus companies in Japan like to incorporate a l
 - Take a photo with the Enoden
 - Stock up at 7-Eleven
 - Get a sweet potato crepe at IMOS cafestand
-- Browse cute shops including this beach-themed Barbour
+- Browse cute shops including a beach-themed Barbour
 
 {% include figure.html src="/assets/img/crepe.jpg" alt="Carley" caption="Sweet potato crepe, 4.5 stars." %}

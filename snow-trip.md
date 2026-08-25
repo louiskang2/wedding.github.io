@@ -22,7 +22,7 @@ We will be staying near Echigo-Yuzawa station. There are a number of hotels in t
 
 You can reach Echigo-Yuzawa station from Tokyo Station or Ueno Station easily by the Joetsu Shinkansen. If you are using Tokyo Station, please give yourself an **extra 20 minutes** at least because the station is massive and very crowded. There are two different sets of Shinkansen, so follow signs for the **green** Shinkansen which include the Joetsu lines.
 
-{% include video.html src="/assets/video/train.mp4" caption="Shinkansen ride into Yuzawa" autoplay=true %}
+{% include video.html src="/assets/video/train.mp4" caption="Shinkansen ride into Yuzawa." autoplay=true %}
 
 Shinkansen tickets to ski areas **sell out early**, so aim to get tickets a week in advance or as soon as you get to Japan, especially to secure adjacent seats. Read more about the Shinkansen in [Survival Guide]({{ '/survival-guide/' | relative_url }}).
 
@@ -44,7 +44,7 @@ There are a few ski lifts that leave directly from Yuzawa town and connect to th
 
 Incredibly, Gala Yuzawa is based at a Shinkansen station that is just one short stop after Echigo-Yuzawa, so you can easily spend a day in the mountains even if you are staying in Tokyo. To be clear, the lifts leave from the station. It contains an extensive ski and snowboard rental center (demo skis are on the second floor) and changing areas with lockers.
 
-{% include video.html src="/assets/video/station.mp4" caption="Arriving at Gala-Yuzawa station" autoplay=true %}
+{% include video.html src="/assets/video/station.mp4" caption="Arriving at Gala-Yuzawa station." autoplay=true %}
 
 For those thirsty for Japanese powder, [**Kagura Ski Resort**](https://www.princehotels.com/en/ski/kagura/) is just a 20-minute bus ride away from Echigo-Yuzawa station. It features plenty of off-piste terrain in addition to its standard courses which connect with those of Naeba Ski Resort. [Check it out before it gets too popular!](https://www.skimag.com/adventure/japan-snow-country/)
 
