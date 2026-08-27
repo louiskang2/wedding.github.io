@@ -26,6 +26,11 @@
   var YESNO = ["Yes", "No"];
   var SHUTTLE_FROM_OPTIONS = ["Yes, party bus!", "Yes, relaxing bus", "No"];
   var SKI_OPTIONS = ["Yes, at least for some part", "Maybe, keep me updated", "No thanks"];
+  var ATTEND_OPTIONS = [
+    { value: "yes", label: "Yes, I\u2019ll be there!", short: "Yes!" },
+    { value: "no", label: "No, I can\u2019t make it", short: "No" }
+  ];
+  var narrow = window.matchMedia("(max-width: 576px)");
 
   function blankData() {
     return { email: "", age: "", wedding: "", dietary: "", highChair: "",
@@ -36,6 +41,12 @@
   function declinedData() {
     return { email: "", age: "", wedding: "No", dietary: "", highChair: "",
              shuttleTo: "", shuttleFrom: "", afterparty: "No", skiTrip: SKI_OPTIONS[2] };
+  }
+
+  // Recognise a saved guest whose answers are exactly the "can't make it" set.
+  function looksDeclined(p) {
+    return p.wedding === "No" && p.afterparty === "No" && p.skiTrip === SKI_OPTIONS[2] &&
+           !p.email && !p.dietary;
   }
 
   // Navigation helpers: declined guests are skipped by Back/Next.
@@ -64,10 +75,14 @@
 
     session.members.forEach(function (m) {
       var p = findPrev(m);
+      var declined = !!p && looksDeclined(p);
       members.push({
         given: m.given, family: m.family, type: m.type,
         fromSheet: true, isPlusOne: false,
-        done: !!p,   // already answered last time — editable by clicking the chip
+        attending: p ? (declined ? "no" : "yes") : "",
+        declined: declined,
+        openData: declined ? blankData() : null,
+        done: !!p && !declined,   // already answered last time — editable by clicking the chip
         data: $.extend(blankData(), {
           email: (p && p.email) || "", age: (p && p.age) || "", wedding: (p && p.wedding) || "",
           dietary: (p && p.dietary) || "", highChair: (p && p.highChair) || "",
@@ -163,47 +178,59 @@
     render();
   }
 
-  // Toggling "can't make it" swaps in all-no answers, keeping whatever the
-  // guest had typed so unchecking the box brings it back.
-  function toggleDeclined(i) {
+  // Picking "can't make it" swaps in all-no answers, keeping whatever the
+  // guest had typed so switching back to "I'll be there" brings it back.
+  function setAttending(i, value) {
     var m = members[i];
-    if (!m) return;
+    if (!m || m.attending === value) return;
     if (stashFields) stashFields();
-    if (m.declined) {
-      m.declined = false;
-      m.data = m.openData || blankData();
-      m.done = !!m.openDone;
-    } else {
+    var wasDeclined = !!m.declined;
+    m.attending = value;
+    if (value === "no") {
       m.declined = true;
       m.openData = m.data;
       m.openDone = m.done;
       m.data = declinedData();
       m.done = false;
+    } else if (wasDeclined) {
+      m.declined = false;
+      m.data = m.openData || blankData();
+      m.done = !!m.openDone;
     }
     render();
   }
 
+  function partyIncomplete() {
+    return members.some(function (m) { return m.fromSheet && !m.attending; });
+  }
+
   // ---------- Phase 1: build the party ------------------------
+  function attendSelect(m, i) {
+    var opts = '<option value="">' + (narrow.matches ? "Attending?" : "Will you join us?") + "</option>" +
+      ATTEND_OPTIONS.map(function (o) {
+        return '<option value="' + o.value + '"' +
+               (m.attending === o.value ? " selected" : "") + ">" +
+               (narrow.matches ? o.short : o.label) + "</option>";
+      }).join("");
+    var cls = "form-select attend-select" + (m.attending ? "" : " unset");
+    return '<select class="' + cls + '" data-attend="' + i + '" aria-label="Will ' +
+           esc(m.given + " " + m.family) + ' attend?">' + opts + "</select>";
+  }
+
   function renderParty() {
     var rows = members.map(function (m, i) {
       var del = m.fromSheet ? "" :
-        '<button class="btn btn-wed-outline btn-remove btn-sm" data-del="' + i + '">Remove</button>';
-      // Only invited guests can decline; added guests are removed instead.
-      var box = !m.fromSheet ? "" :
-        '<span class="decline-label">Can\u2019t\nmake it</span>' +
-        '<button type="button" class="decline-box" role="checkbox" data-decline="' + i + '" ' +
-          'aria-checked="' + (m.declined ? "true" : "false") + '" ' +
-          'aria-label="' + esc(m.given + " " + m.family) + ' can\u2019t make it">' +
-          (m.declined ? '<span class="decline-check">✓</span>' : "") +
-        '</button>';
-      return '<div class="member-row' + (m.declined ? " declined" : "") + '">' +
+        '<button class="btn btn-field btn-remove" data-del="' + i + '">Remove</button>';
+      // Only invited guests answer here; added guests are removed instead.
+      var pick = m.fromSheet ? attendSelect(m, i) : "";
+      return '<div class="member-row">' +
                '<span class="member-name">' + esc(m.given + " " + m.family) + '</span>' +
-               '<span class="member-actions">' + del + box + '</span>' +
+               '<span class="member-actions">' + del + pick + '</span>' +
              '</div>';
     }).join("");
 
     var addGuestBtn = (plusOneAllowed && !hasPlusOne())
-      ? '<button class="btn btn-wed-outline" id="add-guest">+ Add a guest</button>' : "";
+      ? '<button class="btn btn-field" id="add-guest">+ Add a guest</button>' : "";
 
     var returning = members.some(function (m) { return m.done; });
     // The backend reports only that a response exists, never its contents.
@@ -220,27 +247,30 @@
         "</p>" +
         rows +
         '<div class="d-flex flex-wrap gap-2 mt-4">' + addGuestBtn +
-          '<button class="btn btn-wed-outline" id="add-child">+ Add a child</button>' +
+          '<button class="btn btn-field" id="add-child">+ Add a child</button>' +
         '</div>' +
         '<div id="add-form" class="mt-3"></div>' +
-        '<div class="text-end mt-4">' +
-          '<button class="btn btn-wed" id="to-details">Next →</button>' +
+        '<div class="text-danger small mt-3" id="p-err"></div>' +
+        '<div class="text-end mt-2">' +
+          '<button class="btn btn-wed' + (partyIncomplete() ? " is-idle" : "") + '" id="to-details">Next →</button>' +
         '</div>' +
       '</div>'
     );
 
     $("[data-del]").on("click", function () { removeMember($(this).data("del")); });
-    $("[data-decline]").on("click", function () { toggleDeclined($(this).data("decline")); });
+    $("[data-attend]").on("change", function () {
+      setAttending($(this).data("attend"), $(this).val());
+    });
 
     function showAddForm(kind) {
       $("#add-form").html(
         '<div class="row g-2 align-items-end">' +
-          '<div class="col-12 col-sm-4"><label class="form-label">Given name</label>' +
+          '<div class="col-12 col-sm"><label class="form-label">Given name</label>' +
             '<input class="form-control" id="new-given"></div>' +
-          '<div class="col-12 col-sm-4"><label class="form-label">Family name</label>' +
+          '<div class="col-12 col-sm"><label class="form-label">Family name</label>' +
             '<input class="form-control" id="new-family"></div>' +
-          '<div class="col-12 col-sm-4">' +
-            '<button class="btn btn-wed w-100" id="new-save">Add ' +
+          '<div class="col-12 col-sm-auto">' +
+            '<button class="btn btn-field btn-add" id="new-save">Add ' +
             (kind === "child" ? "child" : "guest") + '</button></div>' +
           '<div class="col-12 text-danger small" id="new-err"></div>' +
         '</div>'
@@ -262,6 +292,10 @@
     $("#add-child").on("click", function () { showAddForm("child"); });
 
     $("#to-details").on("click", function () {
+      if (partyIncomplete()) {
+        $("#p-err").text("Please tell us whether each person on your invitation can attend.");
+        return;
+      }
       var first = nextOpen(-1);
       if (first === -1) { phase = "comments"; }
       else { phase = "details"; activeIdx = first; }
@@ -342,6 +376,24 @@
     $("#f-wedding").on("change", toggleWeddingOnly);
     toggleWeddingOnly();  // set initial visibility (hidden if "No" or unanswered)
 
+    function missingAnswers() {
+      var attending = d.wedding === "Yes";
+      return !d.wedding || !d.skiTrip ||
+             (!isChild && (!d.email || !d.afterparty)) ||
+             (isChild && d.age === "") ||
+             (attending && isChild && !d.highChair) ||
+             (attending && (!d.dietary || !d.shuttleTo || !d.shuttleFrom));
+    }
+
+    function refreshNext() {
+      saveFields(false);
+      var missing = missingAnswers();
+      $("#f-save").toggleClass("is-idle", missing);
+      if (!missing) $("#f-err").text("");
+    }
+    $app.find("input, select").on("input change", refreshNext);
+    refreshNext();
+
     function saveFields(validate) {
       d.email = isChild ? "" : ($("#f-email").val() || "").trim();
       d.age = isChild ? ($("#f-age").val() || "").trim() : "";
@@ -366,12 +418,7 @@
 
       if (!validate) return;
 
-      var missing = !d.wedding || !d.skiTrip ||
-                    (!isChild && (!d.email || !d.afterparty)) ||
-                    (isChild && d.age === "") ||
-                    (attending && isChild && !d.highChair) ||
-                    (attending && (!d.dietary || !d.shuttleTo || !d.shuttleFrom));
-      if (missing) {
+      if (missingAnswers()) {
         $("#f-err").text("Please answer every question before continuing.");
         return;
       }
@@ -482,6 +529,12 @@
     }
     window.scrollTo(0, y);
   }
+
+  // The attendance options are written into the markup, so redraw the party
+  // list when the screen crosses into (or out of) the short-label breakpoint.
+  function onBreakpoint() { if (phase === "party") render(); }
+  if (narrow.addEventListener) narrow.addEventListener("change", onBreakpoint);
+  else if (narrow.addListener) narrow.addListener(onBreakpoint);
 
   initMembers();
   render();

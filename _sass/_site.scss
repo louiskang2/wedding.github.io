@@ -721,7 +721,7 @@ figure.embed-figure {
   .form-control, .form-select {
     border: 2px solid var(--gray);
     border-radius: 10px;
-    background: #fff;
+    background-color: #fff;
     color: var(--ink);
     font-family: var(--font-body);
     &:focus { border-color: var(--contrast); box-shadow: 0 0 0 .18rem rgba(226,128,31,.15); }
@@ -732,50 +732,55 @@ figure.embed-figure {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 10px;
   padding: .7rem .2rem;
   border-bottom: 1.5px dashed var(--gray);
   .member-name { font-family: var(--font-display); font-size: 1.2rem; }
-  .member-actions { display: flex; align-items: center; gap: 10px; }
-  &.declined .member-name { color: var(--gray); }
+  .member-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
 }
 
-.decline-label {
+// "Will you attend?" picker — matches the selects on the guest detail pages
+.attend-select {
+  width: auto;
+  min-width: 13rem;
+  border: 2px solid var(--gray);
+  border-radius: 10px;
+  background-color: #fff;
+  color: var(--ink);
   font-family: var(--font-body);
-  font-style: italic;
-  font-size: .9rem;
-  line-height: 1.1;
-  color: var(--gray);
-  text-align: right;
-  white-space: nowrap;
-  // the literal newline in the markup only takes effect on narrow screens
-  @media (max-width: 576px) { white-space: pre-line; font-size: .8rem; }
-}
-
-// Small square "can't make it" checkbox, drawn like the outline buttons
-.decline-box {
-  flex: 0 0 auto;
-  width: 28px;
-  height: 28px;
-  padding: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--paper);
-  border: var(--line-small) solid var(--ink);
-  border-radius: var(--rad-small);
-  box-shadow: var(--pop-shadow-small);
-  cursor: pointer;
-  transition: all .15s ease;
-  &:hover { background: var(--red-soft); transform: translate(1px, 1px); }
-  .decline-check {
-    font-family: var(--font-body);
-    font-weight: var(--bold-weight);
-    font-size: 1rem;
-    line-height: 1;
-    color: var(--red);
+  &:focus { border-color: var(--contrast); box-shadow: 0 0 0 .18rem rgba(226,128,31,.15); }
+  &.unset { color: var(--gray); font-style: italic; }
+  // fixed width so the box doesn't resize as the answer changes
+  @media (max-width: 576px) {
+    width: 9rem;
+    min-width: 0;
+    padding-left: .6rem;
+    padding-right: 1.9rem;
+    background-position: right .55rem center;
   }
 }
+
+// Buttons that live among the form fields, drawn like inputs rather than
+// like the Back/Next buttons
+.btn-field {
+  background: #fff;
+  color: var(--ink);
+  border: 2px solid var(--gray);
+  border-radius: var(--rad-small);
+  box-shadow: var(--pop-shadow-small);
+  padding: .5rem .8rem;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  font-size: .8rem;
+  letter-spacing: .1em;
+  transition: background .15s ease, border-color .15s ease;
+  &:hover { background: var(--ink-soft); border-color: var(--ink); transform: translate(1px, 1px); }
+}
+.btn-add {
+  @media (max-width: 576px) { margin-top: .6rem; }
+}
+.btn-remove:hover { background: var(--red-soft); }
 
 .btn-wed {
   background: var(--yellow); color: var(--ink);
@@ -786,6 +791,14 @@ figure.embed-figure {
   transition: all .15s ease;
   &:hover { background: var(--lime); border-color: var(--ink); transform: translate(1px, 1px); }
   &:disabled { opacity: .5; }
+  // waiting on required answers: still clickable, so it can explain what's missing
+  &.is-idle {
+    background: var(--ink-soft);
+    color: var(--gray);
+    border-color: var(--gray);
+    box-shadow: var(--pop-shadow-soft);
+    &:hover { background: var(--ink-soft); border-color: var(--gray); color: var(--gray); transform: none; }
+  }
 }
 .btn-wed-outline {
   background: var(--paper); color: var(--ink);
@@ -805,13 +818,6 @@ figure.embed-figure {
 .btn-rsvp-update {
   background: var(--contrast-soft) !important;
   &:hover { background: var(--ink-soft) !important; }
-}
-.btn-remove {
-  padding: .25rem .8rem;
-  border: var(--line-small) solid var(--ink);
-  border-radius: var(--rad-small);
-  box-shadow: var(--pop-shadow-small);
-  &:hover { background: var(--red-soft) !important; }
 }
 
 .rsvp-success {
