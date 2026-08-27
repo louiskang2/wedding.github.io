@@ -9,6 +9,8 @@ note: "Everything you need to know for the day itself"
 
 ## Schedule at a glance
 
+Our wedding date is **Saturday, 16 January 2027**.
+
 | | |
 |---|---|
 | **12:50 pm** | **Shuttle from Tokyo** — pick up in front of PMO Shibuya |

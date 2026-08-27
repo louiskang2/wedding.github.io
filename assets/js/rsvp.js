@@ -206,7 +206,7 @@
 
   // ---------- Phase 1: build the party ------------------------
   function attendSelect(m, i) {
-    var opts = '<option value="">' + (narrow.matches ? "Attending?" : "Will you join us?") + "</option>" +
+    var opts = '<option value="">' + (narrow.matches ? "Coming?" : "Will you join us?") + "</option>" +
       ATTEND_OPTIONS.map(function (o) {
         return '<option value="' + o.value + '"' +
                (m.attending === o.value ? " selected" : "") + ">" +
