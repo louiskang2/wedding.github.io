@@ -727,6 +727,7 @@ figure.embed-figure {
     font-family: var(--font-body);
     &:focus { border-color: var(--contrast); box-shadow: 0 0 0 .18rem rgba(226,128,31,.15); }
   }
+  textarea.form-control { resize: none; }
 }
 
 .member-row {
