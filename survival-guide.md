@@ -7,6 +7,15 @@ note: "Practical and cultural tips for Japan"
 # Each "## " heading below becomes a section on the page.
 ---
 
+## Flights to Japan
+
+Japan Airlines (JAL) and ANA are typically expensive compared to many other airlines, but they offer more legroom, better service, and better food. They are a bit light on English-language entertainment options. In general, (we hear that) **ANA has the better business class**, but **JAL has the better economy class**, especially for JAL Sky Wider configurations. For guests with young children, book early to secure a seat with a bassinet! For those flying from North America or Asia, Japan Airlines operates the **budget airline Zipair**, which is also a great option for those who arrange their own food and entertainment.
+
+**Both Haneda and Narita airports offer convenient access to central Tokyo.** Haneda offers a shorter train ride that doesn't require seat reservations, but just be aware that you'll be on regular commuter trains that can be busy. It is also close enough to take a taxi to central Tokyo. Narita offers the _Narita Express_ or the _Keisei Skyliner_ trains which have reserved (i.e. less chaotic) seats that face forward. However, the ride is longer, the trains depart less frequently, and you need to obtain special paper tickets (see below). We usually fly in and out of Haneda but sometimes we prefer Narita becuase it's a bit more chill.
+
+If you're also traveling to other areas in Japan, consider flying into Kansai International Airport, which may be cheaper.
+
+
 ## IC cards for transit
 
 **Get a Suica or Pasmo card** from a ticket machine or a service counter right when you land at the airport. They are both called *IC cards* along with a few other types found elsewhere in Japan, and they all essentially provide the same contactless payment functionality. They can be used for all local trains, subways, and public buses throughout the country. They can also be used at many vending machines and stores. Keeping the card as a souvenir makes up for the 500 yen deposit that is charged upon purchase, especially since the penguin mascot on the Suica card is [retiring in March 2027](https://www.jreast.co.jp/suica/penguinyears/). The Welcome Suica involves no deposit, but also no penguin.
