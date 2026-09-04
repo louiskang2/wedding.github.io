@@ -125,11 +125,15 @@ hero and reveals them after a guest's name is verified. Every other page uses
 {% include video.html src="/assets/video/clip.mp4" poster="/assets/img/still.jpg" caption="Optional" %}
 {% include youtube.html id="dQw4w9WgXcQ" caption="Optional" %}
 {% include map.html pb="!1m18!1m12!..." title="Kamakura Prince Hotel" caption="Optional" %}
+{% include map.html mid="1Wmn6ebsX6_WHs98CWr-6OW0H6gNHBm0" ehbc="2E312F" title="Our picks" caption="Optional" %}
 {% include carousel.html images="/assets/img/a.jpg,/assets/img/b.jpg,/assets/img/c.jpg" %}
 ```
 
 For `map.html`, use Share → Embed a map in Google Maps and pass everything after
-`?pb=` in the `src` of the `<iframe>` it hands you.
+`?pb=` in the `src` of the `<iframe>` it hands you. For a custom **My Maps** map,
+use Share → Embed on my site instead and pass its `mid` (and optionally the
+`ehbc` colour code). Custom maps get a 4:3 frame to fit their legend; add
+`ratio="16/9"` to change either kind.
 
 Put your own photos in `assets/img/` and clips in `assets/video/`.
 

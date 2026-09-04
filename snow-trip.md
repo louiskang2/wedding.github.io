@@ -37,6 +37,8 @@ Shinkansen tickets to ski areas **sell out early**, so aim to get tickets a week
 - **Kiyotsu Gorge**: If your vigor and the weather allow for a wintry hike, you can take a bus to a paved road that leads to Kiyotsu Gorge, whose viewpoints are accessed by walking through a 750-meter-long tunnel that contains art installations.
 - **Snow Country**: Find a quiet spot to read Snow Country, a novel cited by the Nobel Committee when it awarded Yasunari Kawabata the Nobel Prize in Literature. It was published in the 1930s and takes place in Yuzawa, though the town name is not mentioned. You can even book the ryokan where he stayed or visit their onsen or mini Kawabata exhibit in the afternoon.
 
+{% include map.html mid="1Wmn6ebsX6_WHs98CWr-6OW0H6gNHBm0" title="Yuzawa attractions" caption="Attractions around Yuzawa." %}
+
 
 ## Yuzawa ski resorts
 

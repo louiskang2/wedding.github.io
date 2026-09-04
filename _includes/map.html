@@ -1,15 +1,34 @@
 {% comment %}
-Embed a Google Map. In Google Maps use Share -> Embed a map, then copy the
-src="..." of the <iframe> it hands you and pass everything after "?pb=":
+Embed a Google map. Two kinds are supported:
 
-  {% include map.html pb="!1m18!1m12!..." title="Kamakura Prince Hotel" caption="Optional caption" %}
+1. A place / directions map. In Google Maps use Share -> Embed a map, then
+   copy the src="..." of the <iframe> it hands you and pass everything
+   after "?pb=":
 
-A maps.app.goo.gl short link cannot be used: Google refuses to be framed on
-that host, and a static build can't follow the redirect.
+     {% include map.html pb="!1m18!1m12!..." title="Kamakura Prince Hotel" caption="Optional caption" %}
+
+2. A custom "My Maps" map. Open the map in My Maps, use Share -> Embed on my
+   site, and pass the value of "mid" from the iframe src:
+
+     {% include map.html mid="1Wmn6ebsX6_WHs98CWr-6OW0H6gNHBm0" title="Our picks" caption="Optional caption" %}
+
+   My Maps embeds also carry an "ehbc" colour code; pass ehbc="2E312F" to keep
+   the one Google generated, or leave it off for the default.
+
+Custom maps carry a legend panel, so they default to a taller 4:3 frame.
+Override either kind with ratio="16/9", ratio="1/1" and so on.
 {% endcomment %}
+{%- if include.mid -%}
+  {%- assign map_src = "https://www.google.com/maps/d/embed?mid=" | append: include.mid | append: "&noprof=1" -%}
+  {%- if include.ehbc -%}{%- assign map_src = map_src | append: "&ehbc=" | append: include.ehbc -%}{%- endif -%}
+  {%- assign map_ratio = include.ratio | default: "4/3" -%}
+{%- else -%}
+  {%- assign map_src = "https://www.google.com/maps/embed?pb=" | append: include.pb -%}
+  {%- assign map_ratio = include.ratio | default: "16/9" -%}
+{%- endif -%}
 <figure class="embed-figure">
-  <div class="embed-frame">
-    <iframe src="https://www.google.com/maps/embed?pb={{ include.pb }}"
+  <div class="embed-frame" style="aspect-ratio: {{ map_ratio }};">
+    <iframe src="{{ map_src }}"
             title="{{ include.title | default: 'Map' }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
   {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
