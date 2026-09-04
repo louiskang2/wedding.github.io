@@ -23,7 +23,16 @@ body {
   font-size: var(--body-size);
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  transition: background-color .8s ease;
 }
+
+// The hero is 100svh, but the body box can be taller than that (and iOS
+// scrolls the document when the gate input takes focus), so the paper
+// background shows as a white band below the hero. Keep the body dark too
+// until the site opens.
+body[data-page="home"] { background-color: var(--overscroll); }
+html.authed body[data-page="home"],
+html.revealed body[data-page="home"] { background-color: var(--paper); }
 
 h1, h2, h3, h4 {
   font-family: var(--font-display);
@@ -590,7 +599,8 @@ body[data-rsvp-open] #page-content { padding-top: calc(var(--nav-height) + var(-
 
   // A lighter-touch subheading for "### " — body serif rather than
   // the display face, so it reads as a run-in label, not a new section.
-  h3 {
+  // Skipped on the RSVP page, whose app headings keep the display face.
+  body:not([data-page="rsvp"]) & h3 {
     font-family: var(--font-body);
     font-weight: var(--bold-weight);
     font-style: italic;
