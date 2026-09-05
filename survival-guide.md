@@ -16,7 +16,9 @@ Japan Airlines (JAL) and ANA are typically expensive compared to many other airl
 If you're also traveling to other areas in Japan, consider flying into Kansai International Airport, which may be cheaper.
 
 
-## IC cards for transit
+## Transit
+
+### IC cards
 
 **Get a Suica or Pasmo card** from a ticket machine or a service counter right when you land at the airport. They are both called *IC cards* along with a few other types found elsewhere in Japan, and they all essentially provide the same contactless payment functionality. They can be used for all local trains, subways, and public buses throughout the country. They can also be used at many vending machines and stores. Keeping the card as a souvenir makes up for the 500 yen deposit that is charged upon purchase, especially since the penguin mascot on the Suica card is [retiring in March 2027](https://www.jreast.co.jp/suica/penguinyears/). The Welcome Suica involves no deposit, but also no penguin.
 
@@ -30,7 +32,7 @@ Some tips for charging IC cards:
 > In general, we **recommend against getting a Japan Rail Pass** unless you are planning to take 6 or more Shinkansen rides. You would need to visit a machine or counter anyway to buy reserved seats (which are extremely recommended) or tickets towards Kyoto (those trains cost extra). Also, IC cards are much easier to use.
 
 
-## Special paper tickets
+### Special paper tickets
 
 Even with an IC card, you'll need paper tickets for certain trains labeled *Limited Express*, which includes the Narita Express and the Keisei Skyliner, and the Shinkansen. You can purchase them through this [**booking website for visitors**](https://japantravel.navitime.com/en/booking/jr/) and get them printed at a ticket machine using a QR code. Otherwise you can purchase them in person at a ticket machine or service counter. Some tips for purchasing paper tickets in person:
 - Some foreign credit cards cannot be used to purchase paper tickets at a ticket machine. At the very least, your credit card must use a PIN.
@@ -39,7 +41,7 @@ Even with an IC card, you'll need paper tickets for certain trains labeled *Limi
 For legal reasons, the fares for these trains are divided into a *basic fare* component and a *limited express* component. Depending on your selections during the purchasing process, you'll be printed either two tickets, which correspond to both components, or one ticket, which may include both components or only represent the limited express component. At a fare gate, if you have two tickets, simply **stack them on top of each other** and insert both at the same time. The gate should open. If you only have one ticket, you may need to pay the basic fare component with your IC card. So first insert the paper ticket. If the gate opens, then you're all set, and simply pass through. If it doesn't open, tap your IC card at the reader, and the gate should then open. Either way, **don't forget to pick up your tickets** where the machine pops them out.
 
 
-## Shinkansen
+### Shinkansen
 
 This [**official website for visitors**](https://www.japan-bullettrain.com/) provides detailed information about using the Shinkansen. It forwards you to the same [**booking website for visitors**](https://japantravel.navitime.com/en/booking/jr/) mentioned above in the special paper tickets section. Also see that section for buying tickets in person—some Shinkansen service counters in Tokyo are called JR East Travel Service Centers and can be found on Google Maps. Shinkansen tickets to popular destinations often sell out, so we recommend that you **purchase your tickets well in advance** instead of immediately before you intend to depart.
 

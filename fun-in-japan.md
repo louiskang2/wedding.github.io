@@ -9,7 +9,22 @@ note: "Recommendations from the bride and groom"
 
 ## Skiing and snowboarding
 
-We'll simply say for now that if you're interested in skiing or snowboarding at noteworthy locations in Japan such as Hokkaido, Hakuba, and Nozawa Onsen, **now is the time to book**!
+First of all, if you're interested in skiing or snowboarding at noteworthy locations in Japan such as Hokkaido, Hakuba, and Nozawa Onsen, **now is the time to book**!
+
+### Resorts
+
+Hokkaido in January offers the most abundant and powdery snow in Japan and probably the world. Its most celebrated ski region is **Niseko**, which offers 4 interconnected resorts with different vibes. Grand Hirafu is the largest with the most dramatic views of Mount Yotei and bustling nightlife (expect the company of rowdy Australians). Niseko Village and Hanazono provide luxury accommodations and premium dining with mountain aesthetics (expect to share onsen baths with Chinese executives). Annapuri offers a more subdued and relaxing atmosphere with quieter evenings (perhaps the most local). Outside of Niseko, **Rusutsu** is another resort with excellent powder. It’s more self-contained and centered around the main resort building, which has a nostalgic Japanese-retro feel. Traveling to ski resorts in Hokkaido involves a flight to New Chitose Airport and a bus ride directly to your resort or, in many cases, your hotel.
+
+**Hakuba** is the most popular and powdery ski area outside of Hokkaido. The resorts and accommodations are rather dispersed throughout the valley with a few central areas more densely filled with bars and restaurants. Another popular ski resort with a completely different vibe is **Nozawa Onsen**. It’s a small mountain town with 13 public, no-frills onsens where you can pop in for a soak before or after the slopes. The lifts are just a short walk away from the main town. They also host an impressive fire festival on 15 January if you’re willing to catch the earliest trip back to Tokyo and make your own way to the wedding on the 16th. Hakuba and Nozawa Onsen are accessible by Shinkansen and bus from Tokyo and are very popular with tourists.
+
+Besides these more popular and time-tested locations, Japan has **many other** excellent ski and snowboard resorts, including Shiga Kogen, Myoko Kogen, Madarao, and Yuzawa/Kagura/Naeba where we’re going for our snow trip. There’s plenty of Japow to go around!
+
+
+### Logistics
+
+If you are serious about the slopes, feel free to **bring your own** skis or snowboard. The logistical ecosystem from airports to hotels is very familiar with processing them. One point to look out for is special reservations for oversized luggage when using some buses or trains with reserved seats. You can avoid this with [speedy](https://www.kuronekoyamato.co.jp/ytc/en/send/services/ski/) [delivery](https://www.post.japanpost.jp/service/you_pack/ski/index_en.html) [services](https://www.sagawa-exp.co.jp/hands-freetravel/english/service/ski/) that will pick your gear up from one hotel and drop it off at another. Your hotel staff may help you arrange such a service.
+
+**Renting** skis, snowboards, and other gear is also a great option. You can find some shops that offer the latest demo skis and boards, and others with prices that are affordable and favorable for beginners who want to give it a try. In addition to helmets, many shops even rent out jackets, pants, gloves, and goggles.
 
 
 ## Attractions with advance bookings
