@@ -23,7 +23,7 @@ Our wedding date is **Saturday, 16 January 2027**.
 
 ## Ceremony and reception
 
-Our wedding ceremony will take place at **Kamakura Prince Hotel at 3:30 pm** sharp. After a short break, the reception will follow at the same location at 4:30 pm with dinner and live music **until 8:30 pm**. The venue has a Japanese-Western style with a hint of nostalgia familiar to those who have spent time in Japan, and it offers sweeping views of the Shonan coast before sunset.
+Our wedding ceremony will take place at **Kamakura Prince Hotel at 3:30 pm** sharp. After a short break, a reception will follow at the same location at 4:30 pm with dinner and live music **until 8:30 pm**. The venue has a Japanese-Western style with a hint of nostalgia familiar to those who have spent time in Japan, and it offers sweeping views of the Shonan coast before sunset.
 
 Children are warmly welcome for the ceremony and reception.
 
