@@ -3,7 +3,6 @@ layout: page
 title: Snow Trip
 nav_id: snow-trip
 permalink: /snow-trip/
-note: "Follow us from the Shonan coast to Snow Country"
 # Each "## " heading below becomes a section on the page.
 ---
 

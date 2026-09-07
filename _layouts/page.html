@@ -4,8 +4,10 @@ layout: default
 <header class="page-hero">
   <div class="hero-kicker">{{ site.couple.name_1 }} &amp; {{ site.couple.name_2 }}</div>
   <h1>{{ page.title }}</h1>
-  {% if page.note %}<p class="hero-note">{{ page.note }}</p>{% endif %}
 </header>
+
+{% comment %} Filled in by main.js from the headings below. {% endcomment %}
+<nav id="page-toc" class="page-toc" aria-label="On this page" hidden></nav>
 
 <div class="section">
   {{ content }}

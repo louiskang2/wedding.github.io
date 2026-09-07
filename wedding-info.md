@@ -3,7 +3,6 @@ layout: page
 title: Wedding Info
 nav_id: wedding-info
 permalink: /wedding-info/
-note: "Everything you need to know for the day itself"
 # Each "## " heading below becomes a section on the page.
 ---
 

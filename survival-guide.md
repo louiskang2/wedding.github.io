@@ -3,7 +3,6 @@ layout: page
 title: Survival Guide
 nav_id: survival-guide
 permalink: /survival-guide/
-note: "Practical and cultural tips for Japan"
 # Each "## " heading below becomes a section on the page.
 ---
 

@@ -35,6 +35,24 @@
     });
   }
 
+  // ---- Table of contents -------------------------------------
+  // Built from the headings kramdown already gave ids to, so a new
+  // "## "/"### " in the markdown joins the list on its own.
+  function buildToc() {
+    var $toc = $("#page-toc");
+    if (!$toc.length) return;
+    var $list = $("<ol>").addClass("toc-list");
+    $(".section").find("h2[id], h3[id]").each(function () {
+      $("<li>")
+        .addClass(this.tagName === "H3" ? "toc-sub" : "")
+        .append($("<a>").attr("href", "#" + this.id).text($(this).text()))
+        .appendTo($list);
+    });
+    if (!$list.children().length) return;
+    $toc.append($list).removeAttr("hidden");
+  }
+  buildToc();
+
   // ---- Reveal (home waits for the landing gate; see landing.js)
   window.revealSite = function () {
     if (page === "home") mountHomeSections();
