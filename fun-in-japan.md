@@ -26,6 +26,39 @@ If you are serious about the slopes, feel free to **bring your own** skis or sno
 **Renting** skis, snowboards, and other gear is also a great option. You can find some shops that offer the latest demo skis and boards, and others with prices that are affordable and favorable for beginners who want to give it a try. In addition to helmets, many shops even rent out jackets, pants, gloves, and goggles.
 
 
+## Onsen
+
+Thermal baths are a crucial part of Japanese winter culture. Onsen are baths where at least some fraction of the water comes from with natural hot springs. Sento are baths with only heated tap water.
+
+### Etiquette
+
+Public baths in hotels, ryokan, and day spas are divided by gender and completely nude. While the mindset is slowly changing in Japan, **many places still do not allow people with tattoos**, especially older and more traditional establishments. If you have small tattoos, it is usually okay if you cover them up completely with patches. It is safest to check [certain](https://www.tattoofriendlyonsen.com/) [websites](https://yumo.to/) or search Google Maps reviews for tattoo-related information.
+
+> Some places offer the opportunity to book a small **private bath**, which can be used by groups of any gender and any tattoo coverage as long as the staff don’t see them with your clothes on.
+
+You will first change out of your shoes and clothes and bathe yourself under a **seated shower**. You will see other people scrub themselves extremely vigorously with bath kits. Take some time to clean thoroughly, but no pressure to go crazy—you can use your hands and even avoid washing your hair. After you finish, use the shower head to rinse off the bucket and stool.
+
+Here are some tips in the bathing area:
+- You must bring, buy, or rent an **towel**. It can be used for many purposes: scrubbing in the shower, resting on your head with cool water while bathing, covering your seat in the sauna, and drying off.
+- Use a nearby **bucket** to rinse your feet before entering each bath.
+- If the spa has a sauna, there will usually be a pile of **foam seats** outside the room. The process differs slightly from place to place—just discreetly watch what other people are doing and try to follow them. People may sit directly on the foam, on their towel, or directly on the bench; people may place the seat in a dirty pile after use or return them to the same pile after rinsing them off; etc.
+
+> Trying to the right thing while naked may be challenging but remember to relax—you’re there to enjoy yourself! Also, try replenishing afterwards the Japanese way with **milk from a vending machine**.
+
+### Towns
+
+There are a few towns famous for their onsen culture that are a few hours away from Tokyo:
+- **Nozawa Onsen** has 13 modest public baths spread throughout town. It also has an excellent ski resort within walking distance, which makes it extremely popular. Each bath is extremely low key—many of them don’t even have showers, just taps and buckets scattered throughout a platform that surrounds a single bath. They also vary in temperature based on their distance from the source.
+- **Kusatsu Onsen** has more striking onsen attractions. It is centered around the Yubatake, which are a series of aquaducts that serve to cool the hot spring water to a temperature more suitable for bathing. There is a facility nearby where attendants ceremonially stir the water for the same purpose. Be sure to visit [Sainokawara](https://maps.app.goo.gl/rGGACys1YJwBfirx6), which is a beautiful open-air bath, especially if it’s snowing.
+- **Hakone** has luxurious ryokan with onsen as well as views of Mount Fuji. There are a few central areas, and we enjoyed staying in Motohakone in a room overlooking Lake Ashi. Some rooms even come with a bathtub on the balcony.
+- We have never visited **Ginzan Onsen**, but it looks like a charming little onsen town.
+- The **Izu Peninsula** has onsen that even offer ocean views, though onsen culture is not as central to its identity.
+
+There are many beautiful onsen and onsen towns scattered throughout Japan. Retreat from the crowds at an indulgent ryokan in the **hills surrounding Kyoto**. If you head far west, consider a stop at **Beppu Onsen** in Kyushu.
+
+> In some onsen towns, you can even walk around from one bath to another in _yukata_, which are Japanese bathrobes/pajamas that look like casual kimono.
+
+
 ## Attractions with advance bookings
 
 Some activities in Tokyo and beyond require you to book tickets months in advance. For some of these, securing tickets is not guaranteed but it is usually possible if you employ some clever tactics and have some flexibility with dates. For others, you can probably purchase closer to the date but it can be safest to book early just in case. See below!
