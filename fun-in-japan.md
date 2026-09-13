@@ -60,7 +60,7 @@ There are many beautiful onsen and onsen towns scattered throughout Japan. Retre
 
 ## Kyoto
 
-While Kyoto is by far the most touristy city in Japan, we still love visiting time and time again.
+While Kyoto is by far the most heavily touristed city in Japan, we still love visiting time and time again.
 
 ### Notable areas for visiting and staying
 
