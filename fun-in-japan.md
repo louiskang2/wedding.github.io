@@ -6,6 +6,18 @@ permalink: /fun-in-japan/
 # Each "## " heading below becomes a section on the page.
 ---
 
+
+## Kamakura and Enoshima
+
+The area between Kamakura and Enoshima is a wonderful place to stay or visit for a day trip—it’s where our wedding will take place.
+
+**Kamakura** was the capital of Japan between 1185–1333 and marked the transition of power from the emperor to shoguns. Beginning at the station is [**Komachi Street**](https://maps.app.goo.gl/hWKn437gdRmRvWGj6), a loud, bustling shopping street filled with souvenirs and food stalls. At the end of the street is [**Tsurugaoka Hachimangu Shrine**](https://maps.app.goo.gl/hMgJiEfuhKKQ4fLj6), founded by the first shogun family. Walking in the opposite direction from the station toward Yuigahama beach will lead you through calmer streets with shops and cafés.
+
+The **Enoden** is an incredibly photogenic seaside train that takes you from Kamakura to Enoshima. You’ll see people waiting around to take photos of it with the ocean in the background. At smaller stations, it has IC reader posts (separate for getting on and get off) instead of fare gates. One notable stop along the way is Hase Station from where you can reach the [**Great Buddha at Kotoku-in Temple**](https://maps.app.goo.gl/yEsJQwkhB7muqGkcA). Our wedding venue is close to Shichirigahama station.
+
+**Enoshima** consists of a small island connected by a mostly pedestrian bridge to a small town. The **hilly island** caters to tourists with many food stalls, cafés, shops, and a [shrine](https://maps.app.goo.gl/gTXD7SWH4oDwiH9M6). There are many places to watch the **sunset over Mount Fuji** on a clear winter day: the [observation tower](https://maps.app.goo.gl/PcveAYpa49y2Qokt7), seaside by the [caves](https://maps.app.goo.gl/JaAiQvm4ovkY792t8), and the [onsen](https://maps.app.goo.gl/hPTExjngEUu9AHMU9) (though it is not tattoo-friendly and the outdoor pools are closed during the winter). The **mainland town** around the various train stations is also a very charming mix of beachfront restaurants, bridges over lazy rivers, and the Enoden carving its way through streets flanked by old mom-and-pop shops.
+
+
 ## Skiing and snowboarding
 
 First of all, if you're interested in skiing or snowboarding at noteworthy locations in Japan such as Hokkaido, Hakuba, and Nozawa Onsen, **now is the time to book**!
@@ -126,3 +138,4 @@ If you have avoided going to the Disney parks in the US because of the massive c
 ### Universal Studios Japan, Osaka
 
 Universal Studios Japan is located outside of Osaka and is very popular largely because it is home to both a Harry Potter World and a Nintendo World. [Tickets (from 8,400 yen for an adult)](https://www.usjticketing.com/) can be purchased from the Park's website up to two months in advance. At the time of purchase, you can also add an Express Pass for an extra fee, which allows you to skip lines and gives you guaranteed entry to popular attractions. The cost varies depending on how many and which attractions you want to access—the most basic Express Pass is an additional 10,800 yen per person and the most expensive (ie one that allows you to skip all queues) is 44,000 yen per person (yikes!). Note that it is possible to ride everything and to access Harry Potter and Nintendo Land without paying for an additional pass. However, Nintendo Land operates with timed entries that you need to reserve (for free) via an app when you arrive at the Park in the morning (and it is possible to miss out on a busy day, apparently). We have never actually been to USJ so are not entirely sure what the best strategy is—I'd suggest finding a YouTube video if you want to go!
+
