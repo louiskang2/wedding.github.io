@@ -53,6 +53,28 @@ For the Tokaido Shinkansen, note that **oversized luggage** requires special sea
 In certain cases, you enter the Shinkansen tracks from one set of fare gates; in other cases, you first enter the JR area through one set and then the Shinkansen area through a **second set of fare gates**. The same goes for leaving a station. So if the fare gate returns your paper ticket as you pass through, keep it at hand in case you need to use it again for another set of gates.
 
 
-## More coming soon!
+## Restaurants
 
-Check back for more tips.
+### Ratings
+
+The best way to find and assess Japanese restaurants is [**Tabelog**](https://tabelog.com/) (_tabe_ means _eat_ in Japanese). The underlying process that produces the Tabelog rating is a bit mysterious—user ratings are somehow normalized and perhaps weighted before they are aggregated. But anything around or above a 3.5 is very good, like a 4.4 on Google Maps. Anything above a 4.0 is incredible, like a 4.8 on Google Maps. Awards like the Tabelog 100 or Bronze, Silver, or Gold are also quite definitive indicators of quality. It's tricky to search on the website, but you can search for the restaurant or the type of cuisine in Google and just add &ldquo;tabelog&rdquo; to your search. The LLMs are already on it.
+
+Tabelog is essential when searching for Japanese restaurants in areas with tourists, because the Google Maps score will be inflated. Conversely, in our experience, we find certain trends on Tabelog (and Google Maps in more local areas) that you should be aware of:
+- Western restaurants have higher scores compared to our expectations.
+- Visual appeal and cuteness can increase the score, especially for sweets and bakeries.
+- Slight deviations from ideal service (such as setting down plates too loudly) can be penalized even in informal restaurants.
+- The score is quite sensitive to price. Two ramen shops of the same quality can be rated 3.5 and 3.2 for bowls that cost 1000 yen and 1200 yen, respectively.
+
+### Reservations
+
+Reservations are **highly recommended** for restaurants; even small, low-key establishments may be full if you try to walk in. Some restaurants will only allow reservations by phone, so you can ask your hotel concierge or front desk to help you. **Google Maps** will often list online options. Many restaurants will not allow online bookings on the same day, so try to book early. **Tabelog** has reservations on the Japanese language version of the website—you can delete the &ldquo;/en&rdquo; from the URL to check if its available for your choice. You can try [**Omakase**](https://omakase.in/) you want to browse high-end restaurants.
+
+### General tips
+
+- Timeliness is very important, so try to not be more than 5 minutes late.
+- Kitchens have a closing time (&ldquo;last order&rdquo; or &ldquo;L.O.&rdquo;) that's 30 minutes to 1 hour before the restaurant closes.
+- There are almost always places for you to hang your coat and place your bag near your seat. Just look around—sometimes it's above, sometimes below, and sometimes within your seat!
+- Tips are absolutely not required. If anything, you can ask to buy the staff a drink if you vibe with the izakaya chef or the bartender.
+- In a similar vein, restaurants (and other establishments) can be inflexible. Many places have a rule of ordering at least one food item and one beverage per person. So you might have to order an oolong tea even if you're spending a massive amount on food. You may also be assigned to a certain table without the possibility of changing to another one, even if it's free. Or it may not be possible to move two tables together. If you have a request, there's no harm in asking, but don't be too surprised if the answer is no.
+- In many cases, it may seem like a restaurant is empty when they turn you away. It's common for local restaurants to take only one reservation per table per night. Since that's their rule, they won't seat another party even if the previous one has already left. There is a small chance that this is related to your foreign comportment, especially in smaller towns with fewer international tourists.
+
